@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support Ticket Tracking - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#dae2ff",
+                      "tertiary": "#432f9c",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#cadbfc",
+                      "surface-bright": "#f9f9ff",
+                      "on-tertiary-container": "#d5ccff",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#b2c5ff",
+                      "on-primary-fixed": "#001848",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "on-tertiary-fixed-variant": "#4633a0",
+                      "primary-container": "#0052cc",
+                      "outline": "#737685",
+                      "secondary-fixed": "#8df7c1",
+                      "secondary": "#006c47",
+                      "on-secondary-container": "#00714b",
+                      "on-tertiary-fixed": "#1a0063",
+                      "inverse-on-surface": "#ecf0ff",
+                      "surface-tint": "#0c56d0",
+                      "surface": "#f9f9ff",
+                      "on-secondary-fixed": "#002113",
+                      "surface-container-high": "#dfe8ff",
+                      "on-surface-variant": "#434654",
+                      "background": "#f9f9ff",
+                      "secondary-fixed-dim": "#71dba6",
+                      "on-primary-container": "#c4d2ff",
+                      "surface-container-highest": "#d6e3ff",
+                      "secondary-container": "#8af5be",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#005235",
+                      "surface-variant": "#d6e3ff",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "surface-container": "#e7eeff",
+                      "primary": "#003d9b",
+                      "surface-container-low": "#f0f3ff",
+                      "outline-variant": "#c3c6d6",
+                      "on-primary-fixed-variant": "#0040a2",
+                      "on-surface": "#091c35",
+                      "tertiary-fixed": "#e5deff",
+                      "inverse-surface": "#20314b",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "on-background": "#091c35",
+                      "tertiary-container": "#5b49b5",
+                      "tertiary-fixed-dim": "#c9bfff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "container-max-width": "1280px",
+                      "gutter": "16px",
+                      "margin-desktop": "32px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "timestamp": [
+                              "JetBrains Mono"
+                      ],
+                      "label-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "timestamp": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "26px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-margin-desktop w-full max-w-container-max-width mx-auto">
+<div class="flex items-center gap-8">
+<div class="font-headline-md text-headline-md font-bold text-primary">PocketCover</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded" href="#">Knowledge Base</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 px-2 py-1 rounded hover:bg-surface-container-low transition-all" href="#">My Tickets</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low px-2 py-1 rounded" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-mono text-label-mono hover:bg-on-primary-fixed-variant transition-colors duration-200">Contact Support</button>
+<div class="flex gap-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-16 h-[calc(100vh-64px)] overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col p-4 gap-2 fixed left-0 top-16 h-full w-60 bg-surface-container-low border-r border-outline-variant shrink-0 z-40 overflow-y-auto">
+<div class="mb-6 px-2 pt-2">
+<img class="w-10 h-10 rounded-full mb-2 object-cover border border-outline-variant" data-alt="A small, professional portrait of a technical support agent in a clean, modern corporate setting. Highly detailed, realistic, cool lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTj5IxJ-Xx0KQNwMdYYaCnsbTrKOwcYDTHqXam0kxBKE8ce99BomOhYAcyipnN2FtMX-nFsYpzrWrxnm_vBgOJgeNFQ3nHklNk6qIwlxb1p6W4vwMEhAbXJZmy2UVKX7pFR97OIdTldzAUBCmHxjj_hglsTyfbOsERE6dNrhO4iVwX-M-SLvqY6gi1SD0DJqtdKuIKEdteOlBBYKQb3MZak1tFQso-Ynb-N2rvI80z8PSTjrNxLzmfnUFlGCy8I4RBpsMFNLAGRB4"/>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Support Categories</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Technical Operations</p>
+<button class="mt-4 w-full bg-surface-container-highest text-primary font-label-mono text-label-mono py-2 rounded-lg border border-outline-variant hover:bg-surface-variant transition-colors">New Support Ticket</button>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>Smart Assistant Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-semibold rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span>Oracle Discrepancies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Payment Issues</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span>General FAQ</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span>System Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area (Master-Detail) -->
+<main class="flex-1 md:ml-60 flex h-full overflow-hidden w-full max-w-container-max-width mx-auto">
+<!-- Ticket Queue (Master) -->
+<section class="w-full md:w-[320px] shrink-0 border-r border-outline-variant bg-surface flex flex-col h-full overflow-y-auto">
+<div class="p-4 border-b border-outline-variant sticky top-0 bg-surface z-10 flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Ticket Queue</h2>
+<button class="text-on-surface-variant"><span class="material-symbols-outlined">filter_list</span></button>
+</div>
+<div class="flex flex-col">
+<!-- Ticket Item Active -->
+<div class="p-4 border-b border-outline-variant bg-primary-fixed-dim/20 cursor-pointer border-l-4 border-l-primary relative">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-mono text-label-mono text-primary font-bold">TCK-8942-ORC</span>
+<span class="px-2 py-0.5 bg-primary text-on-primary rounded text-[10px] font-bold uppercase tracking-wider">Open</span>
+</div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface mb-1 truncate">Oracle Feed Sync Failure</h4>
+<div class="flex justify-between items-center mt-2 text-on-surface-variant">
+<span class="font-timestamp text-timestamp">10:42 AM</span>
+<span class="px-2 py-0.5 bg-error text-on-error rounded text-[10px] font-bold uppercase">Urgent</span>
+</div>
+</div>
+<!-- Ticket Item -->
+<div class="p-4 border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant">TCK-8931-PAY</span>
+<span class="px-2 py-0.5 bg-[#FFAB00] text-[#091c35] rounded text-[10px] font-bold uppercase tracking-wider">Pending</span>
+</div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface mb-1 truncate">Refund Processing Delay</h4>
+<div class="flex justify-between items-center mt-2 text-on-surface-variant">
+<span class="font-timestamp text-timestamp">Yesterday</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface rounded text-[10px] font-bold uppercase">Standard</span>
+</div>
+</div>
+<!-- Ticket Item -->
+<div class="p-4 border-b border-outline-variant hover:bg-surface-container-low transition-colors cursor-pointer opacity-75">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-mono text-label-mono text-on-surface-variant">TCK-8910-APP</span>
+<span class="px-2 py-0.5 bg-secondary text-on-secondary rounded text-[10px] font-bold uppercase tracking-wider">Resolved</span>
+</div>
+<h4 class="font-body-md text-body-md text-on-surface mb-1 truncate">Mobile App Crashing on Launch</h4>
+<div class="flex justify-between items-center mt-2 text-on-surface-variant">
+<span class="font-timestamp text-timestamp">Oct 12</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface rounded text-[10px] font-bold uppercase">Standard</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Ticket Detail (Detail) -->
+<section class="flex-1 hidden md:flex flex-col h-full bg-surface-bright overflow-hidden">
+<!-- Header -->
+<div class="p-6 border-b border-outline-variant bg-surface shrink-0">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label-mono text-label-mono text-primary bg-primary-fixed px-2 py-1 rounded">TCK-8942-ORC</span>
+<span class="px-2 py-1 bg-primary text-on-primary rounded text-xs font-bold uppercase tracking-wider">Open</span>
+<span class="px-2 py-1 bg-error text-on-error rounded text-xs font-bold uppercase">Urgent</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Oracle Feed Sync Failure</h1>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container text-primary px-4 py-2 rounded font-label-mono text-label-mono border border-outline-variant hover:bg-surface-container-high transition-colors">Reassign</button>
+<button class="bg-error text-on-error px-4 py-2 rounded font-label-mono text-label-mono hover:bg-on-error-container transition-colors">Escalate</button>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Requester</span>
+<span class="font-body-md text-body-md font-semibold">SysAdmin Node A</span>
+</div>
+<div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Assigned To</span>
+<span class="font-body-md text-body-md font-semibold flex items-center gap-2"><img class="w-5 h-5 rounded-full object-cover" data-alt="Small avatar of a technical support engineer, professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdkiRgWZOMg1iKTEnbc-Ec3NjN5HgSgzGYFwZg42GcjxhDSnpl5HsdFkh-MlTDLfgiAvHcKjcL6-8L39Hs3_kv0KMTGfZkS5kSWH9iGEJSzC2r94swfUNDCMfpXqX3ixa9j32d52LR5saKRNgspysFqVuip0jctAXLsBe5EzfqeZycQLcwmUmB6LorKxbXdvQ9e6nQEOCLjiUzdayAwZ29kAtjvO3DGwwWw35Tan9L1GxvKbeiO4HwGnw-5IQEJjjZbplWRGZn_64"/> Alex Chen</span>
+</div>
+<div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Category</span>
+<span class="font-body-md text-body-md font-semibold">Oracle Discrepancies</span>
+</div>
+<div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mb-1">SLA</span>
+<span class="font-body-md text-body-md font-semibold text-error">2h 14m remaining</span>
+</div>
+</div>
+</div>
+<!-- Timeline & Content -->
+<div class="flex-1 overflow-y-auto p-6 flex flex-col lg:flex-row gap-6">
+<!-- Activity Stream -->
+<div class="flex-1 flex flex-col gap-6">
+<!-- Timeline Component -->
+<div class="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant shadow-sm relative">
+<h3 class="font-headline-sm text-headline-sm mb-6 text-on-surface">Resolution Timeline</h3>
+<div class="relative pl-6 border-l-2 border-outline-variant ml-3 space-y-8">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-secondary text-on-secondary rounded-full w-6 h-6 flex items-center justify-center border-2 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Ticket Created</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Automated alert from monitoring system.</p>
+</div>
+<span class="font-timestamp text-timestamp text-on-surface-variant">10:42 AM</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-secondary text-on-secondary rounded-full w-6 h-6 flex items-center justify-center border-2 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Oracle Data Assigned</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Assigned to Data Ops team.</p>
+</div>
+<span class="font-timestamp text-timestamp text-on-surface-variant">10:45 AM</span>
+</div>
+</div>
+<!-- Step 3 (Active) -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-primary text-on-primary rounded-full w-6 h-6 flex items-center justify-center border-2 border-surface-container-lowest z-10 ring-4 ring-primary-fixed">
+<span class="material-symbols-outlined text-sm">pending</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-primary">Technical Review</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Investigating source node latency.</p>
+</div>
+<span class="font-timestamp text-timestamp text-primary font-bold">In Progress</span>
+</div>
+</div>
+<!-- Step 4 (Future) -->
+<div class="relative">
+<div class="absolute -left-[31px] bg-surface-variant text-on-surface-variant rounded-full w-6 h-6 flex items-center justify-center border-2 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-sm">radio_button_unchecked</span>
+</div>
+<div class="flex justify-between items-start opacity-50">
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Resolution Verified</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pending sync confirmation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat / Updates -->
+<div class="flex flex-col gap-4 mb-20">
+<div class="flex flex-col gap-1 items-start max-w-[80%]">
+<div class="bg-surface-container-lowest p-3 rounded-lg rounded-tl-sm border border-outline-variant shadow-sm text-on-surface font-body-md">
+                                    System detected 400ms latency on Node Alpha syncing to main ledger. Initiating automated retry protocols.
+                                </div>
+<span class="font-timestamp text-timestamp text-on-surface-variant ml-1">System • 10:42 AM</span>
+</div>
+<div class="flex flex-col gap-1 items-end self-end max-w-[80%]">
+<div class="bg-[#F0F5FF] p-3 rounded-lg rounded-tr-sm border border-primary border-l-4 shadow-sm text-primary font-body-md">
+                                    I'm taking a look at the node logs now. Looks like a temporary bottleneck on the external API provider.
+                                </div>
+<span class="font-timestamp text-timestamp text-on-surface-variant mr-1">10:55 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-4 bg-surface border-t border-outline-variant shrink-0 mt-auto">
+<div class="flex gap-4 max-w-4xl mx-auto items-end">
+<div class="flex-1">
+<label class="sr-only">Add Update</label>
+<textarea class="w-full bg-surface-container-lowest border-2 border-outline-variant focus:border-primary focus:ring-0 rounded p-3 font-body-md resize-none" placeholder="Type an update or internal note..." rows="2"></textarea>
+</div>
+<div class="flex gap-2 flex-col justify-end pb-1">
+<button class="bg-surface-variant text-on-surface px-4 py-2 rounded font-label-mono text-label-mono hover:bg-outline-variant transition-colors whitespace-nowrap">Internal Note</button>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-label-mono text-label-mono hover:bg-on-primary-fixed-variant transition-colors flex-1 whitespace-nowrap">Add Update</button>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded font-label-mono text-label-mono hover:bg-on-secondary-fixed-variant transition-colors whitespace-nowrap">Close Ticket</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

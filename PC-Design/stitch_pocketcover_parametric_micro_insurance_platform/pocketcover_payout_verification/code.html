@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payout Verification - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#6ffbbe",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container": "#e5eeff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "secondary": "#546066",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#213145",
+                      "on-secondary-container": "#58646a",
+                      "inverse-primary": "#adc7f7",
+                      "surface-tint": "#455f88",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-fixed": "#002113",
+                      "outline-variant": "#c4c6cf",
+                      "secondary-fixed": "#d8e4eb",
+                      "tertiary": "#002617",
+                      "tertiary-container": "#003e28",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#eff4ff",
+                      "primary": "#002045",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#d5e2e9",
+                      "on-tertiary-container": "#00b47d",
+                      "on-primary-container": "#86a0cd",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-background": "#0b1c30",
+                      "primary-fixed-dim": "#adc7f7",
+                      "outline": "#74777f",
+                      "on-secondary-fixed": "#111d22",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "primary-container": "#1a365d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-surface-variant": "#43474e",
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "surface-container-high": "#dce9ff",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "on-surface": "#0b1c30",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed": "#001b3c",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "surface-variant": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "card-padding": "32px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "container-max": "1200px",
+                      "section-padding": "80px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            80% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .data-stream {
+            font-family: 'Geist', monospace;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md antialiased min-h-screen">
+<!-- Mobile Nav (TopAppBar - Replaces BottomNav for complex verification screen) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl shadow-sm flex justify-between items-center px-gutter max-w-container-max mx-auto h-20 lg:hidden">
+<div class="font-display-lg-mobile font-bold text-primary">PocketCover</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary transition-colors">history</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary transition-colors">settings</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="bg-surface-container-low fixed left-0 top-0 h-full w-64 hidden lg:flex flex-col p-6 gap-y-4">
+<div class="mb-8">
+<div class="font-display-lg text-display-lg font-black text-primary">Payout Centre</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Automated Verification</div>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active Tab -->
+<a class="flex items-center gap-3 bg-primary-container text-on-primary-container font-bold rounded-xl px-4 py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-sm text-label-sm">Live Monitor</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2 border-t border-outline-variant pt-4">
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-xl mb-4 hover:bg-primary/90 transition-colors">
+                Manual Override
+            </button>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-2 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-2 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 lg:pt-0 lg:pl-64 min-h-screen">
+<div class="max-w-container-max mx-auto px-gutter lg:px-[80px] py-[40px] lg:py-section-padding space-y-gutter">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/10 text-on-tertiary-container rounded-full font-label-sm text-label-sm mb-4">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+                        Verification in Progress
+                    </div>
+<h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary mb-2">Trigger Detected</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Policy #PC-8472-A | Heavy Rainfall Event</p>
+</div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-outline mb-1">Time Elapsed</div>
+<div class="font-data-mono text-data-mono text-primary font-bold">00:00:14.42</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Mathematical Validation (Col 1 & 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-[24px] border border-outline-variant shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-card-padding">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">calculate</span>
+                        Mathematical Validation
+                    </h2>
+<div class="flex flex-col md:flex-row gap-8 items-center justify-center p-8 bg-surface-container-low rounded-xl">
+<div class="text-center">
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-2">Threshold Required</div>
+<div class="font-display-lg text-[40px] leading-[48px] font-bold text-secondary">5.0<span class="text-xl">mm</span></div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-surface-container">
+<span class="material-symbols-outlined text-on-surface-variant">chevron_left</span>
+</div>
+<div class="text-center relative">
+<div class="absolute -inset-4 bg-tertiary-fixed/20 rounded-full pulse-ring z-0"></div>
+<div class="relative z-10">
+<div class="font-label-sm text-label-sm text-on-tertiary-container mb-2">Detected Measurement</div>
+<div class="font-display-lg text-[48px] leading-[56px] font-black text-on-tertiary-container">5.2<span class="text-2xl">mm</span></div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-between items-center text-sm font-label-sm text-label-sm text-on-surface-variant border-t border-outline-variant pt-4">
+<span>Source: Station MET-992 (London)</span>
+<span class="text-on-tertiary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                            Condition Met
+                        </span>
+</div>
+</div>
+<!-- Smart Contract Status (Col 3) -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-[24px] border border-outline-variant shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-card-padding flex flex-col">
+<h2 class="font-headline-md text-[20px] leading-[28px] font-semibold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">gavel</span>
+                        Contract Execution
+                    </h2>
+<div class="space-y-6 flex-grow">
+<!-- Step 1 -->
+<div class="flex gap-4 opacity-100">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-0.5 h-full bg-tertiary-container my-1"></div>
+</div>
+<div class="pb-6">
+<div class="font-label-sm text-label-sm text-on-surface font-bold">Trigger Received</div>
+<div class="font-data-mono text-[12px] text-on-surface-variant">Hash: 0x8f4...e2a</div>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-primary-container bg-surface-container-lowest flex items-center justify-center relative">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+</div>
+<div class="w-0.5 h-full bg-outline-variant my-1"></div>
+</div>
+<div class="pb-6">
+<div class="font-label-sm text-label-sm text-primary font-bold">Verifying Oracle Data</div>
+<div class="font-data-mono text-[12px] text-on-surface-variant">Waiting for consensus...</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-4 opacity-50">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest"></div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant font-bold">Initiate Payout</div>
+<div class="font-data-mono text-[12px] text-on-surface-variant">Est. 15s</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Audit Log (Full Width) -->
+<div class="lg:col-span-3 bg-inverse-surface rounded-[24px] shadow-[0px_20px_50px_rgba(0,0,0,0.08)] overflow-hidden">
+<div class="bg-surface-tint/20 px-6 py-4 flex justify-between items-center border-b border-outline/20">
+<h2 class="font-label-sm text-label-sm text-on-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+                            Live Audit Log: Met Office API
+                        </h2>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+</div>
+</div>
+<div class="p-6 font-data-mono text-data-mono text-primary-fixed-dim h-64 overflow-y-auto space-y-2 data-stream">
+<div class="flex gap-4"><span class="text-outline">10:42:01.112</span> <span>&gt; INIT CONNECTION WSS://API.METOFFICE.GOV.UK/V2/STREAM</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:01.245</span> <span class="text-tertiary-fixed-dim">CONNECTION ESTABLISHED (200 OK)</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:01.250</span> <span>&gt; AUTHENTICATING NODE_ID: POCKET_COVER_NODE_7</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:01.401</span> <span class="text-tertiary-fixed-dim">AUTH SUCCESS. SUB_ID: req_88421</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:02.015</span> <span>&gt; REQUESTING STATION DATA (ID: MET-992) LAT:51.5074 LON:-0.1278</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:02.899</span> <span class="text-on-primary">RECV: {"station":"MET-992","timestamp":"2023-10-27T10:40:00Z","metric":"precipitation","value":5.2,"unit":"mm","confidence":0.99,"signature":"0x77ab...9c1"}</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:03.012</span> <span>&gt; VALIDATING SIGNATURE...</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:03.155</span> <span class="text-tertiary-fixed-dim">SIGNATURE VALID. DATA INTEGRITY CONFIRMED.</span></div>
+<div class="flex gap-4"><span class="text-outline">10:42:03.160</span> <span class="text-error-container">&gt; TRIGGER CONDITION EVALUATION: 5.2 &gt; 5.0 = TRUE</span></div>
+<div class="flex gap-4 animate-pulse"><span class="text-outline">10:42:04...</span> <span>&gt; AWAITING SMART CONTRACT CONFIRMATION...</span></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

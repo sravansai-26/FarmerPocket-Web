@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account &amp; Security - PocketCover</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#002045",
+                    "secondary-fixed-dim": "#bcc8cf",
+                    "tertiary-container": "#003e28",
+                    "primary-container": "#1a365d",
+                    "secondary-container": "#d5e2e9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#455f88",
+                    "secondary": "#546066",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-primary-fixed": "#001b3c",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "on-surface-variant": "#43474e",
+                    "on-secondary-container": "#58646a",
+                    "on-primary-container": "#86a0cd",
+                    "inverse-primary": "#adc7f7",
+                    "on-background": "#0b1c30",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-fixed": "#002113",
+                    "on-tertiary-container": "#00b47d",
+                    "on-secondary-fixed-variant": "#3c494e",
+                    "background": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-container": "#e5eeff",
+                    "tertiary": "#002617",
+                    "primary-fixed": "#d6e3ff",
+                    "secondary-fixed": "#d8e4eb",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-fixed": "#111d22",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-surface": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c4c6cf",
+                    "surface-bright": "#f8f9ff",
+                    "outline": "#74777f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-padding": "80px",
+                    "card-padding": "32px",
+                    "container-max": "1200px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Geist"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "data-mono": ["Geist"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Refined utility for the parametric aesthetic */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(196, 198, 207, 0.3);
+        }
+        .premium-shadow {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component JSON logic applied) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-transparent shadow-sm">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2 cursor-pointer transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+                PocketCover
+            </a>
+<!-- Navigation (Inactive state as Account is not a primary nav tab) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer" href="#">Protection</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer" href="#">Claims</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer" href="#">Pricing</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors duration-300">Login</button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-primary-container transition-colors duration-300">Get Started</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[104px] pb-section-padding px-gutter w-full max-w-container-max mx-auto">
+<!-- Header -->
+<div class="mb-12">
+<div class="flex items-center gap-2 mb-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                    Back to Dashboard
+                </a>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tight">Account &amp; Security</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Manage your parametric identity, verification status, and cryptographic access protocols.</p>
+</div>
+<!-- Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Top Banner: Security Health Scorecard (Spans full width) -->
+<div class="lg:col-span-12 bg-surface-container-lowest rounded-[24px] premium-shadow border border-outline-variant/30 p-card-padding flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<!-- Decorative background accent -->
+<div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-surface-container-low to-transparent opacity-50 pointer-events-none"></div>
+<div class="flex items-center gap-6 z-10 w-full md:w-auto">
+<!-- Score Circle -->
+<div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center rounded-full bg-surface">
+<svg class="w-full h-full absolute inset-0 transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-outline-variant/30" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-tertiary-fixed" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="28" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<span class="font-headline-md text-headline-md text-primary relative z-10">92</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Security Health: Optimal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your protection protocols are operating efficiently.</p>
+</div>
+</div>
+<div class="flex-grow max-w-md w-full z-10 hidden md:block">
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant mb-2">
+<span>Protocol Readiness</span>
+<span class="text-tertiary-fixed-dim">92/100</span>
+</div>
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed rounded-full w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Left Column: Identity & Profile -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Profile Overview -->
+<div class="bg-surface-container-lowest rounded-[24px] premium-shadow border border-outline-variant/30 p-card-padding">
+<div class="flex items-center gap-5 mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-container flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, professional headshot of a person looking confident, set against a pristine, minimalist white background. The lighting is soft and high-key, creating a clean, modern aesthetic suitable for a premium financial tech application. The subject is well-lit, sharp, and the overall mood is trustworthy and mathematically precise, aligning with a corporate minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwWOCEccrWvukwRjmBr04btrCEaRj37abN_0hNw11NTfBj14CTXx1s4Zhun-EeNWiDpXQfWItLH7xfYiSazXrT4bdqCtVx9Dv56nPoKmO4KRcgNuflvQO1Y0z-YSmALP8CWfFCCH69CJOyzRHeqrE42dIAAprj-JopDcZQuwAgDVNWVTCCahyuWnRZFTmRv15l3YdEPqayQSfAjD0wrMRXqmkPFoEs4YnyTgOiBs6f4Q9zRMIpwDHQ22eTOfosMFZ4Tz_SPBeDOYU"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-fixed border-2 border-white rounded-full"></div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-0.5">Alex Chen</h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant">ID: PC-99482-X</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-body-md text-body-md text-on-surface-variant">Email</span>
+<span class="font-data-mono text-data-mono text-on-surface">a.chen@example.com</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-body-md text-body-md text-on-surface-variant">Phone</span>
+<span class="font-data-mono text-data-mono text-on-surface">+1 (555) 019-2834</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Member Since</span>
+<span class="font-data-mono text-data-mono text-on-surface">Oct 2023</span>
+</div>
+</div>
+</div>
+<!-- KYC Verification Card -->
+<div class="bg-surface-container-lowest rounded-[24px] premium-shadow border border-outline-variant/30 p-card-padding">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Identity Status</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Regulatory KYC requirements.</p>
+</div>
+<div class="bg-surface-container-low border border-tertiary-fixed/30 text-on-tertiary-fixed-variant px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span class="font-label-sm text-label-sm">Verified</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">badge</span>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-surface">Government ID</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px]">Verified on 10/12/23</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">check</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">home_pin</span>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-surface">Proof of Address</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px]">Verified on 10/12/23</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Security Protocols -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-[24px] premium-shadow border border-outline-variant/30 overflow-hidden">
+<div class="p-card-padding border-b border-outline-variant/20 bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-on-surface">Security Protocols</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage cryptographic access and session persistence.</p>
+</div>
+<!-- Ledger Rows -->
+<div class="flex flex-col">
+<!-- Passkeys -->
+<div class="p-card-padding border-b border-outline-variant/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-surface-bright transition-colors">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">fingerprint</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-medium text-on-surface">Hardware Passkeys</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Use biometric authentication (Touch ID, Face ID) for frictionless login without passwords.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0">
+<span class="font-data-mono text-data-mono text-outline">Disabled</span>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-5 py-2 rounded-full hover:bg-primary-container transition-colors">Enable</button>
+</div>
+</div>
+<!-- 2FA -->
+<div class="p-card-padding border-b border-outline-variant/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-surface-bright transition-colors">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">phonelink_lock</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-medium text-on-surface">2-Step Verification (2FA)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Authenticator App configured. SMS fallback is currently disabled for security reasons.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 flex-shrink-0">
+<span class="font-data-mono text-data-mono text-tertiary-fixed-dim">Active</span>
+<button class="bg-surface-container border border-outline-variant/50 text-primary font-label-sm text-label-sm px-5 py-2 rounded-full hover:bg-surface-variant transition-colors">Manage</button>
+</div>
+</div>
+<!-- Active Sessions -->
+<div class="p-card-padding">
+<div class="mb-6 flex justify-between items-end">
+<div>
+<h4 class="font-body-md text-body-md font-medium text-on-surface">Active Sessions</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Devices currently accessing your parametric ledger.</p>
+</div>
+</div>
+<!-- Session List -->
+<div class="space-y-4">
+<!-- Current Device -->
+<div class="flex items-center justify-between p-4 rounded-xl border border-outline-variant/20 bg-surface">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">laptop_mac</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">MacBook Pro 16"</p>
+<div class="flex gap-2 items-center mt-1">
+<span class="font-data-mono text-data-mono text-[12px] text-tertiary-fixed-dim">Current Session</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-data-mono text-data-mono text-[12px] text-on-surface-variant">San Francisco, US</span>
+</div>
+</div>
+</div>
+<div class="font-data-mono text-data-mono text-outline text-[12px]">IP: 192.168.1.1</div>
+</div>
+<!-- Other Device -->
+<div class="flex items-center justify-between p-4 rounded-xl border border-transparent hover:border-outline-variant/20 hover:bg-surface-bright transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">smartphone</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">iPhone 14 Pro</p>
+<div class="flex gap-2 items-center mt-1">
+<span class="font-data-mono text-data-mono text-[12px] text-on-surface-variant">Last active: 2h ago</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-data-mono text-data-mono text-[12px] text-on-surface-variant">San Francisco, US</span>
+</div>
+</div>
+</div>
+<button class="text-error font-label-sm text-label-sm hover:underline">Revoke</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

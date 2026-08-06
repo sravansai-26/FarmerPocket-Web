@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Personalization</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Geist -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (Provided) -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#d6e3ff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "inverse-surface": "#213145",
+                    "on-secondary-container": "#58646a",
+                    "secondary-fixed-dim": "#bcc8cf",
+                    "secondary": "#546066",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#003e28",
+                    "on-primary-container": "#86a0cd",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-container": "#1a365d",
+                    "secondary-fixed": "#d8e4eb",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001b3c",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c4c6cf",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#002617",
+                    "secondary-container": "#d5e2e9",
+                    "primary": "#002045",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-dim": "#cbdbf5",
+                    "surface-container": "#e5eeff",
+                    "background": "#f8f9ff",
+                    "on-tertiary-container": "#00b47d",
+                    "on-surface-variant": "#43474e",
+                    "on-surface": "#0b1c30",
+                    "on-secondary-fixed-variant": "#3c494e",
+                    "surface-tint": "#455f88",
+                    "inverse-primary": "#adc7f7",
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-error": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-tertiary-fixed": "#002113",
+                    "on-secondary-fixed": "#111d22",
+                    "on-error-container": "#93000a",
+                    "outline": "#74777f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "80px",
+                    "base": "4px",
+                    "container-max": "1200px",
+                    "gutter": "24px",
+                    "card-padding": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "data-mono": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Geist"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom styles to handle dynamic active states without arbitrary tailwind classes in JS */
+        .card-active {
+            border-color: #002045 !important; /* Maps to primary */
+            background-color: #eff4ff !important; /* Maps to surface-container-low */
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.05);
+        }
+        .card-active .icon-active {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased relative overflow-x-hidden">
+<!-- Ambient Background Glow (Glassmorphism Lite / Depth) -->
+<div class="fixed top-0 left-0 w-[800px] h-[800px] bg-surface-container-highest rounded-full blur-[120px] opacity-40 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"></div>
+<!-- Main Onboarding Container -->
+<main class="flex-grow flex flex-col items-center justify-center py-section-padding px-gutter w-full max-w-container-max mx-auto relative z-10">
+<div class="w-full max-w-[800px] flex flex-col items-center">
+<!-- Minimal Branding Anchor -->
+<div class="mb-16">
+<span class="font-headline-md text-headline-md text-primary tracking-tight">PocketCover</span>
+</div>
+<!-- Progress Indicator (Step 2 of 4) -->
+<div class="w-full max-w-[400px] mb-12 flex flex-col items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 2 of 4</span>
+<div class="flex items-center w-full gap-2 h-1">
+<div class="flex-1 h-full bg-primary rounded-full"></div>
+<div class="flex-1 h-full bg-primary rounded-full"></div>
+<div class="flex-1 h-full bg-surface-variant rounded-full"></div>
+<div class="flex-1 h-full bg-surface-variant rounded-full"></div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="text-center mb-12 flex flex-col gap-4">
+<h1 class="font-display-lg text-display-lg text-on-surface hidden md:block">Interests &amp; Coverage</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface md:hidden">Interests &amp; Coverage</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto">
+                    Select categories you'd like us to monitor for you.
+                </p>
+</div>
+<!-- Search Bar -->
+<div class="w-full max-w-[600px] mb-12 relative group">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-on-surface-variant z-10">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-4 pl-16 pr-6 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.02)]" placeholder="Search other categories..." type="text"/>
+</div>
+<!-- Grid of Elegant Cards -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full mb-16">
+<!-- Card 1: Flights -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">flight</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Flights</span>
+</button>
+<!-- Card 2: Cricket -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">sports_cricket</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Cricket</span>
+</button>
+<!-- Card 3: Rail -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">train</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Rail</span>
+</button>
+<!-- Card 4: Outdoor Events -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">park</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Outdoor Events</span>
+</button>
+<!-- Card 5: Road Trips -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">directions_car</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Road Trips</span>
+</button>
+<!-- Card 6: Photography -->
+<button class="category-card flex flex-col items-start p-card-padding bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all duration-300 group text-left relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined icon-active text-[32px] text-primary mb-6 transition-all duration-300">photo_camera</span>
+<span class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors duration-300">Photography</span>
+</button>
+</div>
+<!-- Action Area -->
+<div class="w-full flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-outline-variant/30 pt-8 mt-4">
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors px-6 py-4 flex items-center gap-2 w-full sm:w-auto justify-center">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span> Back
+                </button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm rounded-xl px-12 py-4 hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto shadow-[0_10px_30px_rgba(0,32,69,0.15)]">
+                    Continue Phase
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Interactive Script for Card Selection -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.category-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Toggle active state for multi-select experience
+                    card.classList.toggle('card-active');
+                });
+            });
+        });
+    </script>
+</body></html>

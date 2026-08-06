@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Instant Parametric Insurance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "keyframes": {
+                        "fade-in-up": {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        }
+                    },
+                    "animation": {
+                        "fade-in-up": "fade-in-up 0.8s ease-out forwards"
+                    },
+                    "colors": {
+                            "secondary-fixed-dim": "#bcc8cf",
+                            "surface-container-highest": "#d3e4fe",
+                            "background": "#f8f9ff",
+                            "primary-container": "#1a365d",
+                            "tertiary-fixed-dim": "#4edea3",
+                            "inverse-primary": "#adc7f7",
+                            "tertiary": "#002617",
+                            "on-primary-container": "#86a0cd",
+                            "secondary": "#546066",
+                            "surface-tint": "#455f88",
+                            "on-surface": "#0b1c30",
+                            "surface-container-high": "#dce9ff",
+                            "on-primary-fixed": "#001b3c",
+                            "outline": "#74777f",
+                            "on-surface-variant": "#43474e",
+                            "on-secondary-container": "#58646a",
+                            "on-secondary-fixed": "#111d22",
+                            "surface-container-low": "#eff4ff",
+                            "tertiary-fixed": "#6ffbbe",
+                            "on-primary-fixed-variant": "#2d476f",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-container": "#d5e2e9",
+                            "on-tertiary": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "primary-fixed": "#d6e3ff",
+                            "surface-bright": "#f8f9ff",
+                            "error": "#ba1a1a",
+                            "surface-variant": "#d3e4fe",
+                            "surface": "#f8f9ff",
+                            "on-error": "#ffffff",
+                            "inverse-surface": "#213145",
+                            "inverse-on-surface": "#eaf1ff",
+                            "surface-container": "#e5eeff",
+                            "on-background": "#0b1c30",
+                            "primary": "#002045",
+                            "on-tertiary-container": "#00b47d",
+                            "tertiary-container": "#003e28",
+                            "on-primary": "#ffffff",
+                            "on-secondary": "#ffffff",
+                            "outline-variant": "#c4c6cf",
+                            "surface-dim": "#cbdbf5",
+                            "on-tertiary-fixed-variant": "#005236",
+                            "error-container": "#ffdad6",
+                            "secondary-fixed": "#d8e4eb",
+                            "on-tertiary-fixed": "#002113",
+                            "on-secondary-fixed-variant": "#3c494e",
+                            "primary-fixed-dim": "#adc7f7"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "base": "4px",
+                            "card-padding": "32px",
+                            "container-max": "1200px",
+                            "gutter": "24px",
+                            "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                            "display-lg-mobile": ["Inter"],
+                            "headline-md": ["Inter"],
+                            "data-mono": ["Geist"],
+                            "label-sm": ["Geist"],
+                            "body-md": ["Inter"],
+                            "display-lg": ["Inter"],
+                            "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                            "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                            "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .premium-shadow {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+<script src="https://unpkg.com/webgl-shader-element" type="module"></script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 docked full-width top-0 sticky z-50 shadow-sm border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-8">
+<a class="font-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed" href="#">PocketCover</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:opacity-90 transition-opacity">Get Started</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant/20 hidden md:block" data-alt="A small, circular profile picture of a young professional in a light, modern studio setting. Soft lighting, high key, clean background, matching the High-End Corporate Minimalism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5jml3iMOYkmxMVAI8S_TwKd-w5liSJqVU47Mzz-7Qh2r1uxQujnKKCCy5aON_JXs-mt3lZ-rP_yMFktkvhbCkt_ctpAuYXosbGNSd0g15vm3tZHHeHCSx8V2IF_LCEYbQQ2svsH8J3JebEE98DbuWWP9FIlu-Hw52bFZcPGeYAAk_N5JxCk2F7fI6pBaios1bbr3i2-nMnoQxMGMRzJWaF-LUBCHPZCwWrNwUBLCbCQsQhCCZYm2cN36H6sVmq_sESYSpil-NdVY"/>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<div class="relative w-full overflow-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_23 class="absolute inset-0 w-full h-full -z-10 opacity-30" -->
+<div class="absolute inset-0 w-full h-full -z-10 opacity-30" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_23" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_23');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Core flow logic
+    float wave = sin(uv.x * 6.0 + u_time * 0.5) * 0.1;
+    wave += sin(uv.x * 12.0 - u_time * 0.8) * 0.05;
+    
+    // Mouse interaction - subtle displacement
+    float dist = distance(uv, mouse);
+    float mouseEffect = smoothstep(0.3, 0.0, dist) * 0.05;
+    
+    float mask = smoothstep(0.5 + wave + mouseEffect, 0.48 + wave + mouseEffect, uv.y);
+    
+    // PocketCover Palette: Deep Royal Blue (#1A365D) to Soft Sky Blue
+    vec3 colorA = vec3(0.102, 0.212, 0.365); // #1A365D
+    vec3 colorB = vec3(0.922, 0.973, 1.0);   // #EBF8FF
+    vec3 accent = vec3(0.063, 0.725, 0.506); // Emerald Success
+    
+    vec3 finalColor = mix(colorB, colorA, mask);
+    
+    // Add subtle animated glow lines
+    float line = abs(1.0 / (300.0 * (uv.y - (0.5 + wave + mouseEffect))));
+    finalColor += accent * line * 0.5;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_23 -->
+<section class="relative py-section-padding md:py-[120px] px-gutter max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-6 animate-fade-in-up">
+<p class="font-label-sm text-surface-tint uppercase tracking-widest">Good Morning. Ready to protect today's plans?</p>
+<h1 class="font-display-lg-mobile md:text-display-lg text-on-background max-w-2xl">Insurance should be instant. Not complicated.</h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl">Parametric protection for the moments that matter. No claims. No forms. Just automatic payouts the moment a trigger is met.</p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-sm hover:opacity-90 transition-opacity text-center">Get Started</button>
+<button class="bg-surface-container-low text-primary px-8 py-3 rounded-full font-label-sm hover:bg-surface-container-high transition-colors text-center border border-outline-variant/10">Explore Covers</button>
+</div>
+<div class="flex items-center gap-6 pt-8 text-on-surface-variant font-label-sm opacity-80 flex-wrap">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">check_circle</span> No Claim Forms</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">bolt</span> Automatic Payouts</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">database</span> Trusted Data Sources</div>
+</div>
+</div>
+<div class="flex-1 relative w-full h-[500px] rounded-3xl overflow-hidden premium-shadow animate-fade-in-up" style="animation-delay: 0.2s;">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A highly abstract, generative art visual representing data flow and instant parametric transactions. Soft, flowing lines of sky blue and deep royal blue on a pristine white background. High-key lighting, modern corporate minimalism, mathematical precision evoking a sense of calm and certainty." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPHLfa6reyoe_GIdzrKCQPP8g-7FMsPQBK4xujozDwiaRMO3Gmosef9PH3xW2oCtUO5qs3iJBBBJkxwOtfWWLqZf4zhDXvwVb6uG4tgiE7Ap8BRdT02XKnOsL5OoLfoF33LOjh2hcfcYuAi6Z1er_-o9VQH0Wj5aFqOmvvpym1nIEL4ML87VHMk7BFiN4tKdwgKj18HALejd63LbugRKCYolM94k2m2ZY74hGw41WONDWIrR8ip3kqZ1jhHkvQT7qXZeQi4hU4ikE')"></div>
+<div class="absolute bottom-8 left-8 right-8 glass-panel rounded-2xl p-6 flex items-center justify-between border border-white/20">
+<div>
+<p class="font-label-sm text-on-surface-variant">Active Cover</p>
+<p class="font-headline-md text-primary">Rain Delay Protection</p>
+</div>
+<div class="bg-tertiary-fixed-dim/20 text-tertiary-fixed px-4 py-1 rounded-full font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span> Active
+                    </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Stats Section -->
+<section class="bg-surface-container-low py-16 border-y border-outline-variant/5">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+<div class="py-4 md:py-0">
+<p class="font-display-lg text-primary mb-2">97%</p>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Payout Success Rate</p>
+</div>
+<div class="py-4 md:py-0">
+<p class="font-display-lg text-primary mb-2">2 min</p>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Average Settlement Time</p>
+</div>
+<div class="py-4 md:py-0">
+<p class="font-display-lg text-primary mb-2">50K+</p>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Protected Events</p>
+</div>
+</div>
+</section>
+<!-- Comparison Section -->
+<section class="py-section-padding max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-on-background mb-4">Why PocketCover Exists</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">The old way is broken. We rebuilt insurance on transparent data and instant execution.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest p-card-padding rounded-[24px] border border-outline-variant/20 premium-shadow opacity-60">
+<h3 class="font-headline-md text-secondary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">history</span> Traditional Insurance
+                    </h3>
+<ul class="space-y-4 font-body-md text-on-surface-variant">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-error mt-0.5">close</span> Complex claim forms and paperwork</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-error mt-0.5">close</span> Weeks or months of waiting</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-error mt-0.5">close</span> Opaque review processes</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-error mt-0.5">close</span> High administrative overhead</li>
+</ul>
+</div>
+<div class="bg-primary p-card-padding rounded-[24px] premium-shadow text-on-primary">
+<h3 class="font-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">bolt</span> PocketCover
+                    </h3>
+<ul class="space-y-4 font-body-md text-surface-variant">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5">check</span> Automatic, zero-interaction claims</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5">check</span> Instant settlement upon trigger</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5">check</span> Transparent, math-based logic</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed mt-0.5">check</span> Efficient, low-cost operations</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter border-t border-outline-variant/10 full-width mt-auto">
+<div class="col-span-1 md:col-span-4 mb-8">
+<a class="font-display-lg text-headline-md font-bold text-primary" href="#">PocketCover</a>
+</div>
+<div>
+<a class="text-on-surface-variant hover:text-primary transition-colors block mb-2 font-body-md" href="#">Company</a>
+</div>
+<div>
+<a class="text-on-surface-variant hover:text-primary transition-colors block mb-2 font-body-md" href="#">Products</a>
+</div>
+<div>
+<a class="text-on-surface-variant hover:text-primary transition-colors block mb-2 font-body-md" href="#">Developers</a>
+</div>
+<div>
+<a class="text-on-surface-variant hover:text-primary transition-colors block mb-2 font-body-md" href="#">Legal</a>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/10 text-on-surface dark:text-on-surface-variant font-body-md">
+            © 2024 PocketCover. Parametric security for the modern age.
+        </div>
+</footer>
+</body></html>

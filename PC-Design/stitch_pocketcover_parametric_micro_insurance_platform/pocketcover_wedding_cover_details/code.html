@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wedding Day Rain Protection - PocketCover</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Design System -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#002617",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "surface-container": "#e5eeff",
+                      "primary-fixed-dim": "#adc7f7",
+                      "secondary-fixed": "#d8e4eb",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#111d22",
+                      "primary": "#002045",
+                      "outline": "#74777f",
+                      "surface-bright": "#f8f9ff",
+                      "on-secondary-container": "#58646a",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "inverse-surface": "#213145",
+                      "secondary-container": "#d5e2e9",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-container": "#00b47d",
+                      "outline-variant": "#c4c6cf",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "surface-variant": "#d3e4fe",
+                      "on-tertiary-fixed": "#002113",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "background": "#f8f9ff",
+                      "surface-container-low": "#eff4ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface": "#f8f9ff",
+                      "secondary": "#546066",
+                      "primary-fixed": "#d6e3ff",
+                      "surface-container-high": "#dce9ff",
+                      "inverse-primary": "#adc7f7",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#6ffbbe",
+                      "on-background": "#0b1c30",
+                      "surface-tint": "#455f88",
+                      "surface-dim": "#cbdbf5",
+                      "on-primary-container": "#86a0cd",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#1a365d",
+                      "on-primary-fixed": "#001b3c",
+                      "tertiary-container": "#003e28",
+                      "on-surface-variant": "#43474e",
+                      "on-tertiary-fixed-variant": "#005236"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding": "80px",
+                      "card-padding": "32px",
+                      "gutter": "24px",
+                      "container-max": "1200px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-surface-container/60 backdrop-blur-xl transition-all duration-300 shadow-[0_1px_0_rgba(0,0,0,0.05)]" id="global-header">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">
+                PocketCover
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<!-- Active Item: Semantic Match 'Protection' -->
+<a class="font-body-md text-body-md cursor-pointer transition-transform active:scale-95 text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">
+                    Protection
+                </a>
+<a class="font-body-md text-body-md cursor-pointer transition-transform active:scale-95 text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#">
+                    Claims
+                </a>
+<a class="font-body-md text-body-md cursor-pointer transition-transform active:scale-95 text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 pb-1 border-b-2 border-transparent" href="#">
+                    Pricing
+                </a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<a class="hidden md:block font-label-sm text-label-sm text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300 cursor-pointer active:scale-95" href="#">
+                    Login
+                </a>
+<a class="font-label-sm text-label-sm bg-primary text-on-primary px-5 py-2.5 rounded-full hover:bg-primary-container transition-colors duration-300 cursor-pointer active:scale-95 shadow-sm" href="#">
+                    Get Started
+                </a>
+</div>
+</div>
+</header>
+<main class="pt-[72px]">
+<!-- Hero Section with Soft-Focus Imagery -->
+<section class="relative w-full min-h-[614px] md:min-h-[716px] flex flex-col justify-center items-center py-section-padding px-gutter overflow-hidden">
+<!-- Hero Background Image -->
+<div class="absolute inset-0 bg-cover bg-center z-0 scale-105 transform origin-center transition-transform duration-1000 ease-out" data-alt="A breathtaking, soft-focus photograph of an elegant outdoor wedding ceremony setup in a lush botanical garden. The scene features rows of white wooden chairs facing an arch adorned with delicate white and blush pink roses. The lighting is magical and diffused, reminiscent of late afternoon 'golden hour' sunlight filtering through large oak trees. The overall aesthetic is premium, romantic, and perfectly serene, conveying a sense of profound emotional significance. The color palette is bright and fresh, aligning perfectly with a modern light-mode interface." id="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQNUb7YRYQzqWmQLtKBxK59tfFWLEMV2MqIoBiX79hPa5vZLm-inF818TKiOlKrnlCIIy9Y_lsun5V4Vyu9LtQhngaReGPVEbElgm34rbQ2P2JrfC6vAA6Fm9zVyJmZIOXn7gFLRyVz9Dl57496igEZW1UIH4GazDHZjChKto6WU7SKPZIN5bV0IhQmi2q-e4tWvjSv7iZcHQTfj2_ZCSnTrtY9mrOcwhHIsgeDAXGqHM-bvEtosxLs7XOxdQI-LDM2BfkqropfKU')"></div>
+<!-- Minimalist Protection Overlay (Glassmorphism) -->
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-[8px] z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface/90 z-10"></div>
+<!-- Content -->
+<div class="relative z-20 max-w-3xl mx-auto text-center fade-in-up">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">Parametric Protection Active</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6 drop-shadow-sm leading-tight">
+                    Wedding Day Rain Protection
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface md:text-primary max-w-2xl mx-auto mb-10 bg-surface-container-lowest/70 backdrop-blur-md p-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-outline-variant/20">
+                    Emotional certainty met with mathematical precision. We invisibly monitor your venue's sky, ensuring your perfect day remains flawless, regardless of the forecast.
+                </p>
+</div>
+</section>
+<!-- Details Bento Grid -->
+<section class="max-w-container-max mx-auto px-gutter py-section-padding -mt-16 relative z-30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: The Trigger & Payout (Primary Focus) -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-[24px] border border-outline-variant/50 p-card-padding flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.03)] fade-in-up delay-100 hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-shadow duration-300">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rainy</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">The Trigger Condition</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                            If precision sensors detect rainfall exceeding <span class="text-primary font-bold bg-surface-container px-2 py-1 rounded-md">0.5mm</span> during your specific ceremony window, you automatically receive an instant <span class="text-on-tertiary-container font-bold bg-tertiary-fixed-dim/20 px-2 py-1 rounded-md">$2,000 payout</span> to cover urgent rescheduling, indoor transitions, or premium tenting costs. No claims to file, no adjusters. Just instant peace of mind.
+                        </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-4 pt-6 border-t border-outline-variant/30">
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-full hover:bg-primary-container transition-colors shadow-md flex items-center justify-center gap-2 group">
+                            Secure My Date
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="flex-1 bg-surface-container text-primary font-label-sm text-label-sm px-8 py-4 rounded-full hover:bg-surface-dim transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">redeem</span>
+                            Gift to the Couple
+                        </button>
+</div>
+</div>
+<!-- Card 2: Time Window -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/50 p-card-padding shadow-[0_10px_30px_rgba(0,0,0,0.03)] fade-in-up delay-200">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary text-[20px]">Monitored Window</h2>
+</div>
+<div class="relative pl-8 border-l-2 border-surface-variant space-y-8 py-2">
+<!-- Start Time -->
+<div class="relative">
+<div class="absolute w-4 h-4 bg-surface-container-lowest border-2 border-primary rounded-full -left-[41px] top-1 shadow-sm z-10"></div>
+<div class="absolute w-2 h-2 bg-primary rounded-full -left-[37px] top-2 z-20"></div>
+<p class="font-data-mono text-data-mono text-primary font-semibold mb-1">2:00 PM</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Coverage Active. Live satellite &amp; sensor monitoring begins.</p>
+</div>
+<!-- End Time -->
+<div class="relative">
+<div class="absolute w-4 h-4 bg-surface-container-lowest border-2 border-outline rounded-full -left-[41px] top-1 shadow-sm z-10"></div>
+<p class="font-data-mono text-data-mono text-on-surface mb-1">8:00 PM</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Coverage Concludes. Final precipitation reading processed.</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Venue (Map Integration) -->
+<div class="md:col-span-3 bg-surface-container-lowest rounded-[24px] border border-outline-variant/50 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col md:flex-row fade-in-up delay-300">
+<div class="p-card-padding flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Verified Venue</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Coverage is bound precisely to your venue's coordinates, ensuring hyper-local weather tracking accuracy down to a 500-meter radius.
+                        </p>
+<div class="bg-surface-variant inline-flex items-center gap-2 px-4 py-2 rounded-lg w-fit">
+<span class="material-symbols-outlined text-primary text-[18px]">satellite</span>
+<span class="font-data-mono text-data-mono text-primary">Lat: 38.2919° N, Lon: -122.4580° W</span>
+</div>
+</div>
+<!-- Google Maps View Placeholder -->
+<div class="flex-1 min-h-[250px] md:min-h-[350px] relative border-l border-outline-variant/30">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A highly detailed, premium satellite map view of a sprawling, luxurious estate located in a picturesque wine region like Sonoma or Napa. The map shows precise property lines, rows of lush green vineyards, a large elegant main house, and a clear open lawn space designated for outdoor events. The map interface is clean, modern, and uncluttered, styled in soft light colors with subtle road markings. A prominent, elegant deep blue map pin indicates the exact center of the property. High contrast, professional cartography aesthetic." data-location="Sonoma Valley Estate Winery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDUVe8M0eQJnp_74KT36PAhCPGQ_8fZaMTC1PkLXvyvv1tV2eSXVVhMOVLufXy31NWca3v2OaLD6H-9ugeN62XwM9eYznHxqoakqCHne-yKuztjmRZNsVJwB3blu77pE8hMmdVAplHcPYju5whNIBD32itGWE9Pb9xlPpbbI4rJEMVA-em42su8_YUNfgYQikbl1xzb_vLI_f7s0xUz2VGaH9JlFYOvUE56wP0grWoaQu-q6sCM-Euv-D7GN7CAdw-d1xF6N7lV5k"/>
+<!-- Faux Map UI Overlays -->
+<div class="absolute bottom-4 right-4 bg-surface-container-lowest p-2 rounded-lg shadow-md flex gap-2">
+<div class="w-8 h-8 bg-surface-variant rounded flex items-center justify-center cursor-pointer hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">add</span></div>
+<div class="w-8 h-8 bg-surface-variant rounded flex items-center justify-center cursor-pointer hover:bg-surface-dim transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">remove</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials (Handcrafted Success Stories) -->
+<section class="bg-surface-bright py-section-padding border-t border-outline-variant/30 mt-8 relative">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16 fade-in-up">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2 block">The Proof</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary">Handcrafted Success Stories</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest p-card-padding rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-outline-variant/20 relative fade-in-up delay-100">
+<div class="absolute -top-5 left-8 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary text-[20px]">format_quote</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim mb-6 mt-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"When it started drizzling just before our vows, I felt a wave of panic. But within minutes of the ceremony ending, we received a notification. The instant payout covered the cost of moving our reception into the stunning backup tent. It literally saved our night."</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/20 pt-6">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small, soft-focus headshot portrait of a happy young couple on their wedding day. The lighting is warm and joyful. The background is blurred nature. Clean, professional photography style suitable for a premium testimonial avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDozRFlR7QnyZ1WuEnHvYm6_egyyUvRr9VVoHGArL-vDgug-bT_KrNG1ef-IRaxCjKs59jMe-NMBxwgQXuwaD4iI7a64gn0olm5hIKtP9RXMhuSZi0usHDx80YpppcONr8EPy7HIqmSkO-hP1CqUz_VTKXzCLWlAU5LaKB6dAUovyPQCRsdtLpDKVjS9zcEoiHpoQptvg-3d-9-kMw8UNpAC9r_oegQJr37gNFtkTY3VlL_QTgDNcoBNN3Cvcg_lML3DanLfGDMsD4"/>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary font-semibold">Sarah &amp; Michael</p>
+<p class="font-data-mono text-[12px] text-on-surface-variant">October 2023 · Sonoma, CA</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-card-padding rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-outline-variant/20 relative fade-in-up delay-200">
+<div class="absolute -top-5 left-8 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary text-[20px]">format_quote</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary-fixed-dim mb-6 mt-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"We debated needing this, but gifting it to ourselves was the best decision. A freak summer storm hit right at 4:00 PM. The $2,000 hit our account instantly, allowing our planner to execute 'Plan B' without asking us for a credit card during the cocktail hour."</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/20 pt-6">
+<div class="w-10 h-10 rounded-full bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small, soft-focus headshot portrait of a sophisticated couple smiling warmly. The lighting is elegant and professional. The background is a soft, muted grey. Clean, premium photography style suitable for a corporate or high-end service testimonial avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARB5nTpLh6wER6FNnWIlI9S8ZYSNf_3wXM3X3aFmHgMxSSGXG5-AwWCNbjcxIvyAJmKmOkciHruzFD4HOyPX5HgH6e3blvGuebRltIWOBylJAq5xIZTV3d_jZFGFTXEEmf3T11Evz1wI6fHZAEfgDdENxj79naRqc8z9wennOAZd63vgCpEI5vEuR7QTu7KNuIuTnJI8L2NELIGPUOcYpviGJwQxXPuFkU37XsGYTvchhmzGQcjIEQmCByKNEVW3zpFtm_7Cb9J4c"/>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary font-semibold">David &amp; Elena</p>
+<p class="font-data-mono text-[12px] text-on-surface-variant">August 2023 · Hudson Valley, NY</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-section-padding bg-surface-bright dark:bg-inverse-surface mt-12 border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-6">
+<!-- Brand / Copyright -->
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">PocketCover</span>
+<p class="font-label-sm text-label-sm text-on-surface dark:text-inverse-on-surface opacity-80">
+                    © 2024 PocketCover. Parametric Protection for the Modern World.
+                </p>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Privacy Policy
+                </a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Terms of Service
+                </a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Security
+                </a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Status
+                </a>
+</div>
+</div>
+</footer>
+<!-- Simple script for scroll effects -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('global-header');
+            const heroBg = document.getElementById('hero-bg');
+            
+            window.addEventListener('scroll', () => {
+                // Header shadow enhancement on scroll
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-sm');
+                } else {
+                    header.classList.remove('shadow-sm');
+                }
+                
+                // Subtle parallax for hero background
+                if (heroBg && window.scrollY < 800) {
+                    const yPos = window.scrollY * 0.3;
+                    heroBg.style.transform = `scale(1.05) translateY(${yPos}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trust &amp; Transparency - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-on-surface": "#eaf1ff",
+                        "inverse-primary": "#adc7f7",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#546066",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-error": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c4c6cf",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed": "#111d22",
+                        "surface-tint": "#455f88",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-secondary-container": "#58646a",
+                        "surface": "#f8f9ff",
+                        "on-primary-container": "#86a0cd",
+                        "secondary-container": "#d5e2e9",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "tertiary": "#002617",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a365d",
+                        "outline": "#74777f",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-tertiary-container": "#00b47d",
+                        "on-error-container": "#93000a",
+                        "primary": "#002045",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-fixed": "#d8e4eb",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#003e28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .premium-card {
+            background-color: theme('colors.surface-container-lowest');
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .status-chip-emerald {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: theme('spacing.gutter');
+        }
+
+        .bento-col-4 { grid-column: span 12; }
+        .bento-col-8 { grid-column: span 12; }
+        
+        @media (min-width: 768px) {
+            .bento-col-4 { grid-column: span 4; }
+            .bento-col-8 { grid-column: span 8; }
+            .bento-col-6 { grid-column: span 6; }
+        }
+
+        .subtle-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+        }
+        
+        /* Accordion transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 docked full-width top-0 sticky z-50 shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed">
+                PocketCover
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Wallet</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 opacity-80 transition-all duration-200 font-body-md text-body-md" href="#">Trust Center</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-md text-body-md font-medium hover:opacity-90 transition-opacity">
+                    Get Started
+                </button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/20 ml-2 hidden sm:block">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A clean, minimalist 3D rendering of a generic user profile avatar. Soft ambient lighting, white and light blue gradient background, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArtCflC9mfKHkVB2IR5X7EYVKHL4lZwJlizRAM4SA7dR3jIVOkhniOH3QYHZf8NmXFlGEsAHgyYhNOhCEP738RuT6Z219Ox-yeYeKQplzQqH3VFvsPPTdq6L92VbZZe0ynrFMC33Fi59NaYDlDM2QK1HDzvv5PuUpk2BOO2vyHEOnZz4VowKwJI3LppRQPYdoPy7Xf6a6Rrznxb5qZRtbbRkdWUCoiqM2bCXUEU5Ci8pnzAOPwQ_G6ola_GmgDjlaZN794gDj5bU8"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter py-section-padding space-y-section-padding">
+<!-- Hero Section -->
+<section class="text-center max-w-4xl mx-auto space-y-6 pt-12">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Trust Built on Data,<br/> Not Promises.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                In parametric insurance, truth is algorithmic. We rely on immutable, globally recognized data sources to trigger payouts instantly. No claims adjustments, just mathematical certainty.
+            </p>
+</section>
+<div class="subtle-line w-full"></div>
+<!-- Section 1: Data Source Directory -->
+<section>
+<div class="mb-12">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Immutable Data Sources</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Live connections to our verification partners.</p>
+</div>
+<div class="bento-grid">
+<!-- Card 1 -->
+<div class="premium-card bento-col-4 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">flight_takeoff</span>
+</div>
+<span class="status-chip-emerald font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span> Live
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">FlightStats</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Global aviation data provider for instant flight delay verification.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 font-data-mono text-data-mono text-xs text-on-surface-variant flex justify-between">
+<span>Latency: 45ms</span>
+<span>Uptime: 99.99%</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="premium-card bento-col-4 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">partly_cloudy_day</span>
+</div>
+<span class="status-chip-emerald font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span> Live
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">IMD API</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Meteorological data for agricultural and weather-related coverage.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 font-data-mono text-data-mono text-xs text-on-surface-variant flex justify-between">
+<span>Latency: 112ms</span>
+<span>Uptime: 99.95%</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="premium-card bento-col-4 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">sensors</span>
+</div>
+<span class="status-chip-emerald font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span> Live
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Earthquake USGS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Seismic activity monitoring for instant catastrophe triggers.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 font-data-mono text-data-mono text-xs text-on-surface-variant flex justify-between">
+<span>Latency: 85ms</span>
+<span>Uptime: 99.98%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Verification Log -->
+<section class="premium-card bg-surface-container-low border-none">
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Real-Time Verification Log</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Live feed of global trigger checks.</p>
+</div>
+<div class="hidden sm:flex items-center gap-2 font-data-mono text-data-mono text-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-ping"></span> Monitoring
+                </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden">
+<div class="grid grid-cols-4 gap-4 p-4 border-b border-outline-variant/10 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-highest/30">
+<div>TIMESTAMP</div>
+<div>SOURCE</div>
+<div>PARAMETER</div>
+<div>RESULT</div>
+</div>
+<div class="divide-y divide-outline-variant/10 font-data-mono text-data-mono text-sm" id="log-container">
+<!-- Logs populated by JS -->
+<div class="grid grid-cols-4 gap-4 p-4 items-center animate-[pulse_2s_ease-in-out_infinite]">
+<div class="text-on-surface-variant">14:22:01.045</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base">flight</span> FlightStats</div>
+<div>CX829 Delay Check</div>
+<div class="text-[#059669]">-4m (On Time)</div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-4 items-center">
+<div class="text-on-surface-variant">14:21:58.912</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base">partly_cloudy_day</span> IMD API</div>
+<div>Mumbai Rainfall (24h)</div>
+<div class="text-[#059669]">12mm (Threshold: 50mm)</div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-4 items-center">
+<div class="text-on-surface-variant">14:21:15.334</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base">flight</span> FlightStats</div>
+<div>BA112 Delay Check</div>
+<div class="text-[#ba1a1a]">TRIGGERED: +125m</div>
+</div>
+<div class="grid grid-cols-4 gap-4 p-4 items-center opacity-60">
+<div class="text-on-surface-variant">14:20:45.001</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-base">sensors</span> USGS</div>
+<div>Tokyo Seismic</div>
+<div class="text-[#059669]">2.1M (Threshold: 6.0M)</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 full-width">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="font-display-lg text-headline-md font-bold text-primary mb-4">
+                    PocketCover
+                </div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant mb-6 text-sm">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<div class="col-span-1">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-3" href="#">Company</a>
+</div>
+<div class="col-span-1">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-3" href="#">Products</a>
+</div>
+<div class="col-span-1">
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-3" href="#">Developers</a>
+<a class="block font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mb-3" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

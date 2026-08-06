@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover Admin - Triggers &amp; API Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#43474e",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001b3c",
+                        "error-container": "#ffdad6",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "surface-tint": "#455f88",
+                        "surface-container-low": "#eff4ff",
+                        "on-error": "#ffffff",
+                        "primary": "#002045",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-secondary-container": "#58646a",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "primary-container": "#1a365d",
+                        "outline": "#74777f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00b47d",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-container": "#86a0cd",
+                        "tertiary-container": "#003e28",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-dim": "#cbdbf5",
+                        "surface": "#f8f9ff",
+                        "secondary": "#546066",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d8e4eb",
+                        "background": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#002617",
+                        "secondary-container": "#d5e2e9",
+                        "on-secondary-fixed-variant": "#3c494e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: theme('spacing.gutter');
+        }
+        .card {
+            background-color: theme('colors.surface-container-lowest');
+            border-radius: 24px;
+            border: 1px solid theme('colors.outline-variant');
+            padding: theme('spacing.card-padding');
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+        }
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-family: theme('fontFamily.label-sm');
+            font-size: theme('fontSize.label-sm');
+            font-weight: 600;
+        }
+        .status-active { background-color: #d1fae5; color: #065f46; }
+        .status-monitoring { background-color: #fef3c7; color: #92400e; }
+        .status-error { background-color: #fee2e2; color: #b91c1c; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex font-body-md">
+<!-- SideNavBar -->
+<nav class="hidden md:flex w-64 h-screen fixed left-0 top-0 bg-surface-container-lowest dark:bg-inverse-surface shadow-sm flex-col border-r border-outline-variant/10 z-50">
+<div class="p-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">
+                    PC
+                </div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">PocketCover</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Parametric Mission Control</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary rounded-xl py-3 px-4 mb-8 font-label-sm font-bold flex justify-center items-center gap-2 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">summarize</span>
+                Generate Report
+            </button>
+<ul class="space-y-2 flex-grow">
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">dashboard</span> <span class="font-label-sm text-label-sm">Dashboard</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">monitoring</span> <span class="font-label-sm text-label-sm">Analytics</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">group</span> <span class="font-label-sm text-label-sm">User Management</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">model_training</span> <span class="font-label-sm text-label-sm">Risk Models</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">article</span> <span class="font-label-sm text-label-sm">Policy Lifecycle</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 text-primary dark:text-inverse-primary font-bold border-r-4 border-primary bg-surface-container-low" href="#"><span class="material-symbols-outlined fill-icon">settings_input_component</span> <span class="font-label-sm text-label-sm">Triggers &amp; Oracles</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">api</span> <span class="font-label-sm text-label-sm">API Monitoring</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">payments</span> <span class="font-label-sm text-label-sm">Financials</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">health_and_safety</span> <span class="font-label-sm text-label-sm">System Health</span></a></li>
+</ul>
+</div>
+<div class="p-6 border-t border-outline-variant/10 mt-auto">
+<ul class="space-y-2">
+<li><a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">terminal</span> <span class="font-label-sm text-label-sm">Logs</span></a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#"><span class="material-symbols-outlined">settings</span> <span class="font-label-sm text-label-sm">Settings</span></a></li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 relative min-h-screen pb-16">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-16 bg-white/60 dark:bg-primary/60 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-gutter z-40">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary hidden md:block">PocketCover Admin</span>
+<nav class="hidden md:flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Network Status</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Live Oracle</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:scale-90"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:scale-90"><span class="material-symbols-outlined">settings_ethernet</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:scale-90"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="pt-24 px-gutter max-w-container-max mx-auto pb-section-padding">
+<div class="mb-12">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Triggers &amp; API Monitoring</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Technical operations view for monitoring external dependencies and oracle health.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-gutter">
+<!-- Oracle Connectivity Status -->
+<section class="card col-span-1 md:col-span-2 row-span-2">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Oracle Connectivity</h3>
+<span class="status-chip status-active"><span class="material-symbols-outlined text-[16px] mr-1">check_circle</span> All Systems Nominal</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- NOAA Oracle -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">NOAA Weather API</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim">wifi_tethering</span>
+</div>
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant text-xs">
+<span>Latency: 42ms</span>
+<span>Consensus: 99.9%</span>
+</div>
+</div>
+<!-- FlightStats -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">FlightStats Global</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim">flight_takeoff</span>
+</div>
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant text-xs">
+<span>Latency: 115ms</span>
+<span>Consensus: 98.5%</span>
+</div>
+</div>
+<!-- Opta Sports -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Opta Sports Data</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim">sports_soccer</span>
+</div>
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant text-xs">
+<span>Latency: 85ms</span>
+<span>Consensus: 100%</span>
+</div>
+</div>
+<!-- Earthquake USGS -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">USGS Seismic</span>
+<span class="status-chip status-monitoring text-[10px] py-1 px-2">Degraded</span>
+</div>
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant text-xs">
+<span class="text-error">Latency: 850ms</span>
+<span>Consensus: 92.1%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Configuration Panel -->
+<section class="card col-span-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Configuration</h3>
+<div class="space-y-4">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Global Timeout (ms)</label>
+<input class="w-full bg-surface-bright border border-outline-variant/50 rounded-lg p-2 font-data-mono text-data-mono focus:ring-primary focus:border-primary" type="number" value="1500"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Consensus Threshold (%)</label>
+<div class="flex items-center gap-2">
+<input class="flex-1 accent-primary" max="100" min="50" type="range" value="85"/>
+<span class="font-data-mono text-data-mono">85%</span>
+</div>
+</div>
+<button class="w-full mt-4 bg-surface-tint text-on-primary font-label-sm text-label-sm py-2 rounded-lg hover:bg-primary transition-colors">Apply Changes</button>
+</div>
+</section>
+<!-- Trigger Log -->
+<section class="card col-span-1 md:col-span-3">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Live Trigger Log</h3>
+<button class="text-primary font-label-sm text-label-sm flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-[18px]">filter_list</span> Filter</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 text-on-surface-variant font-label-sm text-label-sm">
+<th class="py-3 px-2 font-medium">Timestamp</th>
+<th class="py-3 px-2 font-medium">Policy ID</th>
+<th class="py-3 px-2 font-medium">Oracle Source</th>
+<th class="py-3 px-2 font-medium">Trigger Value</th>
+<th class="py-3 px-2 font-medium">Action</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-2 text-on-surface-variant">2023-10-27 14:32:01</td>
+<td class="py-3 px-2 text-primary font-bold">POL-FL-992</td>
+<td class="py-3 px-2">FlightStats</td>
+<td class="py-3 px-2 text-error">Delay &gt; 120m</td>
+<td class="py-3 px-2"><span class="status-chip status-active text-[10px]">Payout Initiated</span></td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-2 text-on-surface-variant">2023-10-27 14:28:45</td>
+<td class="py-3 px-2 text-primary font-bold">POL-WX-104</td>
+<td class="py-3 px-2">NOAA</td>
+<td class="py-3 px-2">Wind &gt; 45mph</td>
+<td class="py-3 px-2"><span class="status-chip status-monitoring text-[10px]">Threshold Met</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-2 text-on-surface-variant">2023-10-27 14:15:22</td>
+<td class="py-3 px-2 text-primary font-bold">POL-EQ-771</td>
+<td class="py-3 px-2">USGS</td>
+<td class="py-3 px-2">Mag &gt; 5.5</td>
+<td class="py-3 px-2"><span class="status-chip status-active text-[10px]">Contract Settled</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 left-0 md:left-64 h-10 bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant/10 flex justify-between items-center px-gutter z-30 opacity-80 hover:opacity-100 transition-opacity">
+<span class="font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface text-label-sm font-bold">v2.4.0-stable | Network: Mainnet</span>
+<div class="flex gap-4">
+<a class="font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface hover:text-primary" href="#">Technical Docs</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface hover:text-primary" href="#">Internal Support</a>
+<a class="font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface hover:text-primary" href="#">Terms of Service</a>
+</div>
+</footer>
+</div>
+</body></html>

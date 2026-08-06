@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Payment &amp; Identity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#002045",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "tertiary-container": "#003e28",
+                        "primary-container": "#1a365d",
+                        "secondary-container": "#d5e2e9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#455f88",
+                        "secondary": "#546066",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-container": "#58646a",
+                        "on-primary-container": "#86a0cd",
+                        "inverse-primary": "#adc7f7",
+                        "on-background": "#0b1c30",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "background": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container": "#e5eeff",
+                        "tertiary": "#002617",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-fixed": "#111d22",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-surface": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-bright": "#f8f9ff",
+                        "outline": "#74777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1.5rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-padding": "80px",
+                        "card-padding": "32px",
+                        "container-max": "1200px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist", "sans-serif"],
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "data-mono": ["Geist", "monospace"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    },
+                    "boxShadow": {
+                        "card-soft": "0px 10px 30px rgba(0,0,0,0.03)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="bg-surface/60 dark:bg-surface-container/60 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">PocketCover</div>
+<nav class="hidden md:flex gap-8 items-center font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Protection</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Claims</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Pricing</a>
+<!-- Settings/Profile active state -->
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 cursor-pointer transition-transform active:scale-95" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed font-label-sm text-label-sm hover:text-primary-container transition-colors duration-300">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-primary-container transition-colors duration-300">Get Started</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[104px] pb-section-padding max-w-container-max mx-auto px-gutter w-full">
+<div class="mb-12 md:mb-16">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-2">Payment &amp; Identity</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Manage your financial credentials and verification status. Secure, encrypted, and compliant.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Payment & Billing -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- Payment Methods Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-card-soft p-card-padding">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Payment Methods</h2>
+<p class="font-body-md text-body-md text-secondary">Manage your linked accounts for premiums and payouts.</p>
+</div>
+<button class="flex items-center gap-2 bg-surface-container-low text-primary px-4 py-2 rounded-lg font-label-sm text-label-sm hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span> Add New
+                        </button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Linked Card -->
+<div class="flex items-center justify-between p-4 border border-outline-variant/40 rounded-xl hover:border-primary/30 transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-[20px]">credit_card</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-primary">Chase Sapphire Preferred</p>
+<p class="font-label-sm text-label-sm text-secondary flex items-center gap-2">
+                                        •••• 4242 <span class="w-1 h-1 bg-outline rounded-full"></span> Expires 12/25
+                                    </p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-surface-container text-primary px-3 py-1 rounded-full font-label-sm text-label-sm">Primary</span>
+<button class="text-outline hover:text-error transition-colors opacity-0 group-hover:opacity-100"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Web3 Wallet -->
+<div class="flex items-center justify-between p-4 border border-outline-variant/40 rounded-xl hover:border-primary/30 transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 bg-surface-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-primary">Ethereum Wallet</p>
+<p class="font-data-mono text-data-mono text-secondary">0x71C...3B94</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-surface-container-highest text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm">Connected</span>
+<button class="text-outline hover:text-error transition-colors opacity-0 group-hover:opacity-100"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Billing Address Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-card-soft p-card-padding">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Billing Details</h2>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                        </button>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-surface-variant">
+<div class="grid grid-cols-2 gap-y-4 gap-x-8">
+<div>
+<p class="font-label-sm text-label-sm text-secondary mb-1">Full Name</p>
+<p class="font-body-md text-body-md text-primary">Eleanor Vance</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-secondary mb-1">Email</p>
+<p class="font-body-md text-body-md text-primary">eleanor.v@example.com</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-sm text-label-sm text-secondary mb-1">Address</p>
+<p class="font-body-md text-body-md text-primary">1200 Tech Boulevard, Suite 400<br/>San Francisco, CA 94107<br/>United States</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Identity & Legal -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- KYC / Identity Card -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-card-soft p-card-padding relative overflow-hidden">
+<!-- Decorative subtle blur -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-tertiary-fixed-dim/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary-container text-[28px]">verified_user</span>
+<h2 class="font-headline-md text-headline-md text-primary">Identity Status</h2>
+</div>
+<div class="bg-tertiary-container/5 border border-tertiary-container/10 p-5 rounded-xl flex items-start gap-4 mb-8">
+<div class="mt-1 w-2 h-2 bg-on-tertiary-container rounded-full shadow-[0_0_8px_rgba(0,180,125,0.6)]"></div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-primary mb-1">Level 2 Verified</p>
+<p class="font-label-sm text-label-sm text-secondary">Your identity is fully verified. You are eligible for automated smart contract payouts up to $50,000.</p>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/20">
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Government ID</p>
+<p class="font-body-md text-body-md text-primary">US Passport</p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container filled">check_circle</span>
+</div>
+<div class="flex justify-between items-center pb-4 border-b border-outline-variant/20">
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Biometric Scan</p>
+<p class="font-body-md text-body-md text-primary">Completed</p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container filled">check_circle</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-label-sm text-label-sm text-secondary">Last Verified</p>
+<p class="font-data-mono text-data-mono text-primary">2023-10-14 09:23 UTC</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline-variant/50 text-primary py-3 rounded-lg font-label-sm text-label-sm hover:bg-surface-variant/50 transition-colors">
+                            Request Verification Update
+                        </button>
+</div>
+</section>
+<!-- Legal & About -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-card-soft p-card-padding">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Legal &amp; Compliance</h2>
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center justify-between p-3 -mx-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="font-body-md text-body-md text-primary group-hover:text-primary-container">Terms of Service</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-3 -mx-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="font-body-md text-body-md text-primary group-hover:text-primary-container">Privacy Policy</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between p-3 -mx-3 rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<span class="font-body-md text-body-md text-primary group-hover:text-primary-container">Smart Contract Audits</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container">chevron_right</span>
+</a>
+</li>
+</ul>
+<div class="mt-8 pt-6 border-t border-outline-variant/30 text-center">
+<p class="font-data-mono text-data-mono text-secondary">PocketCover Core v2.4.1</p>
+<p class="font-label-sm text-label-sm text-outline mt-1">Network: Mainnet</p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-bright dark:bg-inverse-surface w-full py-section-padding mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-4 md:mb-0">PocketCover</div>
+<div class="flex gap-6 font-label-sm text-label-sm">
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Security</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Status</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface dark:text-inverse-on-surface mt-4 md:mt-0 text-center md:text-right">
+                © 2024 PocketCover. Parametric Protection for the Modern World.
+            </div>
+</div>
+</footer>
+</body></html>

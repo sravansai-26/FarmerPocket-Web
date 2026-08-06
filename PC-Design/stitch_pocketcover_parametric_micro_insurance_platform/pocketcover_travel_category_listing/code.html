@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Travel &amp; Transit Coverage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-high": "#dce9ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "on-primary-container": "#86a0cd",
+                        "primary": "#002045",
+                        "on-background": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "outline": "#74777f",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-container": "#d5e2e9",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "secondary": "#546066",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1a365d",
+                        "on-secondary-container": "#58646a",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "tertiary": "#002617",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#003e28",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-tint": "#455f88",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "background": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#111d22"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 font-body-md text-body-md docked full-width top-0 sticky z-50 shadow-sm border-b-0 w-full transition-all duration-200">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight">
+                PocketCover
+            </div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 active" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<div class="hidden md:block">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md" placeholder="Search coverage..." type="text"/>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:bg-primary-container transition-colors">Get Started</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A small, circular profile picture of a professional user in a minimalist corporate setting. The lighting is soft and natural, matching the light-mode UI aesthetic. The overall mood is confident and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6sGD2As4fr61qoVIS2WH0_Ypq0wvvtrZmeiuGClyzmLo7-2FkwLIiw-DVIuFpTi9uF25SMH_uQgInvBfp7Q3az0XSBUJZxt-7VNjQUN6wm4xuFk87ylk6-BBIFaDWD5fdVmdyuJWdKTbPZMEc-_62V_Bwv5W6_GQgpQwWK6A8hyD3DsuZ8bCXFYMsdqLbJgEBuDvh69GrRhujIIn40p7-1pX2x7NevFS3gStkSD_N0Rmh4cjJDOxtgs5_FARTS1ddsvqyjbduMIE"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-section-padding space-y-16">
+<!-- Hero Search Section (Glassmorphism) -->
+<section class="relative rounded-[32px] overflow-hidden min-h-[400px] flex items-center justify-center p-8">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40" data-alt="An expansive, high-altitude aerial view of a pristine, modern transit hub (airport and high-speed rail) at dawn. The scene is bathed in soft, cool morning light with a bright, clean aesthetic. The color palette emphasizes soft sky blues, crisp whites, and deep architectural shadows, projecting mathematical certainty and seamless travel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADOFJrnKVNKZPyT-Q4mTS34ff5nZPxaTzZfCU1wGeXVOi93ZKLFwHpIS9AdlJMQwJ9zPY5DLvAjdV7qUfJLGMPxjM0cTtm6j9HQpol2OM88dDZnvpoEnyssqSHrP5FMZ78CyvO0zgT0x5wtcx2lwJojrhKr9ohitY0ccNsq4WAopmNPqdL2jLzHechBVjbGTYfdCH8NrTJYYKBQd4WaRijzmNy42wwwMJBRndYI7N5uln5oSsZFO3KTnI7VelnUmS0YqduG1_njcg')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 to-background/90"></div>
+</div>
+<div class="glass-panel relative z-10 w-full max-w-3xl p-8 md:p-12 rounded-[24px] flex flex-col items-center text-center space-y-8">
+<div class="space-y-4">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Invisible Protection for Your Journey</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">Enter your flight number or route for instant, parametric coverage. No forms, instant payouts.</p>
+</div>
+<div class="w-full bg-surface-container-lowest rounded-full p-2 flex items-center shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-outline-variant/20">
+<span class="material-symbols-outlined ml-4 text-primary">flight_takeoff</span>
+<input class="flex-grow bg-transparent border-none focus:ring-0 font-body-md text-body-md px-4 text-primary placeholder:text-outline" placeholder="e.g., BA117 or London to Paris" type="text"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-opacity">Protect Now</button>
+</div>
+</div>
+</section>
+<!-- Product Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Flight Delay Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[24px] p-card-padding hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group h-full">
+<div class="space-y-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flight</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Flight Delays</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Automated payouts trigger the moment your flight is delayed beyond the threshold.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-container bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span> Instant Payout
+                    </span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Rail Cancellation Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[24px] p-card-padding hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group h-full">
+<div class="space-y-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">train</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Rail Cancellations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time API integration with rail networks ensures you're compensated before you even claim.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-container bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span> Instant Payout
+                    </span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Road Trip Breakdown Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[24px] p-card-padding hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group h-full">
+<div class="space-y-6">
+<div class="w-12 h-12 bg-surface-container-low rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Road Breakdown</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">GPS-verified roadside assistance coverage. Funds are wired to your wallet instantly upon verification.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-container bg-tertiary-fixed-dim/20 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span> Instant Payout
+                    </span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Popular Routes & Reliability Stats -->
+<section class="space-y-8">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Live Route Intelligence</h2>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1" href="#">View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[16px] p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">JFK</span>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_right_alt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">LHR</span>
+</div>
+<span class="material-symbols-outlined text-primary">flight</span>
+</div>
+<div>
+<div class="font-data-mono text-data-mono text-on-surface-variant mb-1">On-Time Probability</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-md text-headline-md text-primary">82.4%</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 1.2%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 82.4%"></div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[16px] p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">CDG</span>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_right_alt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FRA</span>
+</div>
+<span class="material-symbols-outlined text-primary">flight</span>
+</div>
+<div>
+<div class="font-data-mono text-data-mono text-on-surface-variant mb-1">On-Time Probability</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-md text-headline-md text-primary">76.8%</span>
+<span class="font-label-sm text-label-sm text-error mb-1 flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_downward</span> 2.1%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 76.8%"></div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[16px] p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">LDN</span>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_right_alt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">EDI</span>
+</div>
+<span class="material-symbols-outlined text-primary">train</span>
+</div>
+<div>
+<div class="font-data-mono text-data-mono text-on-surface-variant mb-1">Reliability Index</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-md text-headline-md text-primary">94.1%</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 flex items-center"><span class="material-symbols-outlined text-[14px]">horizontal_rule</span> 0.0%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 94.1%"></div>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-[16px] p-6 flex flex-col gap-4 bg-surface-container-low/50">
+<div class="flex flex-col items-center justify-center h-full text-center space-y-3">
+<div class="w-10 h-10 bg-surface-container-lowest rounded-full flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Track a custom route</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 font-body-md text-body-md text-on-surface dark:text-on-surface-variant w-full mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-[200px]">Parametric security for the modern age.</p>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Company</span>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Press</a>
+</nav>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Products</span>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Travel</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Transit</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Events</a>
+</nav>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Developers</span>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Status</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+</nav>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter pb-8 pt-4 border-t border-outline-variant/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 PocketCover. Parametric security for the modern age.</span>
+<div class="flex gap-4 mt-4 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

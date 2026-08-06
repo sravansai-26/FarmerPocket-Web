@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Risk Model &amp; Policy Lifecycle - PocketCover Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#43474e",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001b3c",
+                        "error-container": "#ffdad6",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "surface-tint": "#455f88",
+                        "surface-container-low": "#eff4ff",
+                        "on-error": "#ffffff",
+                        "primary": "#002045",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-secondary-container": "#58646a",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "primary-container": "#1a365d",
+                        "outline": "#74777f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#00b47d",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-container": "#86a0cd",
+                        "tertiary-container": "#003e28",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-dim": "#cbdbf5",
+                        "surface": "#f8f9ff",
+                        "secondary": "#546066",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d8e4eb",
+                        "background": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#002617",
+                        "secondary-container": "#d5e2e9",
+                        "on-secondary-fixed-variant": "#3c494e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen antialiased flex">
+<!-- SideNavBar -->
+<aside class="w-64 h-screen fixed left-0 top-0 bg-surface-container-lowest dark:bg-inverse-surface shadow-sm z-50 flex flex-col h-full border-r border-outline-variant/10">
+<div class="p-gutter flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="policy">policy</span>
+</div>
+<div>
+<h1 class="font-display-lg text-[18px] leading-tight font-bold text-primary dark:text-inverse-primary">PocketCover</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Parametric Mission Control</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                User Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-inverse-primary font-bold border-r-4 border-primary bg-surface-container-low dark:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="model_training">model_training</span>
+                Risk Models
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-inverse-primary font-bold border-r-4 border-primary bg-surface-container-low dark:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+                Policy Lifecycle
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+                Triggers &amp; Oracles
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+                API Monitoring
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Financials
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+                System Health
+            </a>
+</nav>
+<div class="p-4 border-t border-outline-variant/10">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:bg-primary/90 transition-colors">
+                Generate Report
+            </button>
+<div class="mt-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                    Logs
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-white/60 dark:bg-primary/60 backdrop-blur-xl border-b border-outline-variant/20 flex justify-between items-center px-gutter w-full z-40">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">PocketCover Admin</h2>
+<div class="hidden lg:flex items-center bg-surface-container-lowest rounded-full px-4 py-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-body-md font-body-md placeholder:text-outline w-64" placeholder="Search policies, models..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Network Status</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Live Oracle</a>
+</nav>
+<div class="flex items-center gap-4 border-l border-outline-variant/20 pl-6">
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="settings_ethernet">settings_ethernet</span>
+</button>
+<button class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/20 scale-95 active:scale-90 transition-all">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="A professional headshot avatar of an administrator in a high-tech control room environment, subtle lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYdY1ubS6xrJwNh2puGZ-8bCzLRicusNZuxzIYD3RgxH6DiiQTjBChBimNMdquSF0NSE1ZONVsi6wuo3TLv7-0JUfgYl0kFufMC_jZ_PIgteuzjdbgDXglBBtIaTbRXPdfQwV6KxUAdxNl6u-26efm9oHyOC57gQK3gRs_951bj3GZvR1manh1IhhS-dz_QXQoJQh11egnPRatVRwwDV8bm4VEuYToVdDFk90vrgYTyveLDLBpmJIoSSrztqRTdbqom1eFAsyATRo"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 pt-24 pb-20 px-gutter lg:px-section-padding max-w-container-max mx-auto w-full">
+<div class="mb-12 flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-background mb-2">Risk Model &amp; Policy Lifecycle</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Deep-dive analysis and parametric execution oversight.</p>
+</div>
+<button class="bg-tertiary-container text-on-tertiary-container px-6 py-3 rounded-lg font-label-sm text-label-sm flex items-center gap-2 hover:bg-tertiary-container/90 transition-colors">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+                    Simulation Tool
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<!-- Risk Model Catalog -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-[20px] font-semibold">Active Models</h3>
+<button class="text-primary"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span></button>
+</div>
+<div class="space-y-4">
+<!-- Model Item -->
+<div class="p-4 rounded-xl border border-outline-variant/10 bg-surface hover:border-primary/30 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-sm text-label-sm font-bold">Travel Delay v4.1</h4>
+<span class="px-2 py-1 bg-tertiary-fixed/20 text-tertiary-container rounded-full font-data-mono text-[11px]">Active</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3">
+<div>
+<p class="font-label-sm text-[11px] text-outline">TVL</p>
+<p class="font-data-mono text-data-mono">$4.2M</p>
+</div>
+<div>
+<p class="font-label-sm text-[11px] text-outline">Trigger Rate</p>
+<p class="font-data-mono text-data-mono">12.4%</p>
+</div>
+</div>
+</div>
+<!-- Model Item -->
+<div class="p-4 rounded-xl border border-outline-variant/10 bg-surface hover:border-primary/30 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-sm text-label-sm font-bold">Rainfall Interruption v2.0</h4>
+<span class="px-2 py-1 bg-tertiary-fixed/20 text-tertiary-container rounded-full font-data-mono text-[11px]">Active</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3">
+<div>
+<p class="font-label-sm text-[11px] text-outline">TVL</p>
+<p class="font-data-mono text-data-mono">$18.9M</p>
+</div>
+<div>
+<p class="font-label-sm text-[11px] text-outline">Trigger Rate</p>
+<p class="font-data-mono text-data-mono">3.1%</p>
+</div>
+</div>
+</div>
+<!-- Model Item -->
+<div class="p-4 rounded-xl border border-outline-variant/10 bg-surface hover:border-primary/30 transition-colors cursor-pointer group opacity-75">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-sm text-label-sm font-bold">Flight Cancel v1.0</h4>
+<span class="px-2 py-1 bg-error-container/50 text-error rounded-full font-data-mono text-[11px]">Deprecating</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3">
+<div>
+<p class="font-label-sm text-[11px] text-outline">TVL</p>
+<p class="font-data-mono text-data-mono">$800K</p>
+</div>
+<div>
+<p class="font-label-sm text-[11px] text-outline">Trigger Rate</p>
+<p class="font-data-mono text-data-mono">18.2%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Policy Distribution & Trigger Pipeline -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Trigger Pipeline Vis -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-64 relative overflow-hidden flex flex-col">
+<h3 class="font-headline-md text-[20px] font-semibold mb-4 z-10 relative">Trigger Pipeline</h3>
+<div class="flex-1 w-full bg-surface rounded-xl border border-outline-variant/10 relative overflow-hidden flex items-center justify-center">
+<!-- Placeholder for complex pipeline vis -->
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iIzAwMjA0NSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-50"></div>
+<div class="flex items-center w-full max-w-2xl justify-between px-8 relative z-10">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="sensors">sensors</span>
+</div>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-outline">Oracles</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-primary-container via-tertiary-fixed to-primary-container relative">
+<div class="absolute w-3 h-3 rounded-full bg-tertiary-fixed top-1/2 -translate-y-1/2 left-1/3 animate-ping"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-xl bg-surface border-2 border-primary flex items-center justify-center shadow-lg transform rotate-45">
+<span class="material-symbols-outlined text-primary -rotate-45" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-outline mt-2">Risk Model</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-primary-container via-tertiary-fixed to-primary-container"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="receipt_long">receipt_long</span>
+</div>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-outline">Execution</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Geographic Heatmap -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex-1 relative overflow-hidden min-h-[300px]">
+<h3 class="font-headline-md text-[20px] font-semibold mb-4 relative z-10">Global Distribution</h3>
+<div class="absolute inset-0 mt-16 rounded-b-[24px] overflow-hidden">
+<div class="w-full h-full bg-surface-dim" data-alt="A highly detailed, stylized global map heatmap interface showing data points across continents in a premium, light-mode minimalist style. Soft blues and precise geometric markers." data-location="Global" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Policy Management Table -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline-md text-[20px] font-semibold">Policy Lifecycle Management</h3>
+<div class="flex gap-4">
+<div class="bg-white rounded-lg px-3 py-1.5 border border-outline-variant/20 flex items-center">
+<span class="material-symbols-outlined text-outline text-[18px] mr-2" data-icon="filter_list">filter_list</span>
+<select class="bg-transparent border-none outline-none font-label-sm text-label-sm text-on-surface-variant cursor-pointer pr-4">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Triggered</option>
+</select>
+</div>
+<button class="bg-white border border-outline-variant/20 rounded-lg p-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/10 bg-surface">
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider">Policy ID</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider">Model</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider">Premium</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider">Threshold</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider">Status</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-outline uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-medium">POL-9982A</td>
+<td class="py-4 px-6 font-body-md text-[14px]">Travel Delay v4.1</td>
+<td class="py-4 px-6">$120.00</td>
+<td class="py-4 px-6 text-on-surface-variant">&gt; 120 mins</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-fixed/20 text-tertiary-container font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span> Active
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-medium">POL-9981B</td>
+<td class="py-4 px-6 font-body-md text-[14px]">Rainfall Int. v2.0</td>
+<td class="py-4 px-6">$4,500.00</td>
+<td class="py-4 px-6 text-on-surface-variant">&lt; 50mm / 30d</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container/50 text-error font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Triggered
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-medium">POL-9980C</td>
+<td class="py-4 px-6 font-body-md text-[14px]">Travel Delay v4.1</td>
+<td class="py-4 px-6">$85.00</td>
+<td class="py-4 px-6 text-on-surface-variant">&gt; 120 mins</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Expired
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-medium">POL-9979D</td>
+<td class="py-4 px-6 font-body-md text-[14px]">Rainfall Int. v2.0</td>
+<td class="py-4 px-6">$12,000.00</td>
+<td class="py-4 px-6 text-on-surface-variant">&lt; 50mm / 30d</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/10 text-primary font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Paid
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant/10 flex justify-between items-center bg-surface-bright">
+<span class="font-label-sm text-[12px] text-outline">Showing 1-4 of 1,248 policies</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-outline-variant/20 text-on-surface-variant font-label-sm text-[12px] hover:bg-surface transition-colors">Prev</button>
+<button class="px-3 py-1 rounded border border-outline-variant/20 text-on-surface-variant font-label-sm text-[12px] hover:bg-surface transition-colors">Next</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant/10 fixed bottom-0 right-0 left-64 h-10 flex justify-between items-center px-gutter w-full z-30">
+<div class="text-label-sm font-bold font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface">
+                v2.4.0-stable | Network: Mainnet
+            </div>
+<div class="flex gap-6 font-data-mono text-data-mono text-on-surface-variant dark:text-on-surface">
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-opacity" href="#">Technical Docs</a>
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-opacity" href="#">Internal Support</a>
+<a class="opacity-80 hover:opacity-100 hover:text-primary transition-opacity" href="#">Terms of Service</a>
+</div>
+</footer>
+</div>
+</body></html>

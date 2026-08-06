@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover | Purchase Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#455f88",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-container": "#1a365d",
+                        "on-primary-container": "#86a0cd",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "inverse-primary": "#adc7f7",
+                        "tertiary-container": "#003e28",
+                        "outline": "#74777f",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#002617",
+                        "surface-container-low": "#eff4ff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-tertiary-container": "#00b47d",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface-variant": "#43474e",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary-fixed": "#001b3c",
+                        "surface": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#58646a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#d5e2e9",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#002045",
+                        "outline-variant": "#c4c6cf",
+                        "background": "#f8f9ff",
+                        "secondary": "#546066",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-background": "#0b1c30",
+                        "success": "#10b981", // Added for success state
+                        "success-container": "#d1fae5",
+                        "on-success-container": "#065f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    },
+                    "boxShadow": {
+                        "card": "0px 10px 30px rgba(0,0,0,0.03)",
+                        "modal": "0px 20px 50px rgba(0,0,0,0.08)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff; /* background */
+            color: #0b1c30; /* on-background */
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #10b981;
+            opacity: 0;
+            animation: fall 3s ease-out forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .check-mark-animate {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        .pulse-ring {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            70% { transform: scale(1.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden relative">
+<!-- Confetti Container -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="confetti-container"></div>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter py-section-padding z-10 relative">
+<div class="w-full max-w-3xl mx-auto flex flex-col items-center gap-12">
+<!-- Hero Status -->
+<div class="flex flex-col items-center text-center gap-6">
+<!-- Animated Checkmark -->
+<div class="relative flex items-center justify-center w-32 h-32">
+<div class="absolute inset-0 bg-success-container rounded-full pulse-ring opacity-50"></div>
+<div class="absolute inset-2 bg-success-container rounded-full opacity-80"></div>
+<div class="relative z-10 bg-success text-white rounded-full w-24 h-24 flex items-center justify-center shadow-card">
+<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path class="check-mark-animate" d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+<div>
+<h1 class="font-display-lg text-display-lg text-primary md:hidden hidden">Protection Active</h1>
+<h1 class="font-display-lg text-display-lg text-primary hidden md:block">Protection Active</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary md:hidden">Protection Active</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-lg mx-auto">Your smart contract has been successfully deployed. We are now monitoring conditions automatically.</p>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+<!-- Policy Summary Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant shadow-card flex flex-col gap-6 md:col-span-2">
+<div class="flex justify-between items-center border-b border-surface-container pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">umbrella</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Wedding Rain Protection</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Policy ID: <span class="font-data-mono text-data-mono">POL-8492-X</span></p>
+</div>
+</div>
+<div class="bg-success-container text-on-success-container px-3 py-1 rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-success"></span> Active
+                        </div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Coverage Limit</p>
+<p class="font-body-lg text-body-lg text-primary font-semibold">$15,000</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Trigger Event</p>
+<p class="font-body-lg text-body-lg text-primary font-semibold">&gt; 0.5" Rain</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Coverage Date</p>
+<p class="font-body-lg text-body-lg text-primary font-semibold">Oct 14, 2024</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Premium</p>
+<p class="font-body-lg text-body-lg text-primary font-semibold">$350.00</p>
+</div>
+</div>
+</div>
+<!-- Live Data Source Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant shadow-card flex flex-col gap-4 h-full relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-bright to-surface-container opacity-50 z-0"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">satellite_alt</span>
+<h3 class="font-headline-md text-headline-md text-primary">Live Data Source</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Connected to NOAA Nexus Global Weather API. Parametric triggers are evaluated every 5 minutes.</p>
+</div>
+<div class="mt-4 bg-surface rounded-lg p-3 border border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+<span class="font-data-mono text-data-mono text-on-surface">Connection Stable</span>
+</div>
+<span class="font-data-mono text-data-mono text-outline">Ping: 12ms</span>
+</div>
+</div>
+</div>
+<!-- Next Steps / Actions Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant shadow-card flex flex-col gap-4 h-full">
+<h3 class="font-headline-md text-headline-md text-primary">Next Steps</h3>
+<div class="flex flex-col gap-3 flex-grow justify-center">
+<button class="w-full bg-primary hover:bg-primary-container text-white py-3 px-4 rounded-lg font-label-sm text-label-sm transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">dashboard</span>
+                             Monitoring Dashboard
+                         </button>
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-primary py-3 px-4 rounded-lg font-label-sm text-label-sm transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                             Download Receipt
+                         </button>
+</div>
+</div>
+<!-- Share Widget -->
+<div class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant shadow-card flex flex-col items-center text-center gap-4 md:col-span-2">
+<p class="font-body-md text-body-md text-on-surface-variant">Rest easy knowing your special day is protected. Share your automated peace of mind.</p>
+<div class="flex gap-4 justify-center w-full">
+<button class="flex items-center justify-center gap-2 bg-inverse-on-surface hover:bg-surface-container text-primary border border-surface-container-high py-2 px-6 rounded-full font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span> Share Coverage
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple Confetti Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#10b981', '#1a365d', '#d6e3ff', '#6ffbbe'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Randomize properties
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
+                
+                // Randomize shape
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                }
+                
+                container.appendChild(confetti);
+            }
+            
+            // Clean up DOM after animation
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 5000);
+        });
+    </script>
+</body></html>

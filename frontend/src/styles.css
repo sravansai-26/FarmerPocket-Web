@@ -1,0 +1,164 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * Pocket Design Language (PDL)
+ * Warm canvas, graphite type, one semantic accent. No gradients, no glass.
+ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-failure: var(--failure);
+  --color-ring: var(--ring);
+
+  --font-sans: "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-2xl: 34px;
+
+  --shadow-quiet: 0 1px 2px oklch(0.3 0.02 260 / 0.04), 0 8px 24px oklch(0.3 0.02 260 / 0.04);
+  --shadow-lift: 0 2px 4px oklch(0.3 0.02 260 / 0.05), 0 18px 40px oklch(0.3 0.02 260 / 0.08);
+
+  --ease-pocket: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root {
+  --background: oklch(0.99 0.005 100);
+  --canvas: oklch(0.97 0.01 100);
+  --foreground: oklch(0.25 0.02 120);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.02 120);
+  --muted: oklch(0.95 0.02 110);
+  --muted-foreground: oklch(0.45 0.04 120);
+  --border: oklch(0.9 0.02 110);
+  --border-strong: oklch(0.8 0.03 115);
+  /* Deere green style - Softened */
+  --primary: oklch(0.52 0.12 142);
+  --primary-foreground: oklch(0.98 0.01 142);
+  --primary-soft: oklch(0.94 0.04 142);
+  /* Accent colors */
+  --success: oklch(0.55 0.15 145);
+  --success-soft: oklch(0.95 0.05 145);
+  --warning: oklch(0.7 0.18 70); /* Warm yellow/earth */
+  --warning-soft: oklch(0.96 0.05 75);
+  --failure: oklch(0.5 0.15 25);
+  --ring: oklch(0.48 0.15 140 / 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-size: 15px;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  }
+
+  ::selection {
+    background: var(--color-primary-soft);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 24px;
+
+  @media (min-width: 768px) {
+    padding-inline: 48px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 80px;
+  }
+}
+
+@utility section {
+  padding-block: 96px;
+
+  @media (min-width: 1024px) {
+    padding-block: 140px;
+  }
+}
+
+@utility eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  font-weight: 500;
+}
+
+@utility rule-line {
+  height: 1px;
+  width: 100%;
+  background: var(--color-border);
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.995);
+  will-change: opacity, transform;
+  transition:
+    opacity 720ms var(--ease-pocket),
+    transform 720ms var(--ease-pocket);
+
+  &[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+  }
+}

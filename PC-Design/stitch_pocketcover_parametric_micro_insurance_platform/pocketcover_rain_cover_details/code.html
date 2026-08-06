@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heavy Rain Protection - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#002617",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "secondary-fixed": "#d8e4eb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#111d22",
+                        "primary": "#002045",
+                        "outline": "#74777f",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-container": "#58646a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#d5e2e9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-fixed": "#002113",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "background": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "secondary": "#546066",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-high": "#dce9ff",
+                        "inverse-primary": "#adc7f7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-background": "#0b1c30",
+                        "surface-tint": "#455f88",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-container": "#86a0cd",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1a365d",
+                        "on-primary-fixed": "#001b3c",
+                        "tertiary-container": "#003e28",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed-variant": "#005236"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .card-shadow { box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03); }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%; background: #002045; cursor: pointer; margin-top: -10px; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #e5eeff; border-radius: 2px; }
+        input[type=range]:focus { outline: none; }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased pt-[80px]">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">PocketCover</a>
+<div class="hidden md:flex gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-300" href="#">Protection</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Claims</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Login</a>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary-container transition-colors duration-300 shadow-sm active:scale-95">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1200px] mx-auto px-gutter pb-section-padding">
+<!-- Hero Section -->
+<section class="mt-8 mb-section-padding">
+<div class="relative w-full h-[400px] md:h-[500px] rounded-[24px] overflow-hidden border border-outline-variant/30 card-shadow">
+<!-- Placeholder for high-fidelity weather viz -->
+<div class="absolute inset-0 bg-surface-container flex items-center justify-center">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A sophisticated, high-contrast, minimalist digital radar map visualizing heavy rain fronts moving across an urban grid. The aesthetic is clean, premium, and data-driven, using deep royal blues, crisp whites, and subtle glowing cyan accents for precipitation intensity. The overall look is similar to high-end financial terminal software combined with modern weather analytics. The lighting is soft but precise, typical of a professional light-mode UI." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMEWh6KW7hEAIrqVFSkgtokpkiaIx50vyKmwA9YaUfR_96B2FX_y7iVnAgqXUezqxG5zHyDE8kh8QXCSdP-U3IDmWVHpfn6zp3Wz1wNn1cz5QUFWajicx7h0hUkCiU3LN6sCOkGxsscjK388y65UFuYS_TePypL4_mki6v3c9lYT69p0yWOwwPkZmDtYoJuLNkGwIpJG-wkgFD_i8LmOAKxzd4C0XaBvPEmmvO3GLac6AU7EholydDtNZrVZng9RzANotM7ijlJHA')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="text-on-primary">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">water_drop</span> Micro</span>
+<span class="text-on-primary/80 font-data-mono text-data-mono">EVT-RC-09X</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-2">Heavy Rain Protection</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-xl">Parametric payout if accumulated rainfall exceeds 5mm within a continuous 2-hour window during your specified event time.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 min-w-[280px]">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface">Premium</span>
+<span class="font-headline-md text-headline-md text-primary">$12.00</span>
+</div>
+<div class="w-full h-px bg-outline-variant/50 my-3"></div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface">Max Payout</span>
+<span class="font-headline-md text-headline-md text-on-tertiary-container">$400.00</span>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary py-3 rounded-lg font-label-sm text-label-sm hover:bg-primary-container transition-colors duration-300 flex items-center justify-center gap-2">Secure Coverage <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Main Content -->
+<div class="bento-grid">
+<!-- Core Stats / Trigger -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow p-card-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-outline">account_tree</span> Mathematical Trigger</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-2">Threshold</span>
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg-mobile text-primary">&gt;5</span>
+<span class="font-data-mono text-data-mono text-outline">mm</span>
+</div>
+</div>
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-2">Duration</span>
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg-mobile text-primary">2</span>
+<span class="font-data-mono text-data-mono text-outline">hours</span>
+</div>
+</div>
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-2">Status</span>
+<div class="flex items-center gap-2 mt-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Pending Schedule</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">Payout is automated instantly via smart contract when the oracle confirms threshold breach.</p>
+</div>
+<!-- Risk Meter -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow p-card-padding flex flex-col justify-center items-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 self-start w-full">Risk Profile</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant self-start w-full mb-8">Historical Likelihood (Sept, NYC)</span>
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Fake SVG Circular Gauge -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#e5eeff" stroke-width="8"></circle>
+<circle class="transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="45" stroke="#00b47d" stroke-dasharray="282.7" stroke-dashoffset="230" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-display-lg text-display-lg-mobile text-primary">18%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Probability</span>
+</div>
+</div>
+</div>
+<!-- Interactive Simulator -->
+<div class="col-span-12 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow p-card-padding">
+<div class="flex justify-between items-end mb-8">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2"><span class="material-symbols-outlined text-outline">tune</span> Payout Simulator</h3>
+<span class="font-data-mono text-data-mono bg-surface px-3 py-1 rounded border border-outline-variant/20 text-on-surface-variant">Test Scenarios</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Simulated Rainfall (mm)</span>
+<span class="font-data-mono text-data-mono text-primary font-bold" id="sim-value">2.5 mm</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="rain-slider" max="15" min="0" step="0.5" type="range" value="2.5"/>
+<div class="flex justify-between mt-2 font-data-mono text-data-mono text-outline-variant text-[12px]">
+<span>0</span>
+<span>Trigger (5)</span>
+<span>15+</span>
+</div>
+</div>
+<div class="bg-surface-bright rounded-xl p-6 flex flex-col items-center justify-center text-center border border-outline-variant/20 min-h-[140px] transition-colors duration-300" id="sim-result-box">
+<span class="material-symbols-outlined text-[32px] text-outline mb-2" id="sim-status-icon">pending</span>
+<span class="font-headline-md text-headline-md text-on-surface" id="sim-status-text">No Payout</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1" id="sim-status-sub">Below 5mm threshold</span>
+</div>
+</div>
+</div>
+<!-- Data Transparency -->
+<div class="col-span-12 md:col-span-6 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow p-card-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-outline">database</span> Oracle Source</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Resolution of this contract relies on high-frequency weather data to ensure trustless execution.</p>
+<div class="bg-surface rounded-xl p-4 border border-outline-variant/20 flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">satellite</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface block">NOAA Global Hourly Feed</span>
+<span class="font-data-mono text-data-mono text-[12px] text-outline">API v3.1 • 15min interval</span>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-tertiary-fixed/20 text-on-tertiary-fixed-variant rounded-full font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span> Live
+                    </div>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1" href="#">View Smart Contract Details <span class="material-symbols-outlined text-[14px]">open_in_new</span></a>
+</div>
+<!-- Actions & Map -->
+<div class="col-span-12 md:col-span-6 grid grid-rows-2 gap-6">
+<!-- Map -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow overflow-hidden relative min-h-[160px]">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A clean, minimalist digital map interface showing a specific urban area. The map uses a light-mode aesthetic with soft grey and pale blue tones for water and landmasses, characteristic of high-end tech platforms. A subtle, precise geometric pin or bounding box highlights a venue location. The overall style is vector-like, crisp, and devoid of unnecessary geographical clutter." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBaudAKapQhdbZItUXENM3RLfPuq8wnPjerLLxTaEHxlpRLsQ-fybDJrTCn0g_LTdzjw0e3Ynismjx4g890l0MsJnTeKg2myQjbdLU49vhhVBsMExb5knlzOqHal60_iq1FNWY83El6EGem_NT6GS9fmcF8jgT_ETXhomltid3df3qT5WF_AMwVnB3jPK46_o3mte6CaknBRjx_zg2uIm8MnZi-PJ-fVBYaTP0ICBZ-EgEl0UukaOLWrr-udpPr05yb1Sq6FYQnVqw')"></div>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded font-label-sm text-label-sm text-on-surface">Coverage Area</div>
+</div>
+<!-- Gift Action -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 card-shadow p-6 flex flex-col justify-center items-start">
+<h4 class="font-headline-md text-[18px] text-primary mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-outline">redeem</span> Gift this Cover</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4">Transfer this protection to a friend's wallet seamlessly.</p>
+<button class="bg-surface-container hover:bg-surface-container-highest text-primary px-4 py-2 rounded-lg font-label-sm text-label-sm transition-colors duration-300 w-full text-center border border-primary/10">Configure Gift</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-surface-bright border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-4">
+<span class="font-headline-md text-[18px] font-bold text-primary">PocketCover</span>
+<div class="flex gap-6">
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Security</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Status</a>
+</div>
+<span class="font-label-sm text-[12px] text-on-secondary-container text-center md:text-right">© 2024 PocketCover. Parametric Protection for the Modern World.</span>
+</div>
+</footer>
+<script>
+        // Simple Simulator Logic
+        const slider = document.getElementById('rain-slider');
+        const valDisplay = document.getElementById('sim-value');
+        const box = document.getElementById('sim-result-box');
+        const icon = document.getElementById('sim-status-icon');
+        const text = document.getElementById('sim-status-text');
+        const sub = document.getElementById('sim-status-sub');
+
+        slider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            valDisplay.textContent = val.toFixed(1) + ' mm';
+            
+            if (val >= 5.0) {
+                box.classList.remove('bg-surface-bright', 'border-outline-variant/20');
+                box.classList.add('bg-tertiary-fixed/10', 'border-tertiary-fixed');
+                icon.textContent = 'check_circle';
+                icon.classList.remove('text-outline');
+                icon.classList.add('text-on-tertiary-container');
+                text.textContent = 'Payout Triggered';
+                text.classList.add('text-on-tertiary-container');
+                sub.textContent = 'Contract executes instantly ($400)';
+            } else {
+                box.classList.add('bg-surface-bright', 'border-outline-variant/20');
+                box.classList.remove('bg-tertiary-fixed/10', 'border-tertiary-fixed');
+                icon.textContent = 'pending';
+                icon.classList.add('text-outline');
+                icon.classList.remove('text-on-tertiary-container');
+                text.textContent = 'No Payout';
+                text.classList.remove('text-on-tertiary-container');
+                sub.textContent = 'Below 5mm threshold';
+            }
+        });
+    </script>
+</body></html>

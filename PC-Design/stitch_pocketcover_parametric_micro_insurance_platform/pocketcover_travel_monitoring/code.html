@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover | Travel &amp; Flight Protection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d8e4eb",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "primary": "#002045",
+                        "on-background": "#0b1c30",
+                        "tertiary-container": "#003e28",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-container": "#58646a",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-container": "#86a0cd",
+                        "on-secondary-fixed": "#111d22",
+                        "inverse-primary": "#adc7f7",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#002617",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "outline": "#74777f",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-variant": "#d3e4fe",
+                        "secondary": "#546066",
+                        "primary-container": "#1a365d",
+                        "on-primary-fixed": "#001b3c",
+                        "background": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "surface": "#f8f9ff",
+                        "secondary-container": "#d5e2e9",
+                        "inverse-on-surface": "#eaf1ff",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#213145",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#455f88",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "section-padding": "80px",
+                        "container-max": "1200px"
+                    },
+                    fontFamily: {
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "data-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-sm": ["13px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f8f9ff; color: #0b1c30; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        .pulse-ring { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.1); } }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md bg-background text-on-background">
+<!-- TopNavBar -->
+<header class="bg-surface/60 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-sm transition-all duration-200">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary">PocketCover</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Trust Center</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-2 items-center gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32" placeholder="Search..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-opacity">Get Started</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container" data-alt="A clean, minimalist high-key profile avatar of a professional on a crisp white background. Corporate minimalist aesthetic with sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG6cP88Wo9MHnevPO3o6uwjPfLJrrizQa51F3juIzCOL5YwTY36HgpIdom1lcDSa1sX9OC0jqPak41Cx7a-9l9ykROEmh877wkqC0-1QPyN07pMbb25Dsy3vSK273x7tvd7Hf7bTQEM92JoXuHM5PPhsU2LK3j866VlcULaJNM48drjxcGak1_9-fnGjRryFE4WUWq5-HQCvFv0joHJ29eHo9wgTvFGYV3JDDy_bQS9gSTS-MJAeVrZygW4vhcELo1uJ2e4OqBKSU"/>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-section-padding space-y-16">
+<!-- Header Section -->
+<section class="flex flex-col gap-4">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Active Protection</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Monitoring 1 active flight. Parametric sensors are active. Payouts are mathematically guaranteed based on live API triggers.</p>
+</section>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Flight Radar & Details -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Flight Radar Map Card -->
+<div class="glass-card rounded-[24px] p-card-padding relative overflow-hidden shadow-[0px_10px_30px_rgba(0,0,0,0.03)] h-[400px]">
+<div class="absolute inset-0 bg-surface-container-low" data-location="North Atlantic Ocean Map" style="">
+<img class="w-full h-full object-cover opacity-60" data-alt="A stylized, minimalist high-tech map of the North Atlantic Ocean. The map should be predominantly light blue and white, with thin, precise grid lines denoting coordinates. A subtle glowing trajectory line arches across the map, indicating a flight path. Soft, diffused lighting creates a premium, clinical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKHh-sK3xJiglkHHDe1bfWcpKvZs-7PMlYS7EUQaWspitXiuNCH0dWa-eborvYqqyRCQxWpkWPWMhGM9jf3-3my118VtHTLP0K9kcQCbcsoutIMJ3_0NIunvilJEu4aDtjljJ9BVO44qjQCPOXA4v_HG7bAhZIUnxvvMJBz77R2vkrUNK0p7AlqhPnV2-zp3gk_KapIkA4013TjrGkfTPhCJsOQChXBbomuvUwC17n6NJVZhlEccmhmj4PnMsVk7-5ytYyAWMC_Vw"/>
+</div>
+<!-- Radar Overlay Elements -->
+<div class="absolute top-6 left-6 z-10 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim pulse-ring"></span>
+                            Live Tracking
+                        </span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-data-mono text-data-mono text-outline">
+                            API: FlightAware V3
+                        </span>
+</div>
+<!-- Plane Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+<div class="relative">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center pulse-ring">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">flight</span>
+</div>
+<div class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-surface text-on-surface px-2 py-1 rounded font-data-mono text-xs whitespace-nowrap shadow-sm border border-outline-variant/20">
+                                AI-802 (38,000 ft)
+                            </div>
+</div>
+</div>
+</div>
+<!-- Flight Details Card -->
+<div class="glass-card rounded-[24px] p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex flex-col gap-6">
+<div class="flex justify-between items-start border-b border-outline-variant/10 pb-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<h2 class="font-headline-md text-headline-md text-primary">Flight AI-802</h2>
+<span class="bg-tertiary-fixed-dim/20 text-on-tertiary-container px-2 py-1 rounded-full font-label-sm text-[11px] border border-tertiary-fixed-dim/30">COVER ACTIVE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">LHR (London) → JFK (New York)</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-outline mb-1">SCHEDULED ARRIVAL</p>
+<p class="font-data-mono text-data-mono text-on-surface">14:30 EST (On Time)</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-2">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">AIRCRAFT</p>
+<p class="font-data-mono text-data-mono text-on-surface">Boeing 777-300ER</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">WEATHER AT DEST</p>
+<p class="font-data-mono text-data-mono text-on-surface">Clear, 18°C</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">COVER ID</p>
+<p class="font-data-mono text-data-mono text-on-surface">TRV-8992-A</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">PREMIUM</p>
+<p class="font-data-mono text-data-mono text-on-surface">$24.00 USDC</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Payout Logic & Recommendations -->
+<div class="flex flex-col gap-8">
+<!-- Smart Contract Status -->
+<div class="bg-primary-container text-on-primary-container rounded-[24px] p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%); background-size: 10px 10px;"></div>
+<div class="relative z-10 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-inverse-primary" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+<h3 class="font-headline-md text-headline-md text-inverse-primary">Parametric Trigger</h3>
+</div>
+<div class="bg-surface/10 rounded-xl p-4 border border-surface/20">
+<p class="font-label-sm text-label-sm text-inverse-primary/80 mb-2">CONDITION METRIC</p>
+<p class="font-body-lg text-body-lg text-on-primary font-medium">Delay &gt; 120 mins</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<div>
+<p class="font-label-sm text-label-sm text-inverse-primary/80 mb-1">GUARANTEED PAYOUT</p>
+<p class="font-display-lg-mobile text-display-lg-mobile text-on-primary">$500.00 <span class="text-inverse-primary/60 text-lg">USDC</span></p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-inverse-primary">hourglass_top</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommendations -->
+<div class="glass-card rounded-[24px] p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">explore</span>
+<h3 class="font-headline-md text-headline-md text-primary">JFK Recommendations</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container transition-colors rounded-lg cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface">local_cafe</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">Centurion Lounge (T4)</p>
+<p class="font-data-mono text-xs text-on-surface-variant">Access included with Platinum</p>
+</div>
+<span class="material-symbols-outlined text-outline ml-auto text-sm">arrow_forward_ios</span>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container transition-colors rounded-lg cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface">directions_car</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">Pre-book Transfer</p>
+<p class="font-data-mono text-xs text-on-surface-variant">Est. wait: 15 mins to Manhattan</p>
+</div>
+<span class="material-symbols-outlined text-outline ml-auto text-sm">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest full-width border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-4 col-span-1 md:col-span-2">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">© 2024 PocketCover. Parametric security for the modern age.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors" href="#">Company</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors" href="#">Products</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors" href="#">Developers</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

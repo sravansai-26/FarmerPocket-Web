@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Cricket Match Abandonment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#002617",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "secondary-fixed": "#d8e4eb",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#111d22",
+                        "primary": "#002045",
+                        "outline": "#74777f",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-container": "#58646a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#d5e2e9",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-fixed": "#002113",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "background": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "secondary": "#546066",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-high": "#dce9ff",
+                        "inverse-primary": "#adc7f7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-background": "#0b1c30",
+                        "surface-tint": "#455f88",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-container": "#86a0cd",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1a365d",
+                        "on-primary-fixed": "#001b3c",
+                        "tertiary-container": "#003e28",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed-variant": "#005236"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "section-padding": "80px",
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "base": "4px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["13px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "500" }],
+                        "data-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+            padding: 32px;
+        }
+        .data-line {
+            height: 2px;
+            background: linear-gradient(90deg, #002045 0%, #4edea3 100%);
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background-color: #f1f5f9;
+            border-radius: 9999px;
+            overflow: hidden;
+            display: flex;
+        }
+        .prob-win { background-color: #4edea3; }
+        .prob-rain { background-color: #002045; }
+        .prob-loss { background-color: #cbd5e1; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-surface-container/60 backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed cursor-pointer transition-transform active:scale-95">PocketCover</div>
+<div class="hidden md:flex space-x-8">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 cursor-pointer transition-transform active:scale-95 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Protection</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container cursor-pointer transition-transform active:scale-95 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Claims</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container cursor-pointer transition-transform active:scale-95 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Pricing</a>
+</div>
+<div class="flex space-x-4">
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-fixed transition-colors duration-300 cursor-pointer active:scale-95">Login</button>
+<button class="font-label-sm text-label-sm bg-primary text-on-primary px-4 py-2 rounded-full hover:opacity-90 transition-opacity cursor-pointer active:scale-95">Get Started</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-[100px] pb-section-padding">
+<div class="max-w-container-max mx-auto px-gutter">
+<!-- Hero Section / Cover Header -->
+<div class="relative rounded-[2rem] overflow-hidden mb-12 shadow-[0px_20px_50px_rgba(0,0,0,0.08)] bg-white h-[400px]">
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent z-10 w-2/3"></div>
+<div class="absolute inset-0 z-0" data-alt="A dramatic silhouette of a massive modern cricket stadium against a moody, overcast sky with subtle hints of impending rain. The stadium lights are on, creating a striking contrast. High-end architectural photography style, clean composition, slightly desaturated color palette favoring deep blues and greys to convey a premium, analytical mood. High resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvAGVmFR_k9qkMEUk9e8TcXbfwtNN_FoOGjXlbGP3kpzEIn1Pf6ArWsDpYJ235JvEsZ-ZUVFqJHqO9sgLhUVcf9v8m4PeynJ39ZP6IarpCc4oxIhGU6HM3dro1i9AMfrRZk8BmMZYgQnXIOSiMq4rJcZPaIJgAW0h9Wo4563j4_SI-qAkAiVC9RlCuT0vr0Pa5f3h4GbtsPeYmJxTfgWU2cj1RN8eUpZaP6u7qPaNSPx3wftHVqVKtQvOnQ5IOJ--L6HeWk804uFE')">
+</div>
+<div class="relative z-20 h-full flex flex-col justify-between p-10">
+<div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-1.5 w-fit border border-white/30">
+<span class="material-symbols-outlined text-[16px] text-white">sports_cricket</span>
+<span class="font-label-sm text-label-sm text-white uppercase tracking-wider">Parametric Policy</span>
+</div>
+<div class="max-w-lg">
+<h1 class="font-display-lg text-display-lg text-white mb-4">Cricket Match Abandonment</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-6">Instant payout if your match is abandoned or ends with no result due to rain. Verified by official ICC data.</p>
+<div class="flex space-x-4">
+<button class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-6 py-3 rounded-xl font-headline-md text-[16px] flex items-center space-x-2 hover:bg-tertiary-fixed transition-colors shadow-lg shadow-tertiary-fixed-dim/20">
+<span>Protect My Tickets</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="glass-panel text-white px-6 py-3 rounded-xl font-headline-md text-[16px] flex items-center space-x-2 hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span>Share with the Squad</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Weather Overlay -->
+<div class="absolute bottom-10 right-10 z-20 glass-panel rounded-2xl p-6 w-[300px]">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-sm text-label-sm text-white/80">LIVE WEATHER PROBABILITY</span>
+<span class="material-symbols-outlined text-white text-[20px]">rainy</span>
+</div>
+<div class="flex items-end space-x-2 mb-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-white">68%</span>
+<span class="font-body-md text-body-md text-white/80 pb-1">Chance of Rain</span>
+</div>
+<div class="data-line w-full opacity-50"></div>
+<p class="font-data-mono text-data-mono text-white/60 mt-3 text-[12px]">Last updated: 2 mins ago</p>
+</div>
+</div>
+<!-- Bento Grid Stats & Triggers -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Premium vs Payout -->
+<div class="bento-card col-span-1 md:col-span-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center space-x-2 mb-6">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface">Coverage Value</h3>
+</div>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">PREMIUM</span>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary">$15.00</div>
+</div>
+<div class="w-full h-[1px] bg-outline-variant/30 mb-6"></div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">GUARANTEED PAYOUT</span>
+<div class="font-display-lg-mobile text-display-lg-mobile text-tertiary-container">$200.00</div>
+</div>
+</div>
+<div class="mt-8 bg-surface-container-low rounded-xl p-4 border border-outline-variant/20">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[16px]">info</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Payout is transferred instantly to your registered wallet upon trigger confirmation.</p>
+</div>
+</div>
+</div>
+<!-- Trigger Definition -->
+<div class="bento-card col-span-1 md:col-span-2 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed opacity-10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+<div class="flex items-center space-x-2 mb-6 relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+</div>
+<h3 class="font-headline-md text-[18px] text-on-surface">Smart Contract Trigger</h3>
+</div>
+<div class="mb-8 relative z-10">
+<h4 class="font-display-lg-mobile text-[24px] text-primary mb-3">Match Abandoned or Result Not Possible</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                            The policy triggers automatically if the match is officially abandoned due to rain, or if a valid result cannot be reached under the Duckworth-Lewis-Stern (DLS) method.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+<div class="border border-outline-variant/30 rounded-xl p-5 bg-surface-container-lowest">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-tertiary-container">verified</span>
+<span class="font-headline-md text-[16px] text-on-surface">Data Source</span>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant">Verified by Official ICC Match Data API</p>
+</div>
+<div class="border border-outline-variant/30 rounded-xl p-5 bg-surface-container-lowest">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="font-headline-md text-[16px] text-on-surface">Resolution Time</span>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant">&lt; 5 minutes post official announcement</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-surface-bright dark:bg-inverse-surface border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-4 md:mb-0">PocketCover</div>
+<div class="flex space-x-6 mb-4 md:mb-0">
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Security</a>
+<a class="font-label-sm text-label-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Status</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface dark:text-inverse-on-surface text-center md:text-right">
+                © 2024 PocketCover. Parametric Protection for the Modern World.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Rewards &amp; Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#002045",
+                        "on-surface": "#0b1c30",
+                        "background": "#f8f9ff",
+                        "on-tertiary-container": "#00b47d",
+                        "surface-tint": "#455f88",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-fixed": "#111d22",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "outline-variant": "#c4c6cf",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#002617",
+                        "on-error-container": "#93000a",
+                        "on-background": "#0b1c30",
+                        "outline": "#74777f",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-primary-container": "#86a0cd",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "primary-fixed-dim": "#adc7f7",
+                        "primary-container": "#1a365d",
+                        "surface-container": "#e5eeff",
+                        "surface-container-high": "#dce9ff",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#003e28",
+                        "secondary-container": "#d5e2e9",
+                        "secondary": "#546066",
+                        "on-secondary-container": "#58646a",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "card-padding": "32px",
+                        "base": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Grid Layouts for Bento */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .bento-item {
+            background-color: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #E2E8F0;
+            padding: 32px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar (from JSON) -->
+<nav class="bg-surface-container-lowest h-screen w-64 fixed left-0 top-0 shadow-sm flex flex-col h-full py-base gap-gutter z-50">
+<!-- Brand/Header -->
+<div class="px-gutter pt-8 pb-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined icon-fill">shield</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">PocketCover</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Financial Module</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 px-4 flex flex-col gap-2">
+<!-- Workspace (Active intent based on prompt "Workspace or Rewards active", defaulting to Workspace as it exists in JSON) -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-l-4 border-primary bg-surface-container rounded-r-lg font-body-md text-body-md active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined icon-fill">dashboard</span>
+                Workspace
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-body-md text-body-md active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Transactions
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-body-md text-body-md active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                Wallet
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-body-md text-body-md active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Payouts
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-body-md text-body-md active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<!-- CTA -->
+<div class="px-gutter pb-4">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-sm text-label-sm font-semibold hover:opacity-90 transition-opacity active:scale-[0.98]">
+                Add Funds
+            </button>
+</div>
+<!-- Footer Links -->
+<div class="px-4 pb-8 flex flex-col gap-2 border-t border-outline-variant/30 pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar / Header (Semantic) -->
+<header class="h-24 px-12 flex items-center justify-between sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-transparent">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary">Rewards &amp; Insights</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Analyze your coverage and optimize your returns.</p>
+</div>
+<!-- User Profile / Notification (Decorative context) -->
+<div class="flex items-center gap-6">
+<button class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-3 right-3 w-2.5 h-2.5 bg-tertiary-fixed-dim rounded-full border-2 border-surface-container"></span>
+</button>
+<div class="flex items-center gap-3 bg-surface-container-lowest py-2 px-4 rounded-full shadow-sm border border-outline-variant/20">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold font-label-sm">
+                        JD
+                    </div>
+<span class="font-label-sm text-label-sm text-primary">0x4A2B...9F1C</span>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 p-12 max-w-container-max mx-auto w-full">
+<!-- Bento Grid -->
+<div class="bento-grid">
+<!-- Rewards Program Overview (Col span 8) -->
+<div class="bento-item col-span-12 lg:col-span-8 bg-gradient-to-br from-primary to-primary-container text-on-primary border-none shadow-lg shadow-primary/20">
+<!-- Subtle pattern background -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider mb-2">Cover Credits Balance</h3>
+<div class="font-display-lg text-display-lg font-bold">
+                                    24,500 <span class="font-headline-md text-headline-md text-primary-fixed-dim font-normal">CC</span>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+<span class="material-symbols-outlined icon-fill text-tertiary-fixed">workspace_premium</span>
+<span class="font-label-sm text-label-sm font-bold text-white">Platinum Tier</span>
+</div>
+</div>
+<div class="mt-12 grid grid-cols-2 gap-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed">Cashback Rate</span>
+<span class="font-label-sm text-label-sm text-white font-bold">4.5%</span>
+</div>
+<div class="w-full bg-black/20 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed h-full rounded-full" style="width: 75%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-primary-fixed mt-2 text-xs opacity-80">0.5% away from Diamond Tier</p>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed">Referral Progress</span>
+<span class="font-label-sm text-label-sm text-white font-bold">3/5 Active</span>
+</div>
+<div class="flex gap-2 h-2">
+<div class="flex-1 bg-tertiary-fixed rounded-full"></div>
+<div class="flex-1 bg-tertiary-fixed rounded-full"></div>
+<div class="flex-1 bg-tertiary-fixed rounded-full"></div>
+<div class="flex-1 bg-black/20 rounded-full"></div>
+<div class="flex-1 bg-black/20 rounded-full"></div>
+</div>
+<p class="font-label-sm text-label-sm text-primary-fixed mt-2 text-xs opacity-80">2 more referrals for 5,000 CC bonus</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tax Efficiency Card (Col span 4) -->
+<div class="bento-item col-span-12 lg:col-span-4 bg-surface-container-low border-none">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Tax Efficiency</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                        In your registered jurisdiction <strong class="text-primary">(UK)</strong>, parametric payouts under <strong>£10,000</strong> are currently classified as non-taxable compensatory relief.
+                    </p>
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/30 flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-1">check_circle</span>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary font-bold mb-1">Optimized</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Your current active coverage holds are structured to remain below the reporting threshold.</p>
+</div>
+</div>
+<button class="mt-6 w-full py-2.5 rounded-lg border border-primary text-primary font-label-sm text-label-sm font-semibold hover:bg-primary/5 transition-colors">
+                        View Tax Report
+                    </button>
+</div>
+<!-- Spending Insights Visualization (Col span 12) -->
+<div class="bento-item col-span-12 h-96 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Coverage Allocation</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Distribution of protected assets by category.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 bg-surface-container rounded-full text-primary font-label-sm text-label-sm font-semibold">30 Days</button>
+<button class="px-4 py-1.5 hover:bg-surface-container-low rounded-full text-on-surface-variant font-label-sm text-label-sm">YTD</button>
+</div>
+</div>
+<!-- Decorative Chart Area -->
+<div class="flex-1 relative w-full flex items-end justify-between px-8 pb-4 gap-4">
+<!-- Y-axis lines -->
+<div class="absolute inset-0 border-b border-outline-variant/20 bottom-4 pointer-events-none"></div>
+<div class="absolute inset-0 border-b border-outline-variant/10 bottom-1/4 pointer-events-none"></div>
+<div class="absolute inset-0 border-b border-outline-variant/10 bottom-2/4 pointer-events-none"></div>
+<div class="absolute inset-0 border-b border-outline-variant/10 bottom-3/4 pointer-events-none"></div>
+<!-- Bars -->
+<div class="w-full max-w-[800px] mx-auto flex items-end justify-between h-full relative z-10 px-8">
+<div class="flex flex-col items-center gap-3 w-24 group">
+<div class="w-16 bg-surface-container h-full rounded-t-lg relative flex items-end justify-center group-hover:bg-surface-container-high transition-colors">
+<div class="w-16 bg-primary h-[60%] rounded-t-lg shadow-sm"></div>
+<!-- Tooltip hover -->
+<div class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-3 py-1 rounded font-data-mono text-data-mono text-xs whitespace-nowrap">
+                                        60% ($4.2k)
+                                    </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Travel</span>
+</div>
+<div class="flex flex-col items-center gap-3 w-24 group">
+<div class="w-16 bg-surface-container h-full rounded-t-lg relative flex items-end justify-center group-hover:bg-surface-container-high transition-colors">
+<div class="w-16 bg-tertiary-fixed-dim h-[85%] rounded-t-lg shadow-sm"></div>
+<div class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-3 py-1 rounded font-data-mono text-data-mono text-xs whitespace-nowrap">
+                                        85% ($6.1k)
+                                    </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Weather</span>
+</div>
+<div class="flex flex-col items-center gap-3 w-24 group">
+<div class="w-16 bg-surface-container h-full rounded-t-lg relative flex items-end justify-center group-hover:bg-surface-container-high transition-colors">
+<div class="w-16 bg-surface-tint h-[35%] rounded-t-lg shadow-sm"></div>
+<div class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-3 py-1 rounded font-data-mono text-data-mono text-xs whitespace-nowrap">
+                                        35% ($1.8k)
+                                    </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Events</span>
+</div>
+<div class="flex flex-col items-center gap-3 w-24 group">
+<div class="w-16 bg-surface-container h-full rounded-t-lg relative flex items-end justify-center group-hover:bg-surface-container-high transition-colors">
+<div class="w-16 bg-secondary-fixed h-[15%] rounded-t-lg shadow-sm"></div>
+<div class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-3 py-1 rounded font-data-mono text-data-mono text-xs whitespace-nowrap">
+                                        15% ($0.8k)
+                                    </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Transit</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommended Protections Header (Full Width context) -->
+<div class="col-span-12 mt-8 mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Recommended Protections</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Curated based on your recent activity and wallet balance.</p>
+</div>
+<!-- Recommendation Cards -->
+<div class="bento-item col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/30 transition-colors cursor-pointer group flex flex-col">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-body-lg text-body-lg font-bold text-primary">Flight Delay</h4>
+<span class="bg-tertiary-fixed/20 text-tertiary-container px-2 py-1 rounded font-label-sm text-[10px] uppercase font-bold tracking-wider">High Match</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-6">Parametric coverage for delays over 2 hours on upcoming international flights.</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Est. Premium</span>
+<span class="font-data-mono text-data-mono text-primary font-bold">150 CC</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<div class="bento-item col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/30 transition-colors cursor-pointer group flex flex-col">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">thunderstorm</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-body-lg text-body-lg font-bold text-primary">Excessive Rainfall</h4>
+<span class="bg-surface-container text-primary px-2 py-1 rounded font-label-sm text-[10px] uppercase font-bold tracking-wider">Suggested</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-6">Triggered automatically if local rainfall exceeds historical 90th percentile.</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Est. Premium</span>
+<span class="font-data-mono text-data-mono text-primary font-bold">320 CC</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<div class="bento-item col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest border border-outline-variant/30 hover:border-primary/30 transition-colors cursor-pointer group flex flex-col">
+<div class="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">local_activity</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-body-lg text-body-lg font-bold text-primary">Event Cancellation</h4>
+<span class="bg-surface-container text-primary px-2 py-1 rounded font-label-sm text-[10px] uppercase font-bold tracking-wider">Suggested</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-6">Instant payout if ticketed major events are cancelled or postponed.</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Est. Premium</span>
+<span class="font-data-mono text-data-mono text-primary font-bold">85 CC</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom spacing buffer -->
+<div class="h-24"></div>
+</div>
+</main>
+</body></html>

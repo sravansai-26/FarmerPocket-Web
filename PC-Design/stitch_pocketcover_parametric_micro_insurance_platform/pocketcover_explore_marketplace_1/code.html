@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Explore Covers</title>
+<!-- Material Symbols for Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter and Geist -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "surface-container-highest": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "primary-container": "#1a365d",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "inverse-primary": "#adc7f7",
+                        "tertiary": "#002617",
+                        "on-primary-container": "#86a0cd",
+                        "secondary": "#546066",
+                        "surface-tint": "#455f88",
+                        "on-surface": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed": "#001b3c",
+                        "outline": "#74777f",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-container": "#58646a",
+                        "on-secondary-fixed": "#111d22",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d5e2e9",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-bright": "#f8f9ff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#d3e4fe",
+                        "surface": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container": "#e5eeff",
+                        "on-background": "#0b1c30",
+                        "primary": "#002045",
+                        "on-tertiary-container": "#00b47d",
+                        "tertiary-container": "#003e28",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-dim": "#cbdbf5",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "primary-fixed-dim": "#adc7f7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "card-padding": "32px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom shadows and utilities aligned with design system */
+        .shadow-level-1 { box-shadow: 0px 10px 30px rgba(0,0,0,0.03); }
+        .shadow-level-2 { box-shadow: 0px 20px 50px rgba(0,0,0,0.08); }
+        .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); }
+        
+        /* Subtle card border as per guidance */
+        .card-border { border: 1px solid rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar Component -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 shadow-sm transition-all duration-200" id="top-nav">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<!-- Brand -->
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight">PocketCover</span>
+</div>
+<!-- Navigation Links (Hidden on small screens) -->
+<nav aria-label="Main Navigation" class="hidden md:flex gap-8 items-center">
+<a aria-current="page" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 transition-all duration-200" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<!-- Search Icon Mobile -->
+<button aria-label="Search" class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<!-- Trailing Icon Actions -->
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-white"></span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="hidden md:inline-flex bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:opacity-90 transition-opacity whitespace-nowrap">
+                    Get Started
+                </button>
+<!-- Profile Avatar -->
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 flex-shrink-0 cursor-pointer">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A modern, minimalist avatar placeholder for a user profile, featuring a soft abstract gradient in primary blue and white, simple and clean, suitable for a professional finance application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfAkgcQTVfLyaSEHTPzdjHkjtHb7jnSPROLCAFJtwiVj4DNStz6t4fQBkCl0YhdNwsecBlBHpQFXXVATlkgvNxGdku21edJbpEcbifLFocMg7rBzEsK8i_qfIlf8u8fwdZURyhFAE7HFPtbcSnIsIW34HgWS6M4UliHZy9jvecpen-xr2ATD73OzPLzvu8jE-B9XdGbwHCBKp-lBBVWkcd6OJuGnQNEcpUuFpGfbfuWbiXtvue_VQKrJL90Vb0k0zv6lmMVitL7I8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-section-padding space-y-16">
+<!-- Hero Search Section -->
+<section class="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto mt-8 md:mt-12">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary tracking-tight">Parametric Protection. Instant Payouts.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Find mathematically certain coverage for your most critical events. No claims process, just automated peace of mind.</p>
+<!-- Search Bar -->
+<div class="w-full relative max-w-2xl mt-4 group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:border-primary shadow-level-1 transition-all text-body-md" placeholder="Search for weather, flight, or event protection..." type="text"/>
+</div>
+</section>
+<!-- Filters Section -->
+<section aria-label="Coverage Categories" class="flex overflow-x-auto pb-4 -mx-gutter px-gutter md:mx-0 md:px-0 gap-3 scrollbar-hide">
+<!-- Active Filter -->
+<button class="inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm whitespace-nowrap shrink-0 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="apps">apps</span>
+                All Covers
+            </button>
+<button class="inline-flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container hover:text-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm whitespace-nowrap shrink-0 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="rainy">rainy</span>
+                Weather
+            </button>
+<button class="inline-flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container hover:text-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm whitespace-nowrap shrink-0 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="flight">flight</span>
+                Travel
+            </button>
+<button class="inline-flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container hover:text-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm whitespace-nowrap shrink-0 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="sports_soccer">sports_soccer</span>
+                Sports
+            </button>
+<button class="inline-flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container hover:text-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm whitespace-nowrap shrink-0 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="stadium">stadium</span>
+                Events
+            </button>
+</section>
+<!-- Marketplace Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Rain Delay Concert -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding card-border shadow-level-1 flex flex-col h-full group hover:shadow-level-2 transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="music_note">music_note</span>
+</div>
+<!-- Status Chip -->
+<span class="bg-surface-container px-3 py-1 rounded-full text-primary font-label-sm text-label-sm border border-outline-variant/10">Weather</span>
+</div>
+<div class="mb-8 flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Rain Delay Protection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Automated payout if rainfall exceeds 2mm during scheduled outdoor concerts.</p>
+</div>
+<div class="space-y-4 mb-8">
+<!-- Trigger Data -->
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span> Trigger
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">&gt;2mm Rain</span>
+</div>
+<!-- Source Data -->
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="database">database</span> Source
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">IMD API</span>
+</div>
+<!-- Likelihood Meter -->
+<div class="py-2">
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-on-surface-variant">Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary">High</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+<!-- Price & Action -->
+<div class="mt-auto flex items-center justify-between pt-4">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Price / Payout</div>
+<div class="font-data-mono text-data-mono text-primary font-bold text-lg">₹29 <span class="text-outline font-normal text-sm mx-1">/</span> ₹1000</div>
+</div>
+<button aria-label="Purchase Rain Delay Protection" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Flight Delay -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding card-border shadow-level-1 flex flex-col h-full group hover:shadow-level-2 transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<span class="bg-surface-container px-3 py-1 rounded-full text-primary font-label-sm text-label-sm border border-outline-variant/10">Travel</span>
+</div>
+<div class="mb-8 flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Flight Delay Cover</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Instant wallet credit if your domestic flight is delayed by more than 2 hours.</p>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span> Trigger
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">&gt;120 mins</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="database">database</span> Source
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">FlightStats</span>
+</div>
+<div class="py-2">
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-on-surface-variant">Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary">Medium</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Price / Payout</div>
+<div class="font-data-mono text-data-mono text-primary font-bold text-lg">₹49 <span class="text-outline font-normal text-sm mx-1">/</span> ₹2000</div>
+</div>
+<button aria-label="Purchase Flight Delay Cover" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Cricket Match -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding card-border shadow-level-1 flex flex-col h-full group hover:shadow-level-2 transition-shadow duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="sports_cricket">sports_cricket</span>
+</div>
+<span class="bg-surface-container px-3 py-1 rounded-full text-primary font-label-sm text-label-sm border border-outline-variant/10">Sports</span>
+</div>
+<div class="mb-8 flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Cricket Match Rain Cover</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Compensation if a professional cricket match is abandoned or reduced by &gt;5 overs due to rain.</p>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span> Trigger
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">Match Abandoned</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="database">database</span> Source
+                        </span>
+<span class="font-data-mono text-data-mono text-primary font-medium">ICC API</span>
+</div>
+<div class="py-2">
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-on-surface-variant">Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary">Low</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Price / Payout</div>
+<div class="font-data-mono text-data-mono text-primary font-bold text-lg">₹19 <span class="text-outline font-normal text-sm mx-1">/</span> ₹500</div>
+</div>
+<button aria-label="Purchase Cricket Match Cover" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 full-width mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<!-- Links Columns (Simplified for grid layout based on JSON) -->
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors mt-2" href="#">Legal</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Search Focus Script (Optional UX enhancement) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('input[type="text"]');
+            const searchIcon = searchInput.parentElement.querySelector('.material-symbols-outlined');
+            
+            searchInput.addEventListener('focus', () => {
+                searchIcon.classList.add('fill-icon');
+            });
+            
+            searchInput.addEventListener('blur', () => {
+                searchIcon.classList.remove('fill-icon');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#d6e3ff",
+                      "tertiary-fixed": "#6ffbbe",
+                      "inverse-surface": "#213145",
+                      "on-secondary-container": "#58646a",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "secondary": "#546066",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#003e28",
+                      "on-primary-container": "#86a0cd",
+                      "surface-variant": "#d3e4fe",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-container": "#1a365d",
+                      "secondary-fixed": "#d8e4eb",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#001b3c",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "surface-container-high": "#dce9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#002617",
+                      "secondary-container": "#d5e2e9",
+                      "primary": "#002045",
+                      "surface-container-highest": "#d3e4fe",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container": "#e5eeff",
+                      "background": "#f8f9ff",
+                      "on-tertiary-container": "#00b47d",
+                      "on-surface-variant": "#43474e",
+                      "on-surface": "#0b1c30",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "surface-tint": "#455f88",
+                      "inverse-primary": "#adc7f7",
+                      "primary-fixed-dim": "#adc7f7",
+                      "on-error": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "on-tertiary-fixed": "#002113",
+                      "on-secondary-fixed": "#111d22",
+                      "on-error-container": "#93000a",
+                      "outline": "#74777f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding": "80px",
+                      "base": "4px",
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "card-padding": "32px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter", "sans-serif"],
+                      "data-mono": ["Geist", "monospace"],
+                      "body-lg": ["Inter", "sans-serif"],
+                      "label-sm": ["Geist", "sans-serif"],
+                      "body-md": ["Inter", "sans-serif"],
+                      "display-lg-mobile": ["Inter", "sans-serif"],
+                      "display-lg": ["Inter", "sans-serif"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-on-surface antialiased w-full h-screen overflow-hidden flex">
+<!-- Left Side: Hero Image Split -->
+<div class="hidden lg:flex w-[55%] relative h-full flex-col justify-end p-section-padding">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full z-0">
+<img class="w-full h-full object-cover object-center" data-alt="A breathtaking, hyper-realistic wide shot of a serene, majestic mountain landscape at dawn. The scene features crystal clear skies transitioning into deep stratospheric blue. Subtle, glowing parametric data overlays—such as topographical contour lines, aviation flight paths, and weather metrics—float delicately in the foreground, rendered in a crisp, luminous white and soft cyan. The mood is highly secure, premium, and mathematically precise, representing invisible protection and confidence in modern technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfw64fCm6LBwY_94I5o0d_bfHvRgtdR-wCuTKf4KATCiEQ_8LOrGeuEBDQUiAxanIMAcEXrledqKDhstgABiNUBxS9UW-wdORRlKSfaAviLIYbxHaqNUuEdgklmW6rMUGttGY_s-OUDhMfK-LmjTYl4GKTUQXq-vV7BGiUknLXVWJjqgZIpkVZ4V2cJVnzLk68XGJUJnB70AbSPa4y37EJXs_hLJk1RWJx8Iqqi6md-GkUSQ0jbxM6n7h2dSrAWy1hjEf8YL3tUwA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent mix-blend-multiply"></div>
+</div>
+<!-- Foreground Content -->
+<div class="relative z-10 max-w-lg mb-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container/20 backdrop-blur-md border border-white/20 mb-6">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span>
+<span class="font-data-mono text-data-mono text-white tracking-wider uppercase">System Active</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white mb-4 drop-shadow-lg">
+                Insurance that works for you.
+            </h1>
+<p class="font-body-lg text-body-lg text-surface-container-low opacity-90 max-w-md">
+                Parametric smart contracts that pay out automatically. No claims, no waiting. Just mathematical certainty when you need it most.
+            </p>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="w-full lg:w-[45%] h-full flex flex-col overflow-y-auto bg-surface-container-lowest relative z-20">
+<div class="flex-1 flex flex-col justify-center max-w-[480px] w-full mx-auto px-gutter py-section-padding">
+<!-- Header -->
+<div class="mb-12">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">PocketCover</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-2">Sign In</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Access your parametric protection dashboard.</p>
+</div>
+<!-- SSO Actions -->
+<div class="flex flex-col gap-3 mb-8">
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-bright transition-colors text-on-surface font-label-sm text-label-sm">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU_pbKDIDWt1pe5h8zs6EmSw5KWQi9S7pbcpNATQI94HENyB96I4Qlm5gUWBjMqJZUy-za-hIwWJuQPci_Rk1VXpS9acGstppEmf_pfwmnk5kj_h0QjSdy-LIu19b0xmypVdb4FLM8StsqIf6QYugYcBjH9RymaWcoNeL4meMTTT-gNuPW3Cz2XD0TvNUW7LynqXhz7fEG12Ko_IYdzTKk1sz5_0dkg8_m_RnmNussvJ1Dy9mvUuKe81PHaLQFhJL1cAyJ2inhBEY"/>
+                    Continue with Google
+                </button>
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-outline-variant bg-surface-container-lowest hover:bg-surface-bright transition-colors text-on-surface font-label-sm text-label-sm">
+<img alt="Apple" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgX6Gc9kLZL4qOIoy2LRxxcF8Xm7z0rdw-6gsZZxwMYU5axf1ld6KBzBFNaJy61lo8IxrcZgVaiBH9ERvByIrD6Ycm5T_nFcpHcbl3aWVTzDrtklDRmbrHs9m8GI8ZIcld3j6vhshE6_Vr6XCNKnp5tLCZZSv5TY7BuUXxWXbMujTNB8hBB3anFp-wWQmJ5j6evKTnw89vg2mDr0KoGRq-4g_rQrI229Sg05YigxzVRF2LstEv22ClTiMeXQX8hB1p9DcgO4O7Lbs"/>
+                    Continue with Apple
+                </button>
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface hover:bg-surface-container transition-colors text-primary font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+                    Passkey Login
+                </button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 mb-8">
+<div class="h-px bg-outline-variant flex-1 opacity-50"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-2">OR</span>
+<div class="h-px bg-outline-variant flex-1 opacity-50"></div>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-5 mb-8" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="email">Email Address</label>
+<input class="w-full rounded-xl bg-surface border-none px-4 py-3.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="email" placeholder="name@company.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5 relative">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<input class="w-full rounded-xl bg-surface border-none px-4 py-3.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="mt-4 flex flex-col gap-3">
+<button class="w-full py-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-headline-md text-[16px] leading-[24px] shadow-[0_10px_30px_rgba(0,32,69,0.15)] transition-all active:scale-[0.98]" type="submit">
+                        Sign In
+                    </button>
+</div>
+</form>
+<div class="text-center mt-auto">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Don't have an account? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4 decoration-2 decoration-primary-fixed" href="#">Sign Up</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>

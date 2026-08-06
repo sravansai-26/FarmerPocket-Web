@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Active Protection Dashboard - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#adc7f7",
+                        "tertiary": "#002617",
+                        "primary-container": "#1a365d",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-container": "#58646a",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary-container": "#00b47d",
+                        "primary": "#002045",
+                        "secondary": "#546066",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "outline-variant": "#c4c6cf",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#003e28",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary-container": "#86a0cd",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-secondary-fixed": "#111d22",
+                        "surface-tint": "#455f88",
+                        "outline": "#74777f",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "secondary-container": "#d5e2e9",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-low": "#eff4ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface": "#0b1c30",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed": "#001b3c",
+                        "on-background": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
+        }
+        
+        .progress-bar-anim {
+            animation: pulse-width 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-width {
+            0% { width: 85%; }
+            100% { width: 88%; }
+        }
+
+        .pulse-dot {
+            animation: pulse-op 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-op {
+            0% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.5; transform: scale(0.9); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav aria-label="Main Navigation" class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 docked full-width top-0 sticky z-50 shadow-sm transition-all duration-200">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-8">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight hover:opacity-80 transition-opacity" href="#">
+                    PocketCover
+                </a>
+<div class="hidden md:flex items-center gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Explore</a>
+<a aria-current="page" class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button aria-label="Notifications" class="hidden md:flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-on-tertiary-container rounded-full pulse-dot"></span>
+</button>
+<button class="bg-primary-container text-on-primary hover:bg-primary transition-colors px-6 py-2.5 rounded-full font-label-sm text-label-sm font-semibold tracking-wide">
+                    Get Started
+                </button>
+<!-- Mobile Menu Button -->
+<button aria-label="Menu" class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-gutter py-8 md:py-12 space-y-12">
+<!-- Oracle Network Status Bar -->
+<div class="glass-card rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-tertiary-fixed-dim/20 bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-on-tertiary-container pulse-dot shadow-[0_0_8px_rgba(0,180,125,0.4)]"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wider uppercase">Oracle Network: System Healthy</span>
+</div>
+<div class="flex items-center gap-4 font-data-mono text-data-mono text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">speed</span> 14ms latency
+                </span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">verified</span> 100% consensus
+                </span>
+</div>
+</div>
+<!-- Dashboard Header & Summary Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Hero Summary -->
+<div class="lg:col-span-2 glass-card rounded-[24px] p-card-padding flex flex-col justify-between bg-surface-container-lowest relative overflow-hidden">
+<!-- Decorative subtle gradient -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">Active Protection Overview</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-lg">Monitoring real-time telemetry across your parametric contracts.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Total Value Protected</p>
+<p class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary tracking-tight">$42,500<span class="text-headline-md text-outline font-normal">.00</span></p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Active Contracts</p>
+<p class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary tracking-tight">3</p>
+</div>
+<div class="hidden sm:block">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Est. Next Payout</p>
+<p class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-on-secondary-container tracking-tight">--</p>
+</div>
+</div>
+</div>
+<!-- Live Trigger Feed -->
+<div class="glass-card rounded-[24px] p-card-padding bg-surface-container-lowest flex flex-col h-full max-h-[400px]">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface text-[20px]">Live Telemetry Feed</h2>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] animate-spin" style="animation-duration: 3s;">sync</span>
+</div>
+<div class="flex-grow overflow-y-auto pr-2 space-y-4 font-data-mono text-data-mono scrollbar-thin">
+<div class="flex flex-col gap-1 border-l-2 border-on-tertiary-container pl-3 pb-2">
+<div class="flex justify-between items-center text-[12px] text-on-surface-variant">
+<span>JFK Air Traffic Node</span>
+<span>14:02:11 GMT</span>
+</div>
+<div class="text-on-surface">Flight DL492 departed on time.</div>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-outline-variant pl-3 pb-2 opacity-70">
+<div class="flex justify-between items-center text-[12px] text-on-surface-variant">
+<span>NOAA Weather Node</span>
+<span>14:01:45 GMT</span>
+</div>
+<div class="text-on-surface">Rainfall at 2.1mm/hr (Threshold: 5.0mm)</div>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-outline-variant pl-3 pb-2 opacity-60">
+<div class="flex justify-between items-center text-[12px] text-on-surface-variant">
+<span>Smart Contract Validator</span>
+<span>13:59:00 GMT</span>
+</div>
+<div class="text-on-surface">Block #1428579 verified.</div>
+</div>
+<div class="flex flex-col gap-1 border-l-2 border-outline-variant pl-3 pb-2 opacity-50">
+<div class="flex justify-between items-center text-[12px] text-on-surface-variant">
+<span>JFK Air Traffic Node</span>
+<span>13:45:22 GMT</span>
+</div>
+<div class="text-on-surface">Pre-flight checks confirmed for DL492.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Monitoring Grid -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Monitoring</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">filter_list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Flight Delay Card -->
+<div class="glass-card rounded-[24px] p-card-padding bg-surface-container-lowest flex flex-col relative overflow-hidden group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px]">Flight Delay Protection</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">DL492 • JFK to LHR</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container font-label-sm text-[12px] font-bold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container pulse-dot"></span> Active
+                        </span>
+</div>
+<div class="mb-8">
+<div class="flex justify-between font-data-mono text-data-mono text-on-surface-variant mb-2 text-[12px]">
+<span>Scheduled: 14:00</span>
+<span>Trigger: &gt;2hr Delay</span>
+</div>
+<!-- Progress Bar (Timeline) -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-primary-container rounded-full w-[15%]"></div>
+<!-- Current time marker -->
+<div class="absolute top-0 left-[15%] w-1 h-full bg-on-tertiary-container"></div>
+</div>
+<p class="font-label-sm text-[12px] text-on-surface-variant mt-2 text-right">Currently on schedule</p>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<div>
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Coverage Amount</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">$500.00</p>
+</div>
+<button class="text-primary-container hover:bg-surface-container px-4 py-2 rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-2">
+                            View Live Stream <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Rain Cover Card -->
+<div class="glass-card rounded-[24px] p-card-padding bg-surface-container-lowest flex flex-col relative overflow-hidden group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-inverse-surface flex items-center justify-center text-inverse-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rainy</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px]">Event Rain Cover</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Outdoor Festival • Austin, TX</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container font-label-sm text-[12px] font-bold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container pulse-dot"></span> Active
+                        </span>
+</div>
+<div class="mb-8 flex items-end gap-6">
+<!-- Pseudo-Gauge Visualization -->
+<div class="w-32 h-16 relative overflow-hidden rounded-t-full border-b-2 border-outline-variant/20 flex-shrink-0">
+<!-- Gauge background -->
+<div class="absolute inset-0 border-[12px] border-surface-container rounded-t-full border-b-0"></div>
+<!-- Gauge fill -->
+<div class="absolute inset-0 border-[12px] border-primary-container rounded-t-full border-b-0 origin-bottom transform rotate-[-30deg] transition-transform duration-1000"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 font-data-mono text-[14px] font-semibold text-on-surface">2.1mm</div>
+</div>
+<div class="pb-1">
+<p class="font-label-sm text-[12px] text-on-surface-variant mb-1">Current Rainfall (Hourly)</p>
+<p class="font-data-mono text-data-mono text-on-surface font-medium">Trigger at 5.0mm</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center">
+<div>
+<p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Coverage Amount</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">$42,000.00</p>
+</div>
+<button class="text-primary-container hover:bg-surface-container px-4 py-2 rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-2">
+                            View Live Stream <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter font-body-md text-body-md">
+<div class="col-span-1 md:col-span-2 space-y-4">
+<a class="font-display-lg text-headline-md font-bold text-primary block" href="#">
+                    PocketCover
+                </a>
+<p class="text-on-surface dark:text-on-surface-variant max-w-sm">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Company</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Resources</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

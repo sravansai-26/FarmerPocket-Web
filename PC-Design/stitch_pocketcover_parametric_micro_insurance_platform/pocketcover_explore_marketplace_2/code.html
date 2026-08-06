@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Marketplace - PocketCover</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-high": "#dce9ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "on-primary-container": "#86a0cd",
+                        "primary": "#002045",
+                        "on-background": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "outline": "#74777f",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-container": "#d5e2e9",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "secondary": "#546066",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1a365d",
+                        "on-secondary-container": "#58646a",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "tertiary": "#002617",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#003e28",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-tint": "#455f88",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "background": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#111d22"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Shared Component: TopNavBar -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 shadow-sm border-none">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">
+                PocketCover
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<!-- Active Tab: Explore -->
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 opacity-80 transition-all duration-200" href="#">
+                    Explore
+                </a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Dashboard
+                </a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Wallet
+                </a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Trust Center
+                </a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-primary/90 transition-colors hidden md:block shadow-[0_4px_14px_rgba(0,32,69,0.15)]">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Search Section -->
+<section class="w-full max-w-container-max mx-auto px-gutter pt-[80px] md:pt-[120px] pb-section-padding flex flex-col items-center text-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 max-w-2xl">
+                Precision Protection for Your World.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl">
+                Discover mathematical certainty. Parametric coverage that pays out instantly when triggers are met. No claims, no waiting.
+            </p>
+<!-- Search Bar -->
+<div class="w-full max-w-3xl relative shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-full">
+<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-full py-5 pl-14 pr-32 font-body-lg text-body-lg text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm" placeholder="Search covers (e.g., 'Flight delay to JFK', 'Rain in Mumbai')" type="text"/>
+<div class="absolute inset-y-2 right-2">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 h-full rounded-full hover:bg-primary/90 transition-colors">
+                        Find Cover
+                    </button>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-wrap justify-center gap-3 mt-10">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-sm text-label-sm transition-all shadow-[0_4px_14px_rgba(0,32,69,0.15)]">
+<span class="material-symbols-outlined text-[18px]">partly_cloudy_day</span>
+                    Weather
+                </button>
+<button class="flex items-center gap-2 bg-surface-container-lowest text-on-surface-variant border border-outline-variant/30 px-5 py-2.5 rounded-full font-label-sm text-label-sm hover:border-primary/50 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">flight_takeoff</span>
+                    Travel
+                </button>
+<button class="flex items-center gap-2 bg-surface-container-lowest text-on-surface-variant border border-outline-variant/30 px-5 py-2.5 rounded-full font-label-sm text-label-sm hover:border-primary/50 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">sports_soccer</span>
+                    Sports
+                </button>
+<button class="flex items-center gap-2 bg-surface-container-lowest text-on-surface-variant border border-outline-variant/30 px-5 py-2.5 rounded-full font-label-sm text-label-sm hover:border-primary/50 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">local_activity</span>
+                    Events
+                </button>
+</div>
+</section>
+<!-- Recommended Section (Location Based) -->
+<section class="w-full max-w-container-max mx-auto px-gutter py-section-padding">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined icon-fill text-tertiary-fixed-dim">location_on</span>
+                        Recommended in Mumbai
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Based on your upcoming local events and weather forecasts.</p>
+</div>
+<button class="text-primary font-label-sm text-label-sm hover:underline hidden md:block">View All</button>
+</div>
+<!-- Bento Grid Layout for Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Event Rain -->
+<div class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col group relative overflow-hidden">
+<!-- Decorative subtle blur -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/30 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">rainy</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-primary font-bold">Open Air Concert</h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px]">Bandra Kurla Complex</p>
+</div>
+</div>
+<span class="bg-tertiary-fixed/20 text-on-tertiary-container px-3 py-1 rounded-full font-label-sm text-[11px] font-bold border border-tertiary-fixed/30">
+                            Active Monitoring
+                        </span>
+</div>
+<div class="mb-6 relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Trigger Condition</p>
+<div class="font-headline-md text-headline-md text-primary flex items-baseline gap-1">
+                            > 2.5<span class="text-[16px] font-normal text-outline">mm Rain</span>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px] mt-1">Between 18:00 - 23:00 IST</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 relative z-10 p-4 bg-surface-bright rounded-[16px] border border-outline-variant/10">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Premium</p>
+<p class="font-data-mono text-data-mono text-primary font-semibold">₹190</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Guaranteed Payout</p>
+<p class="font-data-mono text-data-mono text-on-tertiary-container font-semibold">₹5,000</p>
+</div>
+</div>
+<div class="mt-auto relative z-10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary text-[12px]">42%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%;"></div>
+</div>
+<button class="w-full mt-6 bg-surface-container text-primary font-label-sm text-label-sm py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/10 group-hover:border-transparent">
+                            Protect Event
+                        </button>
+</div>
+</div>
+<!-- Card 2: Flight Delay -->
+<div class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col group relative overflow-hidden">
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-primary font-bold">Flight AI-202</h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px]">BOM → DEL</p>
+</div>
+</div>
+</div>
+<div class="mb-6 relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Trigger Condition</p>
+<div class="font-headline-md text-headline-md text-primary flex items-baseline gap-1">
+                            > 45<span class="text-[16px] font-normal text-outline">min Delay</span>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px] mt-1">From scheduled departure</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 relative z-10 p-4 bg-surface-bright rounded-[16px] border border-outline-variant/10">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Premium</p>
+<p class="font-data-mono text-data-mono text-primary font-semibold">₹45</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Guaranteed Payout</p>
+<p class="font-data-mono text-data-mono text-on-tertiary-container font-semibold">₹2,500</p>
+</div>
+</div>
+<div class="mt-auto relative z-10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Historical Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary text-[12px]">18%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed h-full rounded-full" style="width: 18%;"></div>
+</div>
+<button class="w-full mt-6 bg-surface-container text-primary font-label-sm text-label-sm py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/10 group-hover:border-transparent">
+                            Protect Flight
+                        </button>
+</div>
+</div>
+<!-- Card 3: Commute Temp -->
+<div class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col group relative overflow-hidden md:hidden lg:flex">
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">thermostat</span>
+</div>
+<div>
+<h3 class="font-label-sm text-label-sm text-primary font-bold">Extreme Heat</h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px]">Daily Commute (Mar-May)</p>
+</div>
+</div>
+</div>
+<div class="mb-6 relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Trigger Condition</p>
+<div class="font-headline-md text-headline-md text-primary flex items-baseline gap-1">
+                            > 40<span class="text-[16px] font-normal text-outline">°C Temp</span>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[12px] mt-1">Recorded at Colaba Observatory</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 relative z-10 p-4 bg-surface-bright rounded-[16px] border border-outline-variant/10">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Premium</p>
+<p class="font-data-mono text-data-mono text-primary font-semibold">₹15/day</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">Guaranteed Payout</p>
+<p class="font-data-mono text-data-mono text-on-tertiary-container font-semibold">₹300/day</p>
+</div>
+</div>
+<div class="mt-auto relative z-10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Seasonal Likelihood</span>
+<span class="font-data-mono text-data-mono text-primary text-[12px]">65%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 65%;"></div>
+</div>
+<button class="w-full mt-6 bg-surface-container text-primary font-label-sm text-label-sm py-3 rounded-xl hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant/10 group-hover:border-transparent">
+                            Subscribe Cover
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="full-width border-t border-outline-variant/10 bg-surface-container-lowest dark:bg-surface-container-highest mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant opacity-80 max-w-xs">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-1 flex flex-col gap-3 font-body-md text-body-md">
+<a class="text-primary font-semibold hover:text-primary transition-colors" href="#">Company</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors mt-2" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

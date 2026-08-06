@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover | Coverage Live Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#455f88",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed": "#d6e3ff",
+                        "primary-container": "#1a365d",
+                        "on-primary-container": "#86a0cd",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "inverse-primary": "#adc7f7",
+                        "tertiary-container": "#003e28",
+                        "outline": "#74777f",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#002617",
+                        "surface-container-low": "#eff4ff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-tertiary-container": "#00b47d",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface-variant": "#43474e",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary-fixed": "#001b3c",
+                        "surface": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#58646a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#d5e2e9",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#002045",
+                        "outline-variant": "#c4c6cf",
+                        "background": "#f8f9ff",
+                        "secondary": "#546066",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-background": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #EBF8FF; /* Background override from style guidance */
+            color: #0b1c30;
+        }
+        .card-shadow {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        
+        /* Grid Background Pattern */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 32, 69, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 32, 69, 0.03) 1px, transparent 1px);
+        }
+
+        .pulse-dot {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(78, 222, 163, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(78, 222, 163, 0);
+            }
+            100% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(78, 222, 163, 0);
+            }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen relative overflow-x-hidden">
+<!-- Ambient Grid Background -->
+<div class="fixed inset-0 bg-grid pointer-events-none z-[-1]"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<!-- Brand -->
+<div class="text-headline-md font-headline-md font-black text-primary">
+                PocketCover
+            </div>
+<!-- Nav Links (Desktop) -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Protection</a>
+<!-- Active State semantic intent: 'Coverage Live Tracking' maps best to Claims or Protection, let's treat it as a transactional sub-page with a specific active context if it was main nav, but since it's a specific live view, we will highlight nothing or 'Protection' as the parent category. Let's highlight Protection -->
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Claims</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Governance</a>
+</div>
+<!-- Action -->
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                Sign In
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-[120px] pb-section-padding px-gutter max-w-container-max mx-auto min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim pulse-dot"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Oracle Network: System Healthy</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2 hidden md:block">Active Coverage</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 md:hidden">Active Coverage</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Contract #PC-4992-A is currently monitoring parameters for London, UK. Instant payout authorized if triggers are met.
+                    </p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history</span>
+                        Wallet History
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">verified_user</span>
+                        Trust Center
+                    </button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Map & Parameters (Spans 8) -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Live Map Card -->
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] card-shadow overflow-hidden relative min-h-[400px]">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 bg-surface-variant/30 flex items-center justify-center">
+<img class="object-cover w-full h-full opacity-80" data-alt="A highly detailed, mathematically precise top-down satellite map view of a modern metropolitan area (London). The map is rendered in a minimalist, high-end corporate style with soft sky blue water features, pristine white city blocks, and subtle topographical lines. A perfect, glowing geometric circle overlay in deep royal blue delineates the active coverage radius. The lighting is bright, clean, and clinical, reflecting a modern parametric insurance platform." data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC50LH1fagQfZMXVlbPS5Dhbz5S0rNyXaAHQ6phUlY7keTF8ZAf4U5cUfSZmklWe3U06ylzdktLfxJhv973RuiiSrvlff6TLNTs9_rIG3j0F5rc-Go96oI3G24apbcHa5lNB0F6j2Ice2hH6BUS2YBWuU-Q0wiyDSYFPIvThjcYXSRzxAePumGOOIAITfzJdc-QtpPUoecAeZ5FFdfIOHTZ4iwkLrTYRUpJf064yLfeaICQxrteZBMkpqpamyJKX8J1dlz_xtY4ir4"/>
+</div>
+<!-- Overlay Elements on Map -->
+<div class="absolute top-6 left-6 glass-panel rounded-xl p-4 border border-white/20">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant mb-1">Monitored Zone</h3>
+<p class="font-headline-md text-headline-md text-primary font-bold">Greater London Radius</p>
+<p class="font-data-mono text-data-mono text-secondary mt-1">Lat: 51.5074° N, Lon: 0.1278° W</p>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<div class="glass-panel px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary">Coverage Area (15km)</span>
+</div>
+</div>
+</div>
+<!-- Live Precipitation Chart Card -->
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] card-shadow p-card-padding">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Precipitation Telemetry</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Real-time mm/hr reading vs Trigger Threshold</p>
+</div>
+<div class="bg-surface-container-low px-3 py-1 rounded-full border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">cloudy_snowing</span>
+<span class="font-data-mono text-data-mono text-primary font-bold">Rain Cover</span>
+</div>
+</div>
+<!-- Chart Visualization Area -->
+<div class="h-48 w-full relative flex items-end gap-1">
+<!-- Simulated Bar Chart (Precision engineering feel) -->
+<div class="absolute top-[40%] left-0 w-full border-t border-dashed border-error/50 z-0">
+<span class="absolute -top-6 right-0 font-data-mono text-data-mono text-error">Trigger Threshold: 20mm/hr</span>
+</div>
+<!-- Bars -->
+<div class="w-full flex justify-between items-end h-full z-10 px-2">
+<div class="w-[3%] bg-surface-tint/20 h-[10%] rounded-t-sm hover:bg-surface-tint/40 transition-colors cursor-pointer group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">2mm</div>
+</div>
+<div class="w-[3%] bg-surface-tint/20 h-[12%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">2.4mm</div></div>
+<div class="w-[3%] bg-surface-tint/20 h-[8%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">1.6mm</div></div>
+<div class="w-[3%] bg-surface-tint/20 h-[15%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">3mm</div></div>
+<div class="w-[3%] bg-surface-tint/20 h-[25%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">5mm</div></div>
+<div class="w-[3%] bg-surface-tint/30 h-[35%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">7mm</div></div>
+<div class="w-[3%] bg-surface-tint/40 h-[45%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">9mm</div></div>
+<div class="w-[3%] bg-surface-tint/50 h-[30%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">6mm</div></div>
+<div class="w-[3%] bg-surface-tint/40 h-[20%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">4mm</div></div>
+<div class="w-[3%] bg-surface-tint/20 h-[10%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">2mm</div></div>
+<div class="w-[3%] bg-surface-tint/20 h-[5%] rounded-t-sm group relative"><div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded">1mm</div></div>
+<div class="w-[3%] bg-primary h-[8%] rounded-t-sm group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-data-mono text-[10px] px-2 py-1 rounded whitespace-nowrap">Current: 1.6mm</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 border-t border-outline-variant/30 pt-4">
+<div class="font-data-mono text-data-mono text-on-surface-variant text-xs">T-2 Hours</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant text-xs">Live</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Status & Contract Details (Spans 4) -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Status Card -->
+<div class="bg-primary text-on-primary rounded-2xl p-card-padding shadow-lg relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-[32px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div class="bg-tertiary-fixed-dim/20 border border-tertiary-fixed-dim/50 text-tertiary-fixed-dim px-3 py-1 rounded-full font-label-sm text-[11px] uppercase tracking-wider font-bold">
+                                Active Protection
+                            </div>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile mb-1">Protected</h2>
+<p class="font-body-md text-body-md text-primary-fixed-dim mb-8">Contract execution is automated and mathematically certain.</p>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-white/10 pb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Max Payout</span>
+<span class="font-data-mono text-data-mono font-bold">$2,500.00 USDC</span>
+</div>
+<div class="flex justify-between border-b border-white/10 pb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Valid Until</span>
+<span class="font-data-mono text-data-mono font-bold">24 Oct, 23:59 UTC</span>
+</div>
+<div class="flex justify-between pb-2">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Premium</span>
+<span class="font-data-mono text-data-mono font-bold">$12.50 USDC</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Oracle Verification -->
+<div class="bg-surface-container-lowest rounded-2xl border border-[#E2E8F0] card-shadow p-card-padding">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-[24px]">dataset</span>
+<h3 class="font-headline-md text-[20px] text-primary">Oracle Data Stream</h3>
+</div>
+<div class="space-y-6">
+<!-- Data Source 1 -->
+<div class="flex items-start gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary font-bold">Global Met Office Node</h4>
+<p class="font-data-mono text-xs text-on-surface-variant mt-1">Ping: 12ms | Last Sync: 2s ago</p>
+</div>
+</div>
+<!-- Data Source 2 -->
+<div class="flex items-start gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary font-bold">Aviation Weather Center</h4>
+<p class="font-data-mono text-xs text-on-surface-variant mt-1">Ping: 18ms | Last Sync: 5s ago</p>
+</div>
+</div>
+<!-- Data Source 3 -->
+<div class="flex items-start gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary font-bold">Chainlink Decentralized Oracle</h4>
+<p class="font-data-mono text-xs text-on-surface-variant mt-1">Consensus: Met | Block: #1849201</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-outline-variant rounded-lg font-label-sm text-label-sm text-primary hover:bg-surface-container-low transition-colors">
+                        View Smart Contract
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-padding bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-8">
+<div class="text-headline-md font-headline-md font-bold text-primary">
+                PocketCover
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Security</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-secondary-container hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Developer API</a>
+</div>
+<div class="text-on-secondary-container font-label-sm text-label-sm">
+                © 2024 PocketCover. Parametric Precision Insurance.
+            </div>
+</div>
+</footer>
+</body></html>

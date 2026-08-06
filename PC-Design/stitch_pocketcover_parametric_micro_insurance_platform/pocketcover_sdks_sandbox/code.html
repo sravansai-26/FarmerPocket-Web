@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Parametric SDK - SDKs &amp; Sandbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary": "#002617",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-primary": "#adc7f7",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "tertiary-container": "#003e28",
+                        "secondary": "#546066",
+                        "on-tertiary-container": "#00b47d",
+                        "on-surface-variant": "#43474e",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-container": "#d5e2e9",
+                        "surface": "#f8f9ff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-container": "#58646a",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed": "#111d22",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-variant": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#455f88",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "primary-container": "#1a365d",
+                        "inverse-surface": "#213145",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary": "#002045",
+                        "outline": "#74777f",
+                        "on-primary-container": "#86a0cd",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary-fixed": "#001b3c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "24px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "4px",
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full p-4 space-y-2 border-r border-outline-variant/20 bg-surface-container-low dark:bg-inverse-surface text-primary dark:text-primary-fixed-dim font-label-sm text-label-sm h-screen w-64 fixed left-0 top-0 z-40">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 overflow-hidden">
+<img alt="Nexus Protocol Logo" class="w-full h-full object-cover" data-alt="A highly detailed, ultra-minimalist vector logo for a parametric protocol featuring sharp, interconnected geometric lines forming an abstract 'N'. Clean white on a deep royal blue background. High contrast, precise engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWJ8DIkZR4Sm-tLiQk_ZvUTS_jzwI_Xj2ghsHlCPQUO-vB30MFWj5EZSkuiNomueydpmPxXSYirJlBMN9Wo6gX8mT7C82UQk_KNO7BNNVPMLSQtSxtygCjxufzvEV7jO24fATHRGDmjUBqTA8HC7dnC9mP-apArB0gnevgcSrboXIJirsoZM0WlYS-INQPMZ2HMuDCDUinBffc7OtFcCIqtmcW54wAAy7hRdrxh0XOOe0kQDChBKYuXoGDRrdRddFdjHFfrXr_h_Q"/>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-black text-primary">Nexus</div>
+<div class="font-label-sm text-label-sm text-secondary">Developer Portal</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span>API Reference</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-lg px-4 py-2 font-bold transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="terminal" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span>SDKs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings_ethernet">settings_ethernet</span>
+<span>Webhooks</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all duration-200 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span>Sandbox</span>
+</a>
+</div>
+<div class="mt-auto space-y-1 pt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span>GitHub</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg px-4 py-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<button class="w-full mt-4 bg-primary text-on-primary font-label-sm text-label-sm py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                Join Discord
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar (Mobile mainly, but structured for context) -->
+<nav class="md:hidden flex justify-between items-center px-gutter h-16 w-full sticky top-0 z-50 border-b border-outline-variant/30 backdrop-blur-md bg-surface/80 text-primary dark:text-primary-fixed font-body-md text-body-md">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                Nexus Parametric SDK
+            </div>
+<!-- Simplified mobile nav trailing actions -->
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer active:scale-95 text-secondary" data-icon="menu">menu</span>
+</div>
+</nav>
+<main class="flex-1 w-full max-w-container-max mx-auto px-gutter py-8">
+<!-- Header Section -->
+<div class="mb-section-padding">
+<h1 class="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-on-background mb-4">SDKs &amp; Integration Sandbox</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+                    Accelerate your parametric integration. Download official libraries or simulate smart contract triggers in our risk-free playground.
+                </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- SDK Downloads Column -->
+<div class="lg:col-span-1 space-y-6">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="download">download</span>
+                        Official Libraries
+                    </h2>
+<!-- Node.js Card -->
+<div class="bg-on-primary rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.05)] transition-shadow duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#339933]/10 text-[#339933] rounded-lg flex items-center justify-center">
+<span class="font-data-mono font-bold text-lg">JS</span>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Node.js</h3>
+<span class="font-data-mono text-xs text-secondary">v2.4.1</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-primary">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex justify-between items-center group cursor-pointer">
+<code class="font-data-mono text-sm text-on-surface-variant select-all">npm i @nexus/sdk</code>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-sm" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<!-- Python Card -->
+<div class="bg-on-primary rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.05)] transition-shadow duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#3776AB]/10 text-[#3776AB] rounded-lg flex items-center justify-center">
+<span class="font-data-mono font-bold text-lg">PY</span>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Python</h3>
+<span class="font-data-mono text-xs text-secondary">v1.8.0</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-primary">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex justify-between items-center group cursor-pointer">
+<code class="font-data-mono text-sm text-on-surface-variant select-all">pip install nexus-py</code>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-sm" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<!-- Go Card -->
+<div class="bg-on-primary rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.05)] transition-shadow duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#00ADD8]/10 text-[#00ADD8] rounded-lg flex items-center justify-center">
+<span class="font-data-mono font-bold text-lg">GO</span>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Go</h3>
+<span class="font-data-mono text-xs text-secondary">v1.2.4</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-primary">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex justify-between items-center group cursor-pointer">
+<code class="font-data-mono text-sm text-on-surface-variant select-all">go get github.com/nexus...</code>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-sm" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+</div>
+<!-- Sandbox Column -->
+<div class="lg:col-span-2">
+<div class="bg-on-primary rounded-2xl border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full flex flex-col overflow-hidden">
+<!-- Sandbox Header -->
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="science">science</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Interactive Playground</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Testnet Active</span>
+</div>
+</div>
+<!-- Sandbox Body -->
+<div class="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-lowest relative">
+<!-- Control Panel -->
+<div class="space-y-6 z-10 relative">
+<div>
+<h3 class="font-label-sm text-label-sm text-secondary mb-4 uppercase">Simulate Trigger Event</h3>
+<div class="space-y-4">
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Oracle Source</label>
+<select class="w-full bg-surface-container-low border-0 rounded-lg p-3 text-on-background font-body-md focus:ring-2 focus:ring-primary focus:bg-on-primary transition-all">
+<option>NOAA Weather Data (Flight Delay)</option>
+<option>USGS Seismic Feed</option>
+<option>Chainlink Price Feed</option>
+</select>
+</div>
+<div class="flex flex-col space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Parameter Value (e.g., Delay in Mins)</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg p-3 text-on-background font-data-mono text-sm focus:ring-2 focus:ring-primary focus:bg-on-primary transition-all" type="number" value="180"/>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold hover:bg-primary-container hover:text-on-primary-container transition-colors flex items-center justify-center gap-2 mt-4">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow">play_arrow</span>
+                                            Execute Simulation
+                                        </button>
+</div>
+</div>
+<!-- Policy Details -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-secondary">Policy Threshold</span>
+<span class="font-data-mono font-bold text-on-background">&gt; 120 Mins</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-secondary">Payout Amount</span>
+<span class="font-data-mono font-bold text-tertiary-container">$500.00 USDC</span>
+</div>
+</div>
+</div>
+<!-- Terminal / Output View -->
+<div class="bg-inverse-surface rounded-xl p-4 flex flex-col font-data-mono text-xs text-inverse-on-surface relative overflow-hidden shadow-inner border border-outline-variant/10 z-10">
+<div class="flex items-center gap-2 mb-4 opacity-50 pb-2 border-b border-white/10">
+<div class="w-3 h-3 rounded-full bg-error-container"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+</div>
+<div class="flex-1 overflow-y-auto space-y-2 opacity-80">
+<p class="text-secondary-fixed-dim">&gt; Initializing test environment...</p>
+<p class="text-secondary-fixed-dim">&gt; Connecting to Testnet Oracle...</p>
+<p class="text-secondary-fixed-dim">&gt; Policy ID: <span class="text-primary-fixed-dim">NXS-8829-A</span> loaded.</p>
+<p class="mt-4">&gt; Awaiting simulation trigger...</p>
+</div>
+<!-- Decorative subtle mesh gradient background for terminal -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background: radial-gradient(circle at 100% 100%, rgba(173, 199, 247, 0.2) 0%, transparent 50%);"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

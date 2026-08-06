@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy &amp; Data Control - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#002045",
+                    "secondary-fixed-dim": "#bcc8cf",
+                    "tertiary-container": "#003e28",
+                    "primary-container": "#1a365d",
+                    "secondary-container": "#d5e2e9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#455f88",
+                    "secondary": "#546066",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-primary-fixed": "#001b3c",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "on-surface-variant": "#43474e",
+                    "on-secondary-container": "#58646a",
+                    "on-primary-container": "#86a0cd",
+                    "inverse-primary": "#adc7f7",
+                    "on-background": "#0b1c30",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-fixed": "#002113",
+                    "on-tertiary-container": "#00b47d",
+                    "on-secondary-fixed-variant": "#3c494e",
+                    "background": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-container": "#e5eeff",
+                    "tertiary": "#002617",
+                    "primary-fixed": "#d6e3ff",
+                    "secondary-fixed": "#d8e4eb",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-fixed": "#111d22",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-surface": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "outline-variant": "#c4c6cf",
+                    "surface-bright": "#f8f9ff",
+                    "outline": "#74777f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-padding": "80px",
+                    "card-padding": "32px",
+                    "container-max": "1200px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Geist"
+                    ],
+                    "display-lg-mobile": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "data-mono": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.03em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "data-mono": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    }
+            }
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Settings/Sub-page Context: Shell hidden or modified for sub-page intent, but per instructions, we suppress standard global nav for focused tasks unless it's a top-level. Since this is "Privacy & Data Control", it acts as a focused sub-page. Let's include a specific localized header, not the global one, as instructed in shell relevance). -->
+<!-- Actually, looking at the JSON, we don't have a sub-header defined, so we will omit the global nav for this linear/task-focused privacy settings page to prioritize the content canvas. -->
+<header class="w-full bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-40 border-b border-surface-container shadow-sm">
+<div class="max-w-[1200px] mx-auto px-gutter py-4 flex items-center gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<h1 class="font-headline-md text-headline-md text-on-surface">Privacy &amp; Data Control</h1>
+</div>
+</header>
+<main class="flex-grow max-w-[1200px] w-full mx-auto px-gutter py-section-padding md:py-section-padding space-y-12">
+<!-- Trust Center Intro -->
+<section class="max-w-3xl">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">You are in control.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                PocketCover operates on a strict "need-to-know" basis. We only access the data required to verify your parametric smart contracts. Manage your privacy settings below.
+            </p>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Main Content Area -->
+<div class="md:col-span-8 space-y-8">
+<!-- 1. Data Sharing Controls -->
+<section class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="p-3 bg-primary-container rounded-xl text-on-primary-container">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Oracle Access Permissions</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Manage which external data sources can communicate with your active contracts.</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Toggle Item -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl border border-outline-variant/20">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface">Flight Status (AviationStack)</h4>
+<p class="text-xs text-on-surface-variant mt-1">Required for active Flight Delay Protection.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle Item -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl border border-outline-variant/20">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface">Location Services (GPS)</h4>
+<p class="text-xs text-on-surface-variant mt-1">Used for severe weather proximity alerts. Not required for basic coverage.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 2. Privacy Mode -->
+<section class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10"></div>
+<div class="flex items-start gap-4 mb-6">
+<div class="p-3 bg-secondary-container rounded-xl text-on-secondary-container">
+<span class="material-symbols-outlined">visibility_off</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Incognito Monitoring</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Obfuscate your identity during active monitoring. Oracles will only receive anonymized contract hashes.</p>
+</div>
+</div>
+<div class="p-4 bg-surface rounded-xl border border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface">Currently Standard Mode</span>
+</div>
+<button class="w-full sm:w-auto px-6 py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:bg-primary-container transition-colors">
+                            Enable Incognito Mode
+                        </button>
+</div>
+</section>
+<!-- 3. Data Portability -->
+<section class="bg-surface-container-lowest rounded-2xl p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="p-3 bg-surface-dim rounded-xl text-primary">
+<span class="material-symbols-outlined">download</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Data Portability</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Download a complete cryptographic history of your contracts, claims, and telemetry data.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant text-primary rounded-lg hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+                            Export as JSON
+                        </button>
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant text-primary rounded-lg hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">table_chart</span>
+                            Export as CSV
+                        </button>
+</div>
+</section>
+<!-- 4. Account Management -->
+<section class="bg-error-container/20 rounded-2xl p-card-padding border border-error/20">
+<div class="flex items-start gap-4 mb-6">
+<div class="p-3 bg-error/10 rounded-xl text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-error">Danger Zone</h3>
+<p class="text-on-surface-variant font-body-md mt-1">Permanently delete your account and immediately void all active parametric contracts.</p>
+</div>
+</div>
+<div class="p-4 bg-error/5 border border-error/10 rounded-xl mb-6">
+<p class="text-sm text-error/90 font-label-sm mb-2">Warning: This action is irreversible.</p>
+<ul class="list-disc list-inside text-sm text-on-surface-variant space-y-1">
+<li>All active monitoring will cease instantly.</li>
+<li>Unpaid premium balances will be settled.</li>
+<li>Pending claims will be discarded.</li>
+</ul>
+</div>
+<button class="px-6 py-3 bg-error text-on-error rounded-lg font-label-sm text-label-sm hover:bg-error/90 transition-colors">
+                        Delete Account Permanently
+                    </button>
+</section>
+</div>
+<!-- Side Panel (Info / Status) -->
+<div class="md:col-span-4 space-y-6">
+<!-- Data Ledger Status -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/30 shadow-sm sticky top-24">
+<h4 class="font-headline-md text-headline-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">verified_user</span>
+                        Trust Ledger
+                    </h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-4 border-b border-surface-variant">
+<span class="text-sm text-on-surface-variant">Last Backup</span>
+<span class="font-data-mono text-data-mono text-on-surface">Today, 08:42 UTC</span>
+</div>
+<div class="flex justify-between items-center pb-4 border-b border-surface-variant">
+<span class="text-sm text-on-surface-variant">Active Oracles</span>
+<span class="font-data-mono text-data-mono text-primary">2 Connected</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Data Residency</span>
+<span class="font-data-mono text-data-mono text-on-surface">EU (Frankfurt)</span>
+</div>
+</div>
+<div class="mt-6 p-4 bg-surface-container-low rounded-xl">
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                            Your telemetry data is cryptographically sealed and only accessible during contract resolution events. Learn more in our <a class="text-primary hover:underline" href="#">Data Handling Manifesto</a>.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

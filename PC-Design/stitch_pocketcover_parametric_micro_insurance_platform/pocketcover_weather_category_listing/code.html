@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weather &amp; Climate Covers - PocketCover</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-high": "#dce9ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "on-primary-container": "#86a0cd",
+                        "primary": "#002045",
+                        "on-background": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "outline": "#74777f",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-container": "#d5e2e9",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "secondary": "#546066",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1a365d",
+                        "on-secondary-container": "#58646a",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error": "#ba1a1a",
+                        "tertiary": "#002617",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#003e28",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-tint": "#455f88",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "background": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#111d22"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .graph-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawGraph 2s ease-out forwards;
+        }
+        @keyframes drawGraph {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 font-body-md text-body-md docked full-width top-0 sticky z-50 shadow-sm transition-all duration-200">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">
+                PocketCover
+            </a>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 transition-all duration-200" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-high/50">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border border-outline-variant/20 object-cover hidden sm:block" data-alt="A pristine, highly detailed professional headshot of a user against a minimalist white background, soft studio lighting, ultra-high resolution, evoking a sense of corporate sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE6zD_Ds_0va-RPEuTEACeH7-xUrq-FrDs-q_MSgZcdoHsFFGJdKr1CZdRZV6NRi-D-NVcvIU9N-vmIuuTTl4zYMwj1aQDRfSeJ8uinMke6GEd5XHCl-KPenLE9XPi_13D_DtL5agqQn9_RWJNe9dU0nrTCDPhRAwrKHnHMik6M9Q9flrahV-WSln-Cbg08H7Eb7kjZ25vsX2g8vVFq9dhUkt8PXBexKa44yzuL7-qIWv7L7HsmAtBkaCAKQXMc0dZTK0q-nLRsvI"/>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-5 py-2.5 rounded-full hover:bg-primary-container transition-colors hidden sm:block">
+                    Get Started
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter py-section-padding">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Category Deep-Dive</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-2xl">
+                Weather &amp; Climate Covers
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-3xl">
+                Parametric protection against localized meteorological events. Monitor active risks in real-time and secure automated payouts triggered by verified API data.
+            </p>
+</div>
+<!-- Asymmetric Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Map & Filters (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6 sticky top-32">
+<!-- Filters Bar -->
+<div class="flex flex-wrap items-center gap-3 bg-surface-container-lowest p-3 rounded-2xl border border-outline-variant/10 shadow-sm w-full">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2 mr-2">Filters:</span>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/20">
+                        Severity <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/20">
+                        Duration <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/20">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Location <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Live Map View -->
+<div class="w-full h-[600px] rounded-[32px] overflow-hidden border border-outline-variant/10 shadow-sm relative group bg-surface-container-high">
+<!-- Map Placeholder Background -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, minimalist vector map of a dense metropolitan area rendered in light mode. The map uses pristine whites, soft sky blues, and extremely subtle grey lines for roads, avoiding any text or labels, evoking a high-end data visualization dashboard aesthetic." data-location="Tokyo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4Jpl1ffBCpujqkCoqjPQxwYD8wSIBvuNWK67ZJTptlFtmmgF6xBZELBx0YlQ19JUkTvlBAYa6nOMAi3fmPxP0oaDS88kvjMdUgZTmqU-94H4gBPXanJR4Mv_LeceR4-dn_5p_cEW5TJv5thEi5JoxTHEY0EWsFHVNmjcXY7ozHaTtYWQu80XfqhyROQr6HZIdSAtD07F5S5ueH-fUqJaOtQEXvwjt9nfc7KxwJ3Mt2qT2N2oGJt5IGhqy6Z_gGbwwU8g5CTv3H5E'); opacity: 0.8;"></div>
+<!-- UI Overlay on Map -->
+<div class="absolute top-6 left-6 flex items-center gap-3 bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-primary">Live Monitoring Active</span>
+</div>
+<!-- Map Markers (Simulated) -->
+<div class="absolute top-1/3 left-1/4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center animate-[ping_3s_infinite]"></div>
+<div class="absolute top-1/3 left-1/4 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-md"></div>
+<div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-error/10 rounded-full flex items-center justify-center animate-[ping_4s_infinite]"></div>
+<div class="absolute bottom-1/3 right-1/4 w-4 h-4 bg-error rounded-full border-2 border-white shadow-md"></div>
+</div>
+</div>
+<!-- Right Column: Specific Covers (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Cover Card 1: Heavy Rain -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/10 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0px_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary-container/5 flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Heavy Rain Protection</h3>
+</div>
+<div class="px-3 py-1 bg-surface-container-high rounded-full flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-on-tertiary-container"></div>
+<span class="font-label-sm text-label-sm text-primary">Active</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Automated payout if rainfall exceeds 50mm within a 2-hour window in your designated grid.
+                    </p>
+<!-- Graph Visualization -->
+<div class="w-full h-24 mb-4 relative flex items-end border-b border-outline-variant/20 pb-2">
+<svg class="w-full h-16 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 40">
+<path class="graph-line" d="M0,35 Q10,30 20,25 T40,15 T60,20 T80,5 T100,2" fill="none" stroke="#002045" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+</div>
+<div class="flex justify-between items-end mt-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Data Source</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">api</span>
+<span class="font-data-mono text-data-mono text-primary">IMD_API_v3</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-primary-container transition-colors">
+                            Configure
+                        </button>
+</div>
+</article>
+<!-- Cover Card 2: Heatwave Index -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/10 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0px_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-[#fff4e5] flex items-center justify-center mb-4 text-[#d97706]">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Heatwave Index</h3>
+</div>
+<div class="px-3 py-1 bg-[#fff4e5] rounded-full flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-[#d97706]"></div>
+<span class="font-label-sm text-label-sm text-[#92400e]">Elevated Risk</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Triggers when ambient temperature remains above 42°C for 3 consecutive days.
+                    </p>
+<!-- Graph Visualization -->
+<div class="w-full h-24 mb-4 relative flex items-end border-b border-outline-variant/20 pb-2">
+<svg class="w-full h-16 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 40">
+<path class="graph-line" d="M0,25 Q15,20 30,22 T50,15 T75,5 T100,0" fill="none" stroke="#d97706" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="flex justify-between items-end mt-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Data Source</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">api</span>
+<span class="font-data-mono text-data-mono text-primary">NOAA_Global</span>
+</div>
+</div>
+<button class="bg-surface-container-low text-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-surface-container transition-colors border border-outline-variant/20">
+                            View Details
+                        </button>
+</div>
+</article>
+<!-- Cover Card 3: Lightning Safety -->
+<article class="bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/10 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0px_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Lightning Safety</h3>
+</div>
+<div class="px-3 py-1 bg-surface-container text-primary rounded-full flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="font-label-sm text-label-sm text-primary">Monitoring</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Micro-parametric cover for extreme electrical storm density within a 5km radius.
+                    </p>
+<div class="flex justify-between items-end mt-6 pt-4 border-t border-outline-variant/10">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Data Source</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">api</span>
+<span class="font-data-mono text-data-mono text-primary">EarthNetworks_Ltn</span>
+</div>
+</div>
+<button class="bg-surface-container-low text-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-surface-container transition-colors border border-outline-variant/20">
+                            View Details
+                        </button>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest font-body-md text-body-md text-on-surface dark:text-on-surface-variant full-width border-t border-outline-variant/10 flat no shadows">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-display-lg text-headline-md font-bold text-primary mb-4 tracking-tight">PocketCover</h2>
+<p class="text-on-surface-variant text-sm mt-8">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-1 flex flex-col gap-4">
+<a class="text-primary font-semibold hover:text-primary transition-colors" href="#">Company</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors mt-2" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

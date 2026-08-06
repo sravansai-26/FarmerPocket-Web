@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Explore Marketplace - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "outline": "#74777f",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c4c6cf",
+                        "on-background": "#0b1c30",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-tertiary-container": "#00b47d",
+                        "surface-dim": "#cbdbf5",
+                        "on-surface-variant": "#43474e",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#003e28",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary-container": "#86a0cd",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary": "#002617",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed": "#111d22",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-container": "#d5e2e9",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "primary": "#002045",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-secondary-container": "#58646a",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "surface": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#546066",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-surface": "#0b1c30",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "primary-container": "#1a365d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-tint": "#455f88"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "card-padding": "32px",
+                        "base": "4px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased pb-[100px] md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-on-background/60 shadow-sm">
+<div class="flex items-center justify-between px-gutter h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A clean, minimalist high-resolution profile photo of a modern professional against a bright white background, maintaining a sophisticated and trusting corporate aesthetic in soft, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKd6pYEAA_Su16h8kAtB8qe1yDKq5GayeCVSjl-Hx3eCE-GaW6CL7FbCyr7_Ml2HSCOE-oQc_jTmPFCTSvyOSuGtIcYZQx1Liwrc-rQBqtq-mN4C_iPnGU4rSkBVcnNeC8EbOlMqOW82M_z97IQNjYztV0sg_u-okd86K8IkzQJQMBvFVSFZggxfRFgQupnjTZYYp7TEGqjNqpV_TTwQL-AMi9DvR2qYFJYHoj9OCT8hUz1bm-lba3RtBVvc_0hkW_KWjRZBKjXgs"/>
+<h1 class="font-headline-md text-headline-md-mobile font-bold text-primary dark:text-primary-fixed">PocketCover</h1>
+</div>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high/50 transition-colors active:scale-95 transition-transform w-10 h-10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-4 md:px-gutter max-w-container-max mx-auto">
+<!-- Search & Filter Area -->
+<section class="mb-8">
+<div class="relative w-full mb-4">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low focus:bg-surface-container-lowest border border-outline-variant/30 rounded-xl py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search protection..." type="text"/>
+</div>
+<!-- Compact Filter Chips -->
+<div class="flex overflow-x-auto no-scrollbar gap-2 pb-2">
+<button class="shrink-0 px-4 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm shadow-[0_4px_10px_rgba(0,32,69,0.15)]">All Cover</button>
+<button class="shrink-0 px-4 py-2 bg-surface-container-low text-on-surface-variant border border-outline-variant/20 rounded-full font-label-sm text-label-sm active:scale-95 transition-transform">Rain &amp; Weather</button>
+<button class="shrink-0 px-4 py-2 bg-surface-container-low text-on-surface-variant border border-outline-variant/20 rounded-full font-label-sm text-label-sm active:scale-95 transition-transform">Flight Delays</button>
+<button class="shrink-0 px-4 py-2 bg-surface-container-low text-on-surface-variant border border-outline-variant/20 rounded-full font-label-sm text-label-sm active:scale-95 transition-transform">Event Cancellation</button>
+</div>
+</section>
+<!-- Category Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<!-- Hero Card: Rain Cover -->
+<div class="relative bg-surface-container-lowest rounded-[24px] border border-outline-variant/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden col-span-1 md:col-span-2 flex flex-col md:flex-row min-h-[280px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A highly aesthetic, top-down view of a modern urban umbrella shielding against a light drizzle. The scene is bright and airy, with soft blue and crisp white tones dominating the palette, reflecting high-end corporate minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Hbrkw_bjTJ5kSED1igcmCx38VgPelz1jC-8dwF90j-3YQtFuPWp8eA4Z9FENavc11HJ-1ngDeBD6LN9m7EWKIRQ05UGh1VlxngSeGoDcFzz_rfnPBprtj4vmydiPHDEkVl2r5QHLorD1qRl6Snc4yfYKtsi30UmOeAJ4TlJH7vM0W9iWicQr_ovxVmCi3xYU8fXrbJlbXdGVIv6aslYdtm_MZ0xRQjTU-y5whN9jU35Mozvt1mClhyPDFQ8rWwQ68xQmePRJJg8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:bg-gradient-to-r"></div>
+</div>
+<div class="relative z-10 p-6 md:p-8 flex flex-col justify-end md:justify-center flex-grow">
+<div class="bg-surface/80 backdrop-blur-md rounded-full px-3 py-1 inline-flex items-center gap-1 w-max mb-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" data-icon="water_drop" data-weight="fill">water_drop</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Weather Protection</span>
+</div>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md font-bold text-on-background mb-2">Rain Cover</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-sm">Instant payouts if it rains during your booked outdoor activity or holiday.</p>
+<div class="flex items-center justify-between bg-surface-container-lowest/90 backdrop-blur-xl p-4 rounded-xl border border-outline-variant/20">
+<div>
+<span class="block font-label-sm text-label-sm text-outline mb-1">Instant Quote from</span>
+<span class="font-data-mono text-data-mono font-semibold text-primary">$4.50 / day</span>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-label-sm text-label-sm hover:bg-primary-container transition-colors active:scale-95">Quote</button>
+</div>
+</div>
+</div>
+<!-- Card: Flight -->
+<div class="relative bg-surface-container-lowest rounded-[24px] border border-outline-variant/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden min-h-[220px] flex flex-col justify-between p-6">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/30 rounded-bl-full -mr-4 -mt-4 blur-xl z-0"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[32px] text-primary mb-3" data-icon="flight_takeoff">flight_takeoff</span>
+<h3 class="font-headline-md text-[20px] font-semibold text-on-background mb-1">Flight Delay</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-tight">Parametric payout on 2hr+ delays.</p>
+</div>
+<div class="relative z-10 flex items-center justify-between mt-6">
+<span class="font-data-mono text-data-mono text-primary font-medium">Starts $12</span>
+<button class="text-primary bg-surface-container-low px-4 py-2 rounded-lg font-label-sm text-label-sm hover:bg-surface-variant transition-colors">View</button>
+</div>
+</div>
+<!-- Card: Events -->
+<div class="relative bg-surface-container-lowest rounded-[24px] border border-outline-variant/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] overflow-hidden min-h-[220px] flex flex-col justify-between p-6">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed/20 rounded-bl-full -mr-4 -mt-4 blur-xl z-0"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[32px] text-tertiary-container mb-3" data-icon="local_activity">local_activity</span>
+<h3 class="font-headline-md text-[20px] font-semibold text-on-background mb-1">Event Cancel</h3>
+<p class="font-body-md text-[14px] text-on-surface-variant leading-tight">Protect ticket value instantly.</p>
+</div>
+<div class="relative z-10 flex items-center justify-between mt-6">
+<span class="font-data-mono text-data-mono text-tertiary-container font-medium">5% of ticket</span>
+<button class="text-tertiary-container bg-surface-container-low px-4 py-2 rounded-lg font-label-sm text-label-sm hover:bg-surface-variant transition-colors">View</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full rounded-t-xl z-50 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
+<div class="flex justify-around items-center h-20 px-4 pb-safe w-full">
+<button class="flex flex-col items-center justify-center flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-label-sm mt-1">Protect</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-label-sm mt-1">Assistant</span>
+</button>
+</div>
+</nav>
+</body></html>

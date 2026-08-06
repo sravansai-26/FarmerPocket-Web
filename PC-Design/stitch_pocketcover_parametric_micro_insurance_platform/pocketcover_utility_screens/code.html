@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coming Soon / 404 - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002113",
+                    "inverse-on-surface": "#eaf1ff",
+                    "inverse-primary": "#adc7f7",
+                    "surface-dim": "#cbdbf5",
+                    "surface-bright": "#f8f9ff",
+                    "secondary": "#546066",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-error": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "outline-variant": "#c4c6cf",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#d6e3ff",
+                    "on-primary-fixed": "#001b3c",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#111d22",
+                    "surface-tint": "#455f88",
+                    "secondary-fixed-dim": "#bcc8cf",
+                    "on-secondary-container": "#58646a",
+                    "surface": "#f8f9ff",
+                    "on-primary-container": "#86a0cd",
+                    "secondary-container": "#d5e2e9",
+                    "background": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "inverse-surface": "#213145",
+                    "tertiary": "#002617",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1a365d",
+                    "outline": "#74777f",
+                    "on-secondary-fixed-variant": "#3c494e",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-tertiary-container": "#00b47d",
+                    "on-error-container": "#93000a",
+                    "primary": "#002045",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "secondary-fixed": "#d8e4eb",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface-variant": "#43474e",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#003e28"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "80px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "container-max": "1200px",
+                    "card-padding": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Geist"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "data-mono": ["Geist"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .premium-shadow {
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+        }
+        
+        .data-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 32, 69, 0.1), transparent);
+        }
+
+        .screen-container {
+            display: none;
+        }
+        .screen-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-background text-on-background relative">
+<!-- TopNavBar (Shared Component) - Rendered for consistency, though intent is a dead-end/focused journey, we'll keep a minimal header for brand anchor -->
+<header class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 font-body-md text-body-md docked full-width top-0 sticky z-50 shadow-sm w-full">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-2">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed" href="#" onclick="switchScreen('coming-soon'); return false;">PocketCover</a>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<!-- Suppressed navigation items as this is a dead-end/focused intent screen -->
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary font-body-md px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                    Get Started
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col justify-center items-center py-section-padding px-gutter w-full max-w-container-max mx-auto relative">
+<!-- Background Grid Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(#002045 1px, transparent 1px); background-size: 32px 32px;"></div>
+<!-- Screen Controls (For Demo Purposes) -->
+<div class="absolute top-4 left-4 z-50 flex gap-2 bg-surface-container-lowest p-2 rounded-lg shadow-sm border border-outline-variant/10">
+<button class="px-3 py-1 text-label-sm font-label-sm rounded bg-primary-container text-on-primary-container" id="btn-coming-soon" onclick="switchScreen('coming-soon')">Coming Soon</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded bg-surface text-on-surface hover:bg-surface-container" id="btn-404-error" onclick="switchScreen('404-error')">404 Error</button>
+</div>
+<!-- ========================================== -->
+<!-- SCREEN 1: COMING SOON -->
+<!-- ========================================== -->
+<div class="screen-container active w-full max-w-3xl mx-auto" id="coming-soon">
+<div class="glass-panel premium-shadow rounded-[24px] p-card-padding md:p-[64px] relative overflow-hidden">
+<!-- Decorative geometric element -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col items-start gap-6 relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">In Development</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-lg">
+                        Parametric Wedding Cover.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Instant, algorithm-backed protection for your most important day. We're engineering a new standard in event security, mathematically calibrated to eliminate uncertainty.
+                    </p>
+<div class="data-line w-full my-4"></div>
+<div class="w-full max-w-md flex flex-col gap-3 mt-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="email-notify">Notify me when coverage goes live</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-[#F8FAFC] focus:bg-white border-outline-variant/30 focus:border-primary rounded-xl px-4 py-3 font-data-mono text-data-mono text-on-surface transition-colors focus:ring-2 focus:ring-primary/20 outline-none" id="email-notify" placeholder="corporate@email.com" type="email"/>
+<button class="bg-primary text-on-primary font-body-md font-medium px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center gap-2">
+                                Subscribe
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60 mt-2">Zero spam. Mathematical certainty.</p>
+</div>
+</div>
+</div>
+<!-- Contextual Image representing 'Wedding Cover' logic -->
+<div class="mt-8 rounded-[24px] overflow-hidden premium-shadow h-64 relative group">
+<div class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, ultra-premium wide shot of an elegant wedding setup outdoors, but overlaid with subtle, glowing geometric parametric grids and data nodes. The lighting is bright, natural, high-key white and soft sky blue, reflecting a modern light-mode aesthetic. The mood is serene yet mathematically precise, blending romance with high-end financial technology visual language." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgp6LlgKtpTvIPszrsUP-Z-A6aq4svhlXSffw9X38Vm3twjohFzA7n8uHa1KMNfPr800F98RZDtEqjui4U6USSmlxDSZ9NRPn78rmgF9i14SrhkYbL35doGZ_HskhgiMDpoW2BWFJc46gDGH-smLMSBIvAXA3yjgvOP8jL0vfWKV9sZ-FNHYbqZiCBh36Wrj4M-fLjMSDoqaZzM5WpDE857MYCNOD2y9dT30Sbx-3YehlH7VM2kRADuN1hTfvqa4aoBnBjH-D8-RA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<span class="font-data-mono text-data-mono text-on-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">monitoring</span>
+                        Calibration Phase: 78% Complete
+                     </span>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- SCREEN 2: 404 ERROR -->
+<!-- ========================================== -->
+<div class="screen-container w-full max-w-4xl mx-auto text-center" id="404-error">
+<div class="mb-12 relative inline-block">
+<h1 class="text-[120px] md:text-[180px] font-bold text-surface-container-highest leading-none tracking-tighter select-none font-display-lg">
+                    404
+                </h1>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-full h-[1px] bg-primary/20"></div>
+</div>
+</div>
+<div class="glass-panel premium-shadow rounded-[24px] p-card-padding md:p-[48px] max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
+<h2 class="font-headline-md text-headline-md text-primary">
+                    This link is out of coverage.
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+                    The parameter you requested does not exist in our current smart contracts. The page may have been moved or deleted.
+                </p>
+<div class="w-full max-w-md relative mt-4">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-[#F8FAFC] focus:bg-white border-outline-variant/30 focus:border-primary rounded-xl pl-12 pr-4 py-3 font-body-md text-body-md text-on-surface transition-colors focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Search parameters, policies, or coverage..." type="text"/>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mt-6">
+<button class="bg-primary text-on-primary font-body-md font-medium px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2" onclick="switchScreen('coming-soon')">
+<span class="material-symbols-outlined text-[18px]">home</span>
+                        Return to Dashboard
+                    </button>
+<button class="bg-surface-container-low text-primary font-body-md font-medium px-6 py-3 rounded-xl hover:bg-surface-container transition-colors flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+                        Contact Support
+                    </button>
+</div>
+</div>
+<div class="mt-12 flex justify-center gap-8 text-on-surface-variant opacity-60">
+<div class="flex items-center gap-2 font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-[16px]">code</span>
+                     ERR_CODE: OUT_OF_BOUNDS
+                 </div>
+<div class="flex items-center gap-2 font-data-mono text-data-mono">
+<span class="material-symbols-outlined text-[16px]">router</span>
+                     NODE: PRD-US-EAST-1
+                 </div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) - Suppressed for focus on dead-end screens, but included structure if needed globally -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest font-body-md text-body-md full-width border-t border-outline-variant/10 w-full mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-4">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<span class="text-on-surface dark:text-on-surface-variant">© 2024 PocketCover. Parametric security for the modern age.</span>
+</div>
+<!-- Simplified Links -->
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</div>
+</footer>
+<script>
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen-container').forEach(el => el.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            
+            // Update demo buttons
+            document.getElementById('btn-coming-soon').className = screenId === 'coming-soon' 
+                ? 'px-3 py-1 text-label-sm font-label-sm rounded bg-primary-container text-on-primary-container'
+                : 'px-3 py-1 text-label-sm font-label-sm rounded bg-surface text-on-surface hover:bg-surface-container';
+                
+            document.getElementById('btn-404-error').className = screenId === '404-error' 
+                ? 'px-3 py-1 text-label-sm font-label-sm rounded bg-primary-container text-on-primary-container'
+                : 'px-3 py-1 text-label-sm font-label-sm rounded bg-surface text-on-surface hover:bg-surface-container';
+        }
+    </script>
+</body></html>

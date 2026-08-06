@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Verify Identity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "on-secondary-container": "#58646a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "secondary": "#546066",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#003e28",
+                        "on-primary-container": "#86a0cd",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#1a365d",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#002617",
+                        "secondary-container": "#d5e2e9",
+                        "primary": "#002045",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-container": "#00b47d",
+                        "on-surface-variant": "#43474e",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-tint": "#455f88",
+                        "inverse-primary": "#adc7f7",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "outline": "#74777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Premium subtle gradient background to emulate parametric precision */
+        body {
+            background-color: #f8f9ff;
+            background-image: radial-gradient(circle at top right, #eaf1ff 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, #dce9ff 0%, transparent 40%);
+        }
+
+        /* Hide number input arrows */
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-gutter relative overflow-hidden font-body-md text-on-background">
+<!-- Ambient Grid Background for "Precision Engineering" vibe -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20" style="background-image: linear-gradient(to right, #c4c6cf 1px, transparent 1px), linear-gradient(to bottom, #c4c6cf 1px, transparent 1px); background-size: 64px 64px;">
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 w-full max-w-[420px] mx-auto">
+<!-- Brand / Identity Anchor -->
+<div class="flex justify-center mb-8">
+<div class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+                PocketCover
+            </div>
+</div>
+<!-- Verification Card -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] backdrop-blur-sm flex flex-col items-center text-center">
+<!-- Security Icon -->
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">lock</span>
+</div>
+<!-- Typography Header -->
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">Verify Your Identity</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 px-4">
+                Enter the 6-digit code sent to <br/>
+<span class="font-data-mono text-primary font-medium">+91 ••••• ••789</span>
+</p>
+<!-- OTP Input Sequence -->
+<form class="w-full flex flex-col gap-8" id="otp-form">
+<div class="flex justify-between gap-2 w-full" id="otp-inputs">
+<!-- Note: Overriding text-data-mono size here to make it large, but keeping the font family -->
+<input autocomplete="one-time-code" autofocus="" class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full aspect-square text-center font-data-mono text-[24px] font-semibold bg-surface border border-outline-variant/50 rounded-xl focus:bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-on-surface" inputmode="numeric" maxlength="1" type="text"/>
+</div>
+<!-- Primary CTA -->
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-label-sm text-label-sm hover:bg-primary/90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shadow-sm flex items-center justify-center gap-2 group" type="button">
+                    Verify Sequence
+                    <span class="material-symbols-outlined text-[18px] opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300">arrow_forward</span>
+</button>
+</form>
+<!-- Secondary Actions -->
+<div class="mt-8 flex flex-col items-center gap-2">
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                    Resend code in <span class="font-data-mono text-primary ml-1">45s</span>
+</button>
+</div>
+<!-- Parametric Indicator Status -->
+<div class="mt-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Secure Connection Active</span>
+</div>
+</div>
+</main>
+<script>
+        // Simple logic to auto-advance OTP inputs for a premium feel
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('#otp-inputs input');
+            
+            inputs.forEach((input, index) => {
+                // Restrict input to numbers only
+                input.addEventListener('input', function(e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    
+                    if (this.value.length === 1) {
+                        if (index < inputs.length - 1) {
+                            inputs[index + 1].focus();
+                        } else {
+                            this.blur();
+                            // Optional: auto-submit or visual cue here
+                        }
+                    }
+                });
+
+                // Handle backspace
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && !this.value) {
+                        if (index > 0) {
+                            inputs[index - 1].focus();
+                            inputs[index - 1].value = '';
+                        }
+                    }
+                });
+                
+                // Handle paste
+                input.addEventListener('paste', function(e) {
+                    e.preventDefault();
+                    const pastedData = e.clipboardData.getData('text').replace(/[^0-9]/g, '').slice(0, inputs.length);
+                    if (pastedData) {
+                        for (let i = 0; i < pastedData.length; i++) {
+                            if (i < inputs.length) {
+                                inputs[i].value = pastedData[i];
+                                if (i < inputs.length - 1) {
+                                    inputs[i+1].focus();
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

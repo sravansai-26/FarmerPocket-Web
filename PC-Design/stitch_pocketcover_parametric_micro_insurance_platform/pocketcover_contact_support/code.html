@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Support - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-on-surface": "#eaf1ff",
+                        "inverse-primary": "#adc7f7",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#546066",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-error": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c4c6cf",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed": "#111d22",
+                        "surface-tint": "#455f88",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "on-secondary-container": "#58646a",
+                        "surface": "#f8f9ff",
+                        "on-primary-container": "#86a0cd",
+                        "secondary-container": "#d5e2e9",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "tertiary": "#002617",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a365d",
+                        "outline": "#74777f",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-tertiary-container": "#00b47d",
+                        "on-error-container": "#93000a",
+                        "primary": "#002045",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-fixed": "#d8e4eb",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#003e28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .parametric-grid {
+            background-image: 
+                linear-gradient(to right, rgba(0, 32, 69, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 32, 69, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 shadow-sm transition-all duration-300" id="global-nav">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<!-- Brand -->
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">
+                PocketCover
+            </a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Wallet</a>
+<!-- Contact intent active -->
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 opacity-80 transition-all duration-200 font-body-md text-body-md" href="#">Trust Center</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hidden md:block">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-primary-container transition-colors shadow-sm whitespace-nowrap hidden sm:block">
+                    Get Started
+                </button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Menu" class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative pt-32 pb-section-padding px-gutter overflow-hidden parametric-grid">
+<div class="max-w-container-max mx-auto relative z-10 text-center">
+<span class="inline-block px-4 py-1.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm mb-6 border border-outline-variant/20 tracking-widest uppercase">Support Protocol Active</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary mb-6 max-w-4xl mx-auto leading-tight">
+                    Here to Help, Though You'll Rarely Need It.
+                </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto mb-12">
+                    Our parametric systems are designed to automate protection. But when human intervention is required, our precision support team is ready.
+                </p>
+</div>
+<!-- Abstract Graphic Background -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-tr from-surface-container to-surface-bright blur-3xl opacity-50 -z-10 pointer-events-none"></div>
+</section>
+<!-- Main Content Area - Bento Grid -->
+<section class="px-gutter pb-section-padding">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Form (Left Column, span 7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full blur-2xl -z-0"></div>
+<div class="relative z-10 mb-8">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Direct Channel</h2>
+<p class="font-body-md text-body-md text-secondary">Initiate a secure support sequence. Expected response time: <span class="font-data-mono text-data-mono text-primary font-medium">2.4m</span></p>
+</div>
+<form class="relative z-10 space-y-6 flex-grow">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block" for="firstName">First Name</label>
+<input class="w-full bg-surface text-on-surface border-outline-variant/30 rounded-[12px] px-4 py-3 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md placeholder:text-outline/50" id="firstName" placeholder="Jane" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block" for="lastName">Last Name</label>
+<input class="w-full bg-surface text-on-surface border-outline-variant/30 rounded-[12px] px-4 py-3 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md placeholder:text-outline/50" id="lastName" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block" for="email">Authorized Email</label>
+<input class="w-full bg-surface text-on-surface border-outline-variant/30 rounded-[12px] px-4 py-3 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md placeholder:text-outline/50" id="email" placeholder="jane.doe@enterprise.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block" for="category">Inquiry Type</label>
+<select class="w-full bg-surface text-on-surface border-outline-variant/30 rounded-[12px] px-4 py-3 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md appearance-none" id="category">
+<option>Policy Adjustment</option>
+<option>Claim Status (Manual Override)</option>
+<option>Technical Integration</option>
+<option>Billing &amp; Statements</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block" for="message">Message Data</label>
+<textarea class="w-full bg-surface text-on-surface border-outline-variant/30 rounded-[12px] px-4 py-3 focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md resize-none placeholder:text-outline/50" id="message" placeholder="Detail your request..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-3.5 rounded-[12px] font-label-sm text-label-sm hover:bg-primary-container transition-colors shadow-sm flex justify-center items-center gap-2 group" type="button">
+<span>Transmit Sequence</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Right Column Stack -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- FAQ Quick Access -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex-1">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Knowledge Base</h2>
+<span class="material-symbols-outlined text-outline">database</span>
+</div>
+<div class="space-y-4">
+<a class="block p-4 rounded-[12px] bg-surface hover:bg-surface-container transition-colors group" href="#">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium">Smart Contract Triggers</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">chevron_right</span>
+</div>
+</a>
+<a class="block p-4 rounded-[12px] bg-surface hover:bg-surface-container transition-colors group" href="#">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium">Payout Automation</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">chevron_right</span>
+</div>
+</a>
+<a class="block p-4 rounded-[12px] bg-surface hover:bg-surface-container transition-colors group" href="#">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium">API Documentation</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-[20px]">chevron_right</span>
+</div>
+</a>
+</div>
+<a class="inline-flex items-center gap-2 mt-6 font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors" href="#">
+                            View All Categories <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+<!-- Location / Contact Info -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/20 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] relative overflow-hidden h-[300px] flex flex-col justify-end group">
+<!-- Abstract map representation as background -->
+<div class="absolute inset-0 bg-surface-container transition-transform duration-700 group-hover:scale-105" data-alt="A sleek, high-tech map visualization of a global corporate headquarters located in a modern city like London or New York. The map uses a minimalist, light-mode palette of soft sky blues and pristine whites, with strict geometric lines and a high-end corporate aesthetic. A single subtle glowing point indicates the office location. The mood is precise and mathematically certain." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-2xQjnleNrgxHwOymTXqPPYqI2fi4DXdBQ4yRMV8zbhVQd_CFDmBCmnpgsCV-q2joU20DXp2TQcLDjIYXtNhXBWOPM3dryC-JAwczj0WmtESDHZ4_BFZcb8DxvqChUusfdpbKwCQjSnDZpFmG0dkGQoO3m_CgTrO9jsqzGiZ4sG3pRIXu8JrJRyHHW-zMjDwDR4Wy9kARSTzQwvnfDxLrPq1XLFPJDwh2v4O1vZbtr97e462gjbozkqHry810sJrVwTxPJGZ6qBU')">
+<!-- Gradient overlay to ensure text legibility -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+</div>
+<div class="relative z-10 bg-white/80 backdrop-blur-md p-4 rounded-[16px] border border-white/40">
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Global HQ</h3>
+<p class="font-body-md text-body-md text-secondary mb-3">One Parametric Plaza, London, UK</p>
+<div class="flex gap-4">
+<a class="text-primary hover:text-primary-container transition-colors flex items-center gap-1.5 font-label-sm text-label-sm" href="tel:+4402012345678">
+<span class="material-symbols-outlined text-[16px]">call</span> +44 20 1234 5678
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="full-width bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 PocketCover. Parametric security for the modern age.</p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-1 flex flex-col gap-3">
+<h4 class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider mb-2">Company</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Press</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3">
+<h4 class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider mb-2">Products</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Flight Cover</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Weather Cover</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Enterprise API</a>
+</div>
+<div class="col-span-1 flex flex-col gap-3">
+<h4 class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider mb-2">Developers</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Sandbox</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Status</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script to add shadow to header on scroll for depth
+        const header = document.getElementById('global-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

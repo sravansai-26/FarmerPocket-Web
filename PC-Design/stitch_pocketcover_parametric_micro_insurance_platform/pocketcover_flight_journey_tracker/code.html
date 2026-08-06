@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flight Tracking - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#adc7f7",
+                      "tertiary": "#002617",
+                      "primary-container": "#1a365d",
+                      "surface-dim": "#cbdbf5",
+                      "on-secondary-container": "#58646a",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-tertiary-fixed": "#002113",
+                      "on-tertiary-container": "#00b47d",
+                      "primary": "#002045",
+                      "secondary": "#546066",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "outline-variant": "#c4c6cf",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#003e28",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#d6e3ff",
+                      "primary-fixed-dim": "#adc7f7",
+                      "on-primary-container": "#86a0cd",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "surface-container-high": "#dce9ff",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "surface": "#f8f9ff",
+                      "surface-variant": "#d3e4fe",
+                      "background": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "secondary-fixed": "#d8e4eb",
+                      "on-secondary-fixed": "#111d22",
+                      "surface-tint": "#455f88",
+                      "outline": "#74777f",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "secondary-container": "#d5e2e9",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary-fixed": "#6ffbbe",
+                      "surface-container-low": "#eff4ff",
+                      "surface-bright": "#f8f9ff",
+                      "on-surface": "#0b1c30",
+                      "on-surface-variant": "#43474e",
+                      "on-primary-fixed": "#001b3c",
+                      "on-background": "#0b1c30",
+                      "surface-container": "#e5eeff",
+                      "inverse-surface": "#213145",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "card": "24px",
+                      "input": "12px"
+              },
+              "spacing": {
+                      "section-padding": "80px",
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "card-padding": "32px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              },
+              "boxShadow": {
+                  "level-1": "0px 10px 30px rgba(0,0,0,0.03)",
+                  "level-2": "0px 20px 50px rgba(0,0,0,0.08)"
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .progress-bar-stripes {
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+            background-size: 1rem 1rem;
+            animation: progress-stripes 1s linear infinite;
+        }
+
+        @keyframes progress-stripes {
+            from { background-position: 1rem 0; }
+            to { background-position: 0 0; }
+        }
+
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .5; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 shadow-sm border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">PocketCover</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Explore</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="notifications" class="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                    Get Started
+                </button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant/20 hidden md:block" data-alt="A small circular user profile avatar showing a modern, professional headshot of a person against a clean studio background. The lighting is soft and flattering, suitable for a premium financial or tech application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-e6NQTWjAmAJv10fmKWvSl_IZ5xqZ-989NEMDcMXRB1xGe7tOgddP4sDKo9HW3Dgf2e4E_O8SzQb48PU1syNEXmq4q2IP13-UDetWEpHwGYrLcHXHBmZyF-c5ybKEOr8vRyaqGV22u3ONZVvwRiQ_QNXD29EsWQHP_Rh-c--xJkptcFb--5JmzTy0sygKYVyxEjt2dAN85KQIV_i_draQkOgO9IG6z_mqPkZQpyJgJNnuHiGMhhVxXxQW6ujxIMYxzpppRxTh79s"/>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-section-padding space-y-12 md:space-y-16">
+<!-- Header & Flight Info -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-outline-variant/20 pb-8">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim pulse-dot"></span>
+                        Live Monitoring Active
+                    </span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Policy: #DL-8472-A</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-on-background mb-1">BA 117</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">British Airways • LHR to JFK</p>
+</div>
+<div class="bg-surface-container-lowest rounded-card p-4 border border-outline-variant/20 shadow-level-1 flex items-center gap-6">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Max Payout</p>
+<p class="font-headline-md text-headline-md font-semibold text-primary">$500.00</p>
+</div>
+<div class="h-10 w-px bg-outline-variant/20"></div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Trigger Condition</p>
+<p class="font-body-md text-body-md text-on-background font-medium">&gt; 120m Delay</p>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Timeline & Telemetry -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Flight Timeline Hero -->
+<section class="bg-surface-container-lowest rounded-card p-card-padding border border-outline-variant/20 shadow-level-1">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-background">Flight Status</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">In Air • ETA: 19:45 EST</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Delay Probability</p>
+<span class="inline-flex items-center gap-1.5 text-error font-semibold">
+<span class="material-symbols-outlined text-[20px]" data-icon="trending_up">trending_up</span>
+                                High (78%)
+                            </span>
+</div>
+</div>
+<!-- Visual Timeline -->
+<div class="relative pt-8 pb-12 px-4">
+<!-- Connecting Line -->
+<div class="absolute top-10 left-12 right-12 h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] relative progress-bar-stripes"></div>
+</div>
+<div class="flex justify-between relative z-10">
+<!-- Departure -->
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-lowest mb-3 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-surface-container-lowest"></div>
+</div>
+<p class="font-headline-md text-headline-md font-bold text-on-background">LHR</p>
+<p class="font-body-md text-body-md text-on-surface-variant">08:30 GMT</p>
+</div>
+<!-- Current Position Indicator -->
+<div class="absolute left-[65%] top-[-24px] transform -translate-x-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined fill-icon text-primary text-[32px] rotate-90 drop-shadow-md mb-2" data-icon="flight">flight</span>
+</div>
+<!-- Arrival -->
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center border-4 border-surface-container-lowest mb-3">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+<p class="font-headline-md text-headline-md font-bold text-on-background">JFK</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Est. 19:45 EST</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Telemetry Bento -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest rounded-card p-6 border border-outline-variant/20 shadow-level-1 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-surface-variant mb-4" data-icon="altitude">altitude</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Altitude</p>
+<p class="font-headline-md text-headline-md font-semibold text-on-background font-data-mono">35,000 ft</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-card p-6 border border-outline-variant/20 shadow-level-1 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-surface-variant mb-4" data-icon="speed">speed</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Ground Speed</p>
+<p class="font-headline-md text-headline-md font-semibold text-on-background font-data-mono">540 mph</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-card p-6 border border-outline-variant/20 shadow-level-1 flex flex-col justify-between">
+<span class="material-symbols-outlined text-error mb-4" data-icon="schedule">schedule</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Current Delay</p>
+<p class="font-headline-md text-headline-md font-semibold text-error font-data-mono">+85 min</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-card p-6 border border-outline-variant/20 shadow-level-1 flex flex-col justify-between">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mb-4" data-icon="sensors">sensors</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">API Status</p>
+<p class="font-headline-md text-headline-md font-semibold text-on-background text-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> Syncing
+                            </p>
+</div>
+</div>
+</section>
+<!-- Map Context -->
+<div class="w-full h-64 rounded-card overflow-hidden border border-outline-variant/20 relative">
+<div class="bg-cover bg-center w-full h-full opacity-80" data-alt="A clean, minimalist digital map showing a flight path over the Atlantic Ocean, from London to New York. The map uses a premium light-mode color palette with soft blues for the water and stark white for landmasses. A highly precise, thin connecting line arcs across the map, representing the flight route, with a subtle glowing indicator marking the current position mid-flight. The aesthetic is highly technical, resembling a high-end aviation tracking dashboard." data-location="Atlantic Ocean" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZJXINlTzLju7w9vIewnjxRgDAxU5Lru_zOsjFITuCac8wgrb10-MNINIJLAyZsexRZk0dem6tsCCtOWm8iRyPnaMhwhVTOlRjeiyExzrFK0UNIA7XkUuXD5YnfcwGqWXfEF7LkECU3ptdIK3cxV76wcdFaYxwGxnD7_NvQs4nTarX89xH0Wn5k-1mQjtBI4enjHv9arPD4coM_T2tFvNr-VMnTWYClIRaO7tacxVylTqINS4tHdWYNtZh09EMjDcqsJoJx4kulu0')"></div>
+</div>
+</div>
+<!-- Right Column: Trigger Countdown & Side Panel -->
+<div class="space-y-8">
+<!-- Countdown Trigger Card -->
+<div class="bg-primary text-on-primary rounded-card p-card-padding shadow-level-2 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-[48px] mb-4 opacity-80" data-icon="monetization_on">monetization_on</span>
+<h3 class="font-headline-md text-headline-md font-semibold mb-2">Countdown to Trigger</h3>
+<p class="font-body-md text-body-md text-on-primary/80 mb-8">Minutes until $500 payout is authorized</p>
+<div class="flex justify-center items-baseline gap-2 mb-8">
+<span class="font-display-lg text-[72px] leading-none font-bold tabular-nums tracking-tighter">35</span>
+<span class="font-body-lg text-body-lg text-on-primary/70">min</span>
+</div>
+<div class="w-full bg-on-primary/10 rounded-full h-2 mb-4 overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full rounded-full w-[70%]"></div>
+</div>
+<div class="flex justify-between w-full font-label-sm text-label-sm text-on-primary/70">
+<span>85m elapsed</span>
+<span>120m target</span>
+</div>
+</div>
+</div>
+<!-- Success Metrics -->
+<div class="bg-surface-container-lowest rounded-card p-card-padding border border-outline-variant/20 shadow-level-1">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-background mb-6">Route Reliability</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Historical On-Time</span>
+<span class="font-data-mono text-data-mono text-on-background font-medium">62%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[62%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Avg. Delay Duration</span>
+<span class="font-data-mono text-data-mono text-on-background font-medium">45 min</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[35%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant italic text-sm">
+                                "This specific route (BA117) has experienced significant delays in 3 of the last 10 flights, increasing payout probability."
+                            </p>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<button class="w-full py-4 rounded-xl border border-primary text-primary font-label-sm text-label-sm font-semibold hover:bg-inverse-on-surface transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="ios_share">ios_share</span>
+                    Share Tracking Link
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 full-width mt-auto">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-display-lg text-headline-md font-bold text-primary">PocketCover</span>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant mt-4">
+                    © 2024 PocketCover. Parametric security for the modern age.
+                </p>
+</div>
+<div class="col-span-1 flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

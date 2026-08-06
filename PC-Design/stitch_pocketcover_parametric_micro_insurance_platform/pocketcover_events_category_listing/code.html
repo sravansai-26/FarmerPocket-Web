@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Events &amp; Experiences - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#002113",
+                      "surface-container-high": "#dce9ff",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container": "#e5eeff",
+                      "secondary-fixed": "#d8e4eb",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary-fixed": "#6ffbbe",
+                      "inverse-surface": "#213145",
+                      "on-primary-container": "#86a0cd",
+                      "primary": "#002045",
+                      "on-background": "#0b1c30",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#001b3c",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-container-low": "#eff4ff",
+                      "outline": "#74777f",
+                      "primary-fixed": "#d6e3ff",
+                      "secondary-container": "#d5e2e9",
+                      "inverse-primary": "#adc7f7",
+                      "surface-variant": "#d3e4fe",
+                      "secondary": "#546066",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-container": "#00b47d",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "on-error": "#ffffff",
+                      "primary-container": "#1a365d",
+                      "on-secondary-container": "#58646a",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-surface-variant": "#43474e",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "error": "#ba1a1a",
+                      "tertiary": "#002617",
+                      "surface": "#f8f9ff",
+                      "tertiary-container": "#003e28",
+                      "outline-variant": "#c4c6cf",
+                      "primary-fixed-dim": "#adc7f7",
+                      "surface-tint": "#455f88",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "background": "#f8f9ff",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#111d22"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding": "80px",
+                      "base": "4px",
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "card-padding": "32px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-sm": ["Geist"],
+                      "data-mono": ["Geist"],
+                      "body-md": ["Inter"],
+                      "display-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                      "data-mono": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+        .premium-shadow {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 full-width top-0 sticky z-50 shadow-sm border-b-0">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-6">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed" href="#">
+                    PocketCover
+                </a>
+<div class="hidden md:flex gap-6 items-center pt-2">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors opacity-80 duration-200" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary-fixed-dim rounded-full"></span>
+</button>
+<button class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:bg-primary-container transition-colors shadow-sm">
+                    Get Started
+                </button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full object-cover border border-surface-container-highest cursor-pointer" data-alt="A small, circular avatar portrait of a modern professional in a minimal, high-end office setting. Clean lighting, subtle depth of field. High-End Corporate Minimalism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI0PcHR-GzIIzSF44DUyvtkcBcgW546SpmxUjcPJwCEJziyVGYmS6jRe_5taj-HeSnvawKiNjcCDHoff6uDWZwBv6W_ePlI3VweOudmvzgAP5MJ8V9LOxQ3Ky-z39ad79r3UcFKUbAORW0s0pbNVMPZ-Ep_m3OEAbTNxcrzqDRI_UhQC3-RxXUr1Tu20ysr2J3M2LWTIsM_R5FEdLfEU-81ymAye5zptrUnMLWWHuBoknW4cC1FL_XwvpI6UwWp9kj7k8tcDFxT5k"/>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter py-section-padding space-y-24">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 relative z-10">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Events &amp; Experiences</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Parametric protection for life's unrepeatable moments. Instant payouts if weather or cancellations disrupt your plans.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container text-primary px-6 py-3 rounded-full font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                    Sync Calendar
+                </button>
+</div>
+</header>
+<!-- Bento Grid: Featured Protection -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Hero Card -->
+<div class="md:col-span-8 rounded-[24px] bg-surface-container-lowest border border-surface-container p-card-padding flex flex-col justify-between relative overflow-hidden group premium-shadow">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="A high-end, cinematic shot of an outdoor wedding setup under a clear sky, suddenly interrupted by a single, dramatic rain cloud. The aesthetic is bright, premium, and visually clean, emphasizing the contrast between the planned event and the unexpected weather. Light mode aesthetic with soft pastels and sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXlk7JeWNh5_CZV_XpMJTP-y7G6bIQzMSMBxmS6V-xEqbNhyIAdvnDWVIGS_LffEt9vVvWQ4rtzJfssTrW3amogQAFwLsNsikmfq305xPoftMjqNI8EhQ55hJcmMKQoqtoWVCDdSCdB-gvu5PflsN8Cee_tbQmc5cDvKdLegfyhS4RgcuVN0MKv_C9Dx4pUKT_M-M-n13a2-L-6PpXn9n9WaFxh69DDyYjjHIplPiu512WAOOwq_Qwku2O-UmFq6NL7VMqxEyUMcQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+</div>
+<div class="relative z-10 flex justify-between items-start mb-12">
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-3 py-1 rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                        High Demand
+                    </span>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors border border-surface-container">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Wedding Shoot Cover</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-6">Parametric weather insurance. If rainfall exceeds 0.5mm during your scheduled shoot, receive an instant payout to cover rescheduling costs.</p>
+<div class="flex gap-8 items-end">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Premium from</span>
+<span class="font-data-mono text-data-mono text-primary text-xl">$45.00</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Max Payout</span>
+<span class="font-data-mono text-data-mono text-tertiary-fixed-dim font-semibold text-xl">$1,500</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Cards -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Concert Cancelation -->
+<div class="flex-1 rounded-[24px] bg-surface-container-lowest border border-surface-container p-6 relative overflow-hidden group premium-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">music_note</span>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary text-[20px] mb-2">Concert Cancellation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Automatic reimbursement if the headline act cancels within 24h.</p>
+</div>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-data-mono text-data-mono text-primary font-medium">From $12</span>
+<button class="text-primary hover:text-primary-container flex items-center gap-1 font-label-sm text-label-sm">
+                                View <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Festival Rain -->
+<div class="flex-1 rounded-[24px] bg-surface-container-lowest border border-surface-container p-6 relative overflow-hidden group premium-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary text-[20px] mb-2">Festival Rain Protection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Tiered payouts based on total rainfall volume over the weekend.</p>
+</div>
+<div class="mt-6 flex justify-between items-center">
+<span class="font-data-mono text-data-mono text-primary font-medium">From $25</span>
+<button class="text-primary hover:text-primary-container flex items-center gap-1 font-label-sm text-label-sm">
+                                View <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant/10 full-width">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<a class="font-display-lg text-headline-md font-bold text-primary block mb-4" href="#">PocketCover</a>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 PocketCover. Parametric security for the modern age.</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Company</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Products</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Developers</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Legal</a>
+</div>
+</div>
+</footer>
+</body></html>

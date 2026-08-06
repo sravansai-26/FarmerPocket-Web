@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Preferences &amp; Appearance - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#002045",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "tertiary-container": "#003e28",
+                        "primary-container": "#1a365d",
+                        "secondary-container": "#d5e2e9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#455f88",
+                        "secondary": "#546066",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-container": "#58646a",
+                        "on-primary-container": "#86a0cd",
+                        "inverse-primary": "#adc7f7",
+                        "on-background": "#0b1c30",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary-container": "#00b47d",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "background": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-container": "#e5eeff",
+                        "tertiary": "#002617",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-fixed": "#111d22",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-surface": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-bright": "#f8f9ff",
+                        "outline": "#74777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-padding": "80px",
+                        "card-padding": "32px",
+                        "container-max": "1200px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Toggle Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #002045; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #002045; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+        
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #002045;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .custom-range::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #002045;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Canvas Area (Navigation Suppressed for deep Settings view) -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-gutter py-12 md:py-section-padding">
+<!-- Header -->
+<header class="mb-12 flex flex-col gap-4">
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors w-fit font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+                Back to Dashboard
+            </a>
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Preferences</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Customize your parametric workspace. Adjust appearance, regional formatting, and fine-tune your Oracle notification triggers.</p>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+<!-- Appearance (Theme) - Spans 8 cols -->
+<section class="md:col-span-8 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-6 md:p-card-padding flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h2 class="font-headline-md text-headline-md text-primary">Appearance</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Select your preferred interface theme. 'System' will automatically match your device's current settings.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-auto">
+<!-- Light Theme Option (Active) -->
+<button class="flex flex-col gap-3 group text-left">
+<div class="w-full aspect-[4/3] rounded-xl border-2 border-primary bg-surface-container-low overflow-hidden relative shadow-sm transition-transform group-hover:scale-[1.02]">
+<!-- Mini UI Preview -->
+<div class="absolute inset-0 p-4 flex flex-col gap-2">
+<div class="w-full h-4 bg-surface-container-highest rounded-full"></div>
+<div class="w-3/4 h-8 bg-surface-container-lowest rounded-lg border border-outline-variant/30 mt-2"></div>
+<div class="w-1/2 h-8 bg-surface-container-lowest rounded-lg border border-outline-variant/30"></div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full px-1">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Light</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<!-- Dark Theme Option -->
+<button class="flex flex-col gap-3 group text-left">
+<div class="w-full aspect-[4/3] rounded-xl border border-outline-variant/50 bg-[#0b1c30] overflow-hidden relative shadow-sm transition-transform group-hover:scale-[1.02] group-hover:border-primary/50">
+<!-- Mini UI Preview -->
+<div class="absolute inset-0 p-4 flex flex-col gap-2">
+<div class="w-full h-4 bg-[#213145] rounded-full"></div>
+<div class="w-3/4 h-8 bg-[#1a365d] rounded-lg mt-2 border border-[#455f88]/30"></div>
+<div class="w-1/2 h-8 bg-[#1a365d] rounded-lg border border-[#455f88]/30"></div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">Dark</span>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-50 transition-opacity">radio_button_unchecked</span>
+</div>
+</button>
+<!-- System Theme Option -->
+<button class="flex flex-col gap-3 group text-left">
+<div class="w-full aspect-[4/3] rounded-xl border border-outline-variant/50 overflow-hidden relative shadow-sm transition-transform group-hover:scale-[1.02] group-hover:border-primary/50 flex">
+<!-- Split UI Preview -->
+<div class="w-1/2 h-full bg-surface-container-low p-2 md:p-4 flex flex-col gap-2">
+<div class="w-full h-2 md:h-4 bg-surface-container-highest rounded-full"></div>
+<div class="w-full h-8 bg-surface-container-lowest rounded-lg border border-outline-variant/30 mt-2"></div>
+</div>
+<div class="w-1/2 h-full bg-[#0b1c30] p-2 md:p-4 flex flex-col gap-2 border-l border-outline-variant/20">
+<div class="w-full h-2 md:h-4 bg-[#213145] rounded-full"></div>
+<div class="w-full h-8 bg-[#1a365d] rounded-lg mt-2 border border-[#455f88]/30"></div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">System</span>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-50 transition-opacity">radio_button_unchecked</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Regional Settings - Spans 4 cols -->
+<section class="md:col-span-4 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-6 md:p-card-padding flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">language</span>
+<h2 class="font-headline-md text-headline-md text-primary">Region</h2>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Language Select -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="language">Language</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant/40 text-on-surface font-body-md text-body-md rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="language">
+<option value="en-US">English (United States)</option>
+<option value="en-GB">English (United Kingdom)</option>
+<option value="fr">Français</option>
+<option value="de">Deutsch</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Currency Select -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="currency">Display Currency</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant/40 text-on-surface font-body-md text-body-md rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="currency">
+<option value="USD">USD ($)</option>
+<option value="EUR">EUR (€)</option>
+<option value="GBP">GBP (£)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Timezone Select -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="timezone">Timezone</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant/40 text-on-surface font-body-md text-body-md rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" id="timezone">
+<option value="UTC">UTC (Coordinated Universal Time)</option>
+<option value="EST">EST (Eastern Standard Time)</option>
+<option value="PST">PST (Pacific Standard Time)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Accessibility - Spans 4 cols -->
+<section class="md:col-span-4 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-6 md:p-card-padding flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">accessibility_new</span>
+<h2 class="font-headline-md text-headline-md text-primary">Accessibility</h2>
+</div>
+<div class="flex flex-col gap-8">
+<!-- Text Size Slider -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="text-size">Text Size</label>
+<span class="font-data-mono text-data-mono text-primary">Default</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-body-md text-sm text-on-surface-variant">A</span>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer custom-range" id="text-size" max="5" min="1" type="range" value="3"/>
+<span class="font-body-md text-xl text-on-surface-variant">A</span>
+</div>
+</div>
+<div class="h-px w-full bg-outline-variant/20"></div>
+<!-- High Contrast Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">High Contrast</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Increase border and text contrast</span>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-variant appearance-none cursor-pointer transition-all duration-300 z-10 top-0 left-0" id="toggle-contrast" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-300" for="toggle-contrast"></label>
+</div>
+</div>
+<!-- Reduce Motion Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Reduce Motion</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Minimize UI animations</span>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-variant appearance-none cursor-pointer transition-all duration-300 z-10 top-0 right-0 border-primary" id="toggle-motion" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer transition-colors duration-300" for="toggle-motion"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Notification Triggers - Spans 8 cols -->
+<section class="md:col-span-8 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] p-6 md:p-card-padding flex flex-col">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h2 class="font-headline-md text-headline-md text-primary">Oracle Triggers &amp; Alerts</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Manage how you are notified when Oracle nodes detect state changes relevant to your active contracts.</p>
+<div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 bg-surface px-4 py-3 border-b border-outline-variant/30">
+<div class="col-span-6 md:col-span-8 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Oracle Event Type</div>
+<div class="col-span-3 md:col-span-2 text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Push</div>
+<div class="col-span-3 md:col-span-2 text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Email</div>
+</div>
+<!-- Trigger Row: Weather -->
+<div class="grid grid-cols-12 gap-4 items-center px-4 py-4 border-b border-outline-variant/20 hover:bg-surface/50 transition-colors">
+<div class="col-span-6 md:col-span-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">rainy</span>
+</div>
+<div>
+<div class="font-body-md text-body-md text-on-surface font-medium">Weather Thresholds</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Rainfall, Wind Speed, Temperature triggers</div>
+</div>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Trigger Row: Flight -->
+<div class="grid grid-cols-12 gap-4 items-center px-4 py-4 border-b border-outline-variant/20 hover:bg-surface/50 transition-colors">
+<div class="col-span-6 md:col-span-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">flight_takeoff</span>
+</div>
+<div>
+<div class="font-body-md text-body-md text-on-surface font-medium">Flight Disruption</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Cancellations and delays &gt; 2 hours</div>
+</div>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Trigger Row: Sports -->
+<div class="grid grid-cols-12 gap-4 items-center px-4 py-4 border-b border-outline-variant/20 hover:bg-surface/50 transition-colors">
+<div class="col-span-6 md:col-span-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px;">sports_soccer</span>
+</div>
+<div>
+<div class="font-body-md text-body-md text-on-surface font-medium">Sports Event Cancellation</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Official postponement or cancellation notices</div>
+</div>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant/50 bg-surface-container-lowest cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Trigger Row: Payouts (Highlighted) -->
+<div class="grid grid-cols-12 gap-4 items-center px-4 py-4 bg-[#eff4ff]/50 hover:bg-[#eff4ff] transition-colors">
+<div class="col-span-6 md:col-span-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#d6e3ff] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px; font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-body-md text-body-md text-primary font-semibold">Smart Contract Payouts</div>
+<div class="font-label-sm text-label-sm text-primary/80 hidden md:block">Immediate alerts upon funds transfer</div>
+</div>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-primary bg-primary/20 cursor-not-allowed opacity-70" disabled="" title="Required for account security" type="checkbox"/>
+</div>
+<div class="col-span-3 md:col-span-2 flex justify-center">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-primary bg-primary/20 cursor-not-allowed opacity-70" disabled="" title="Required for account security" type="checkbox"/>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-lg transition-colors shadow-sm">
+                        Save Preferences
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer from Shared Components -->
+<footer class="w-full py-section-padding bg-surface-bright mt-auto border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-6">
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                PocketCover
+            </div>
+<nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="text-on-secondary-container font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-secondary-container font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Security</a>
+<a class="text-on-secondary-container font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Status</a>
+</nav>
+<div class="text-on-secondary-container font-label-sm text-label-sm text-center md:text-right">
+                © 2024 PocketCover. Parametric Protection for the Modern World.
+            </div>
+</div>
+</footer>
+</body></html>

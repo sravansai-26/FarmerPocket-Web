@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Onboarding Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "on-secondary-container": "#58646a",
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "secondary": "#546066",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#003e28",
+                        "on-primary-container": "#86a0cd",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#1a365d",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#002617",
+                        "secondary-container": "#d5e2e9",
+                        "primary": "#002045",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-container": "#00b47d",
+                        "on-surface-variant": "#43474e",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface-tint": "#455f88",
+                        "inverse-primary": "#adc7f7",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed": "#111d22",
+                        "on-error-container": "#93000a",
+                        "outline": "#74777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "base": "4px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "card-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #00b47d; /* on-tertiary-container mapped for success */
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 3;
+            stroke: #00b47d;
+            stroke-miterlimit: 10;
+            box-shadow: inset 0px 0px 0px #00b47d;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+        @keyframes scale {
+            0%, 100% { transform: none; }
+            50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+        @keyframes fill {
+            100% { box-shadow: inset 0px 0px 0px 40px #eaf1ff; } /* inverse-on-surface mapped for soft background fill */
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased">
+<!-- Main Canvas: Full Screen Celebration -->
+<main class="flex-grow flex items-center justify-center p-gutter relative overflow-hidden">
+<!-- Subtle abstract background element -->
+<div class="absolute top-0 right-0 w-1/2 h-1/2 bg-surface-variant/30 rounded-bl-[100px] blur-3xl -z-10"></div>
+<div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-surface-container/50 rounded-tr-[80px] blur-2xl -z-10"></div>
+<div class="max-w-[600px] w-full flex flex-col items-center text-center">
+<!-- Animation Container -->
+<div class="mb-12">
+<svg class="checkmark" viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<circle class="checkmark-circle" cx="26" cy="26" fill="none" r="25"></circle>
+<path class="checkmark__check" d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none"></path>
+</svg>
+</div>
+<!-- Typography Header -->
+<div class="fade-in-up">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
+                    Protocol Established.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto mb-section-padding">
+                    Welcome to the future of invisible protection, Alex. Your dashboard is ready.
+                </p>
+</div>
+<!-- Profile Summary Card (Bento/Glassmorphism hybrid) -->
+<div class="fade-in-up w-full bg-surface-container-lowest rounded-[24px] p-card-padding border border-outline-variant/30 shadow-[0_10px_30px_rgba(0,0,0,0.03)] mb-12 relative overflow-hidden">
+<!-- Decorative top line for card -->
+<div class="absolute top-0 left-0 w-full h-1 bg-tertiary-fixed-dim"></div>
+<h2 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-left mb-6">Active Profile Overview</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Location -->
+<div class="flex flex-col items-start p-4 bg-surface-container/30 rounded-xl">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span>
+<span class="font-label-sm text-label-sm">Location</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Bengaluru</span>
+</div>
+<!-- Interests -->
+<div class="flex flex-col items-start p-4 bg-surface-container/30 rounded-xl">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="travel_explore">travel_explore</span>
+<span class="font-label-sm text-label-sm">Monitored</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Flights, Cricket</span>
+</div>
+<!-- Payouts -->
+<div class="flex flex-col items-start p-4 bg-surface-container/30 rounded-xl border border-tertiary-fixed-dim/20">
+<div class="flex items-center gap-2 mb-2 text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Payout Status</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1">
+                            UPI Linked
+                            <span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim" data-icon="check_circle">check_circle</span>
+</span>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="fade-in-up">
+<button class="bg-primary text-on-primary font-body-md text-body-md px-8 py-4 rounded-xl hover:bg-primary-container transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,32,69,0.39)] flex items-center gap-2">
+                    Enter Dashboard
+                    <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

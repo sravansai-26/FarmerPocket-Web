@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payout Audit &amp; Analytics - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#6ffbbe",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container": "#e5eeff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "secondary": "#546066",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#213145",
+                      "on-secondary-container": "#58646a",
+                      "inverse-primary": "#adc7f7",
+                      "surface-tint": "#455f88",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-fixed": "#002113",
+                      "outline-variant": "#c4c6cf",
+                      "secondary-fixed": "#d8e4eb",
+                      "tertiary": "#002617",
+                      "tertiary-container": "#003e28",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#eff4ff",
+                      "primary": "#002045",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#d5e2e9",
+                      "on-tertiary-container": "#00b47d",
+                      "on-primary-container": "#86a0cd",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-background": "#0b1c30",
+                      "primary-fixed-dim": "#adc7f7",
+                      "outline": "#74777f",
+                      "on-secondary-fixed": "#111d22",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "primary-container": "#1a365d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-surface-variant": "#43474e",
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "surface-container-high": "#dce9ff",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "on-surface": "#0b1c30",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed": "#001b3c",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "surface-variant": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "card-padding": "32px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "container-max": "1200px",
+                      "section-padding": "80px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.03);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (from JSON) -->
+<nav class="fixed left-0 top-0 h-full w-64 hidden lg:flex flex-col bg-surface-container-low p-6 gap-y-4 border-r border-surface-container z-40">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A sleek, highly stylized 3D rendered avatar representing an AI core or parametric engine. It features glowing deep blue and soft sky blue abstract geometric shapes, set against a pure white background to match the high-end corporate minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIXaeFeg8UlA28LxCOpgVijlCkXvImxslm0f5PRGILLculPVj7LqB_4NQPqHzyqrxSNvX_85jfXykFgBxdaeKPHNcgc5PNnER3sNfM8a3drAeyh-g6uZ7qPMVWbcTGk8XW5IGcpHRD68R6Er8Ii3iYOpADie9iFNsRGIv9X52QRSNmDfA2BqTBeiI3y8LZtiXJZyu8EB88Pg2PlXRsSZtMy7Jqd8UOb-fHjm2HFeUlMQxdYe9wqUQDkYRyOp901GMj1eyH0kHpLVM"/>
+<div>
+<h2 class="font-display-lg text-lg font-black text-primary">Payout Centre</h2>
+<p class="font-label-sm text-label-sm text-secondary">Automated Verification</p>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<!-- Navigation Links -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-sm text-label-sm">Live Monitor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Audit Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2">
+<button class="w-full py-2 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm mb-4 hover:bg-primary/90 transition-colors">
+                Manual Override
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl lg:hidden bg-surface/80 backdrop-blur-lg shadow-lg">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 border-t border-surface-container">
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest transition-colors rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-2 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-label-sm text-label-sm-mobile mt-1 font-bold">Audit</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest transition-colors rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container hover:bg-surface-container-highest transition-colors rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 p-6 lg:p-12 max-w-container-max mx-auto w-full pb-32 lg:pb-12">
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">Audit Logs</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Complete cryptographic transparency for every automated payout triggered by the parametric engine.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-padding">
+<!-- Historical Timeline (Left Column) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="glass-panel rounded-3xl p-card-padding h-full">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">history</span>
+                        Transaction History
+                    </h3>
+<div class="relative border-l border-surface-container-high ml-4 space-y-8">
+<!-- Timeline Item 1 -->
+<div class="relative pl-6">
+<div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-tertiary-fixed-dim ring-4 ring-surface-bright"></div>
+<div class="mb-1 flex justify-between items-center">
+<span class="font-data-mono text-data-mono text-secondary">Oct 24, 2023 • 14:32 UTC</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-container/10 px-2 py-1 rounded-full border border-tertiary-container/20">Paid</span>
+</div>
+<h4 class="font-body-md text-body-md font-semibold text-primary mb-1">Flight Delay Compensation</h4>
+<p class="font-label-sm text-label-sm text-secondary">Trigger: BA-402 Delay &gt; 3 hrs</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-6">
+<div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-surface-container-highest ring-4 ring-surface-bright"></div>
+<div class="mb-1 flex justify-between items-center">
+<span class="font-data-mono text-data-mono text-secondary">Oct 12, 2023 • 09:15 UTC</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-1 rounded-full">Not Triggered</span>
+</div>
+<h4 class="font-body-md text-body-md font-semibold text-primary mb-1">Agricultural Yield Index</h4>
+<p class="font-label-sm text-label-sm text-secondary">Trigger: Rainfall &lt; 50mm (Failed)</p>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-6">
+<div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-tertiary-fixed-dim ring-4 ring-surface-bright"></div>
+<div class="mb-1 flex justify-between items-center">
+<span class="font-data-mono text-data-mono text-secondary">Sep 28, 2023 • 18:45 UTC</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-container/10 px-2 py-1 rounded-full border border-tertiary-container/20">Paid</span>
+</div>
+<h4 class="font-body-md text-body-md font-semibold text-primary mb-1">Event Cancellation</h4>
+<p class="font-label-sm text-label-sm text-secondary">Trigger: Official Venue Closure</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Audit Log (Right Column) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Analytics Top Row -->
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-secondary mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">speed</span>
+                            Avg. Verification Time
+                        </span>
+<div class="font-display-lg text-4xl font-bold text-primary">14<span class="text-xl text-secondary">ms</span></div>
+</div>
+<div class="glass-panel rounded-2xl p-6 flex flex-col justify-center relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label-sm text-label-sm text-secondary mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified</span>
+                                Transparency Score
+                            </span>
+<div class="font-display-lg text-4xl font-bold text-tertiary-container">99.9%</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 100px;">fingerprint</span>
+</div>
+</div>
+</div>
+<!-- Deep Audit Inspector -->
+<div class="glass-panel rounded-3xl p-card-padding flex-1">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Contract Inspector</h3>
+<p class="font-label-sm text-label-sm text-secondary">Viewing: Flight Delay Compensation</p>
+</div>
+<button class="px-4 py-2 bg-surface-container text-primary rounded-lg font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+                            Export PDF
+                        </button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container overflow-hidden mb-6">
+<div class="bg-surface-container-low px-4 py-2 border-b border-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">code</span>
+<span class="font-data-mono text-xs text-secondary uppercase tracking-wider">Oracle Consensus Response</span>
+</div>
+<pre class="p-4 overflow-x-auto text-sm text-primary-container font-data-mono">{
+  "contract_id": "0x7a2...b49f",
+  "trigger_event": "flight_status",
+  "flight_id": "BA-402",
+  "scheduled_arrival": "2023-10-24T10:00:00Z",
+  "actual_arrival": "2023-10-24T13:45:00Z",
+  "delay_minutes": 225,
+  "threshold_minutes": 180,
+  "consensus_reached": true,
+  "payout_approved": true,
+  "execution_timestamp": "2023-10-24T14:32:01.014Z"
+}</pre>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-bright rounded-xl border border-surface-container">
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Block Hash</span>
+<span class="block font-data-mono text-data-mono text-primary truncate" title="0x3f8e9...2a1b">0x3f8e9...2a1b</span>
+</div>
+<div class="p-4 bg-surface-bright rounded-xl border border-surface-container">
+<span class="block font-label-sm text-label-sm text-secondary mb-1">Oracle Nodes Confirmed</span>
+<span class="block font-data-mono text-data-mono text-primary">5 / 5 Active</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

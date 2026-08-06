@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report Protocol Issue - PocketCover</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dae2ff",
+                        "tertiary": "#432f9c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#cadbfc",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#d5ccff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary-fixed": "#001848",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#4633a0",
+                        "primary-container": "#0052cc",
+                        "outline": "#737685",
+                        "secondary-fixed": "#8df7c1",
+                        "secondary": "#006c47",
+                        "on-secondary-container": "#00714b",
+                        "on-tertiary-fixed": "#1a0063",
+                        "inverse-on-surface": "#ecf0ff",
+                        "surface-tint": "#0c56d0",
+                        "surface": "#f9f9ff",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-high": "#dfe8ff",
+                        "on-surface-variant": "#434654",
+                        "background": "#f9f9ff",
+                        "secondary-fixed-dim": "#71dba6",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container-highest": "#d6e3ff",
+                        "secondary-container": "#8af5be",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005235",
+                        "surface-variant": "#d6e3ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e7eeff",
+                        "primary": "#003d9b",
+                        "surface-container-low": "#f0f3ff",
+                        "outline-variant": "#c3c6d6",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-surface": "#091c35",
+                        "tertiary-fixed": "#e5deff",
+                        "inverse-surface": "#20314b",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#091c35",
+                        "tertiary-container": "#5b49b5",
+                        "tertiary-fixed-dim": "#c9bfff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "container-max-width": "1280px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "timestamp": ["JetBrains Mono"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "timestamp": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c3c6d6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #737685;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant">
+<div class="flex justify-between items-center h-16 px-margin-desktop w-full max-w-container-max-width mx-auto">
+<!-- Brand -->
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary">PocketCover</span>
+</div>
+<!-- Navigation Links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Knowledge Base</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Tickets</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="font-body-md text-body-md text-primary font-medium hover:bg-surface-container-low transition-all px-4 py-2 rounded">
+                    Contact Support
+                </button>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Master-Detail Layout Wrapper -->
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low fixed left-0 top-16 h-full w-60 border-r border-outline-variant flex flex-col p-4 gap-2 z-40 hidden md:flex">
+<!-- Header -->
+<div class="mb-6 px-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Support Categories</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Technical Operations</p>
+</div>
+<!-- Navigation Items -->
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-body-md text-body-md">Smart Assistant Support</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-semibold rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-body-md text-body-md">Oracle Discrepancies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Payment Issues</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="font-body-md text-body-md">General FAQ</span>
+</a>
+</nav>
+<!-- CTA -->
+<div class="mt-4 mb-6">
+<button class="w-full py-2 px-4 bg-surface-container-highest text-primary font-medium border border-outline-variant rounded hover:bg-surface-container-high transition-colors text-center font-body-md">
+                    New Support Ticket
+                </button>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="font-body-md text-body-md">System Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-60 bg-surface">
+<div class="max-w-4xl mx-auto p-6 md:p-8 mt-4">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-2">Report Protocol Issue</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Submit detailed telemetry for discrepancies in Oracle data or Smart Contract execution.</p>
+</div>
+<!-- Technical Warning Banner -->
+<div class="bg-surface-variant border-l-4 border-error rounded p-4 mb-8 flex items-start gap-4">
+<span class="material-symbols-outlined text-error mt-0.5" data-icon="warning">warning</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mb-1">Protocol Integrity Notice</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            This form initiates a technical audit on-chain. Abuse of the reporting protocol may affect your Transparency Score and future claim eligibility. Ensure all hashes and timestamps are exact.
+                        </p>
+</div>
+</div>
+<!-- Form Container (Surface Level 1) -->
+<form class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 md:p-8 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<!-- Protocol Category -->
+<div>
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="category">Protocol Category</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent appearance-none" id="category" name="category">
+<option disabled="" selected="" value="">Select category...</option>
+<option value="weather">Weather Data Feed</option>
+<option value="flight">Flight Status Oracle</option>
+<option value="price">Price Feed Discrepancy</option>
+<option value="execution">Smart Contract Execution</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Oracle Provider -->
+<div>
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="provider">Oracle Provider ID</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-label-mono text-label-mono text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent placeholder-outline-variant" id="provider" name="provider" placeholder="e.g., ORC-774-ALPHA" type="text"/>
+</div>
+</div>
+<div class="mb-8">
+<!-- Event Timestamp -->
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="timestamp">Event Timestamp (UTC)</label>
+<input class="w-full md:w-1/2 bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-timestamp text-timestamp text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent" id="timestamp" name="timestamp" type="datetime-local"/>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Specify the exact time the discrepancy occurred according to block time.</p>
+</div>
+<div class="mb-8">
+<!-- Wallet Address / TX Hash -->
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="txhash">Wallet Address or Transaction Hash</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-label-mono text-label-mono text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent placeholder-outline-variant" id="txhash" name="txhash" placeholder="0x..." type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<!-- Expected Outcome -->
+<div>
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="expected">Expected Outcome</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent resize-y" id="expected" name="expected" placeholder="Describe what the protocol should have executed..." rows="4"></textarea>
+</div>
+<!-- Observed Outcome -->
+<div>
+<label class="block font-body-sm text-body-sm font-semibold text-on-surface mb-2" for="observed">Observed Outcome</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent resize-y" id="observed" name="observed" placeholder="Describe the erroneous data or action recorded..." rows="4"></textarea>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-4 border-t border-outline-variant pt-6 mt-6">
+<button class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-on-surface transition-colors px-4 py-2" type="button">
+                            Cancel
+                        </button>
+<button class="bg-primary text-on-primary font-body-md text-body-md font-medium rounded px-6 py-2 hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+                            Submit Audit Request
+                        </button>
+</div>
+</form>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full mt-auto border-t border-outline-variant">
+<div class="flex justify-between items-center py-6 px-margin-desktop w-full max-w-container-max-width mx-auto flex-wrap gap-4">
+<span class="font-label-mono text-label-mono text-on-surface-variant">© 2024 PocketCover Technical Operations</span>
+<div class="flex items-center gap-6 flex-wrap">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-opacity duration-200" href="#">Emergency Hotline</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-opacity duration-200" href="#">Report a Security Issue</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-opacity duration-200" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

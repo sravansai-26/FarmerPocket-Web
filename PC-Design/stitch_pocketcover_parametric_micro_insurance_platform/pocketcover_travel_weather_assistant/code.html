@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover - Travel &amp; Weather Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bcc8cf",
+                        "secondary-fixed": "#d8e4eb",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "tertiary-container": "#003e28",
+                        "surface-tint": "#455f88",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "on-background": "#0b1c30",
+                        "on-tertiary-container": "#00b47d",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001b3c",
+                        "secondary": "#546066",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "primary": "#002045",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#3c494e",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#111d22",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "surface-variant": "#d3e4fe",
+                        "secondary-container": "#d5e2e9",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "primary-container": "#1a365d",
+                        "outline-variant": "#c4c6cf",
+                        "background": "#f8f9ff",
+                        "on-secondary-container": "#58646a",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#213145",
+                        "surface-container-low": "#eff4ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#002617",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-container": "#86a0cd",
+                        "inverse-on-surface": "#eaf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "card-padding": "32px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex justify-between items-center h-20 px-8 max-w-container-max mx-auto bg-surface/60 backdrop-blur-xl dark:bg-primary/60 shadow-sm fixed top-0 w-full z-50">
+<div class="flex items-center gap-8">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed">Aegis Parametric AI</div>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 transition-all font-body-md text-body-md" href="#">Claims</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 transition-all font-body-md text-body-md" href="#">Oracles</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 transition-all font-body-md text-body-md" href="#">Risk Models</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-70 transition-all font-body-md text-body-md" href="#">Activity</a>
+<div class="flex gap-4 ml-4 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-200">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-200">settings</span>
+<img alt="User avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant/20 ml-2" data-alt="A professional headshot of a user avatar with a confident expression, illuminated by soft studio lighting against a clean, light blue background. High-quality corporate aesthetic fitting a premium financial application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHKCRdVEg1yWplGmHOUAKfA15TS2BCHHuYGM5ncQ4XWE8KLeRKhmfNfn4eAwLL957U4gawX6CBcSHVBB-AyMlQsuuECP-VbIwofka4DPLTtlU3J0iV4KZKIEULdWAsDAONYyyVa2m3ctA5TqlQ-e-pDuzmFMRI_UKsyTH85t_-3g0FPOSbZY7tukH0BNf8Mw_UdKkIh7mdBjLu6hvyTxw0JExtP4kuhlu4gse2f0prH3xoov8kZyxf_FDoIM7zT1AetqarZO_aqBE"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Hidden on Mobile, Visible on Desktop for internal sections) -->
+<aside class="hidden md:flex flex-col p-4 gap-2 h-full w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-primary-container z-40 pt-24">
+<div class="mb-8 px-4">
+<img alt="AI Core Status" class="w-12 h-12 rounded-xl mb-4" data-alt="A stylized, abstract 3D icon representing a high-tech AI core, rendered in bright corporate blue with subtle glowing accents. Clean, minimalist aesthetic suitable for a premium parametric insurance platform dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI5q-bFt8clmh8mtWVyBBoF15eFTiAw4amr3DyTdhKoj3H2akCowHIxjHP4ANOEYif54FOYd7ZiOWL7yaBESsLtM1GuWDdGNuQCRjDLmjm1MNt3i3FZn21ni2ekrodltu4CbyHB3Xy8siIBlQYN028XCcAet7HS6itDMYwidm7T0_kpFi0VNEBQMih5XnI6KFWWt6vmCH2tOqFJ5inBpTlWkld6EeUOG72C5rnUn_WRLbnyVIvMkHbHOAf-tlZS7VMCAEyySVs1Wc"/>
+<h2 class="font-display-lg-mobile text-primary">Parametric Core</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">AI reasoning active</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-xl hover:bg-surface-container-highest transition-all scale-95 duration-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+                Smart Assistant
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all scale-95 duration-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">flight_takeoff</span>
+                Travel Guard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all scale-95 duration-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">thunderstorm</span>
+                Weather Shield
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all scale-95 duration-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">sports_score</span>
+                Sports Vault
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all scale-95 duration-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">database</span>
+                Oracle Logs
+            </a>
+</nav>
+<button class="mt-auto mx-4 py-3 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary/90 transition-colors">
+            New Policy
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-20 md:pt-24 pb-24 md:pb-8 max-w-container-max mx-auto px-4 md:px-8">
+<!-- Header -->
+<header class="mb-10">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Travel &amp; Weather Agent</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Live risk assessment and parametric coverage suggestions based on active itineraries.</p>
+</header>
+<!-- Global Risk Radar Section -->
+<section class="mb-section-padding">
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] overflow-hidden">
+<div class="p-card-padding border-b border-outline-variant/20 flex justify-between items-center">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">radar</span>
+                            Global Risk Radar
+                        </h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Live parametric data feed active</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-label-sm text-label-sm rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+                            Active Tracking
+                        </span>
+</div>
+</div>
+<!-- Map / Radar Visualization Area -->
+<div class="relative h-[400px] w-full bg-surface-container-low flex items-center justify-center overflow-hidden">
+<!-- Placeholder for Map/Radar Image -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-70" data-alt="A highly detailed, futuristic digital map visualization showing global weather patterns and flight paths. Rendered in a clean, light-mode style with soft blue and subtle grey tones. Features glowing parametric data points, radar sweeps, and precise architectural grid lines representing live risk models. High-end corporate minimalist aesthetic." data-location="Global Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyf0HcxZeL1CRXcg6p5WWHLAhLL0IyPZfZWWxRRiIS1B4qCm16grnx148pRd7oDkf0AgLr7Va_9zh12L4FRcLBHM12jE1z8C_sGvcNejtV5JVT4-RLZEY6xR0pa7IyjqHst0SmngQJfHKKGWenOdRyzPozUgeBkIT4ArT9jbmbP1HNMffCKvF64gLt9DWLtpZXGP08M6IZorAbK12UGxj7ajObdle7cywvA8tcGFnp-2h_NyUyMGVwFpAEUkeVgHenaCa5LeETeWU"/>
+<!-- Overlay Elements for "Radar" feel -->
+<div class="absolute inset-0 border border-primary/10 rounded-full w-[800px] h-[800px] mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-150"></div>
+<div class="absolute inset-0 border border-primary/20 rounded-full w-[600px] h-[600px] mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-150"></div>
+<div class="absolute inset-0 border border-primary/30 rounded-full w-[400px] h-[400px] mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-150"></div>
+<!-- Data Points -->
+<div class="absolute top-[30%] left-[40%] group cursor-pointer">
+<div class="w-4 h-4 bg-error rounded-full animate-ping absolute opacity-75"></div>
+<div class="w-4 h-4 bg-error rounded-full relative z-10 border-2 border-surface-container-lowest"></div>
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-surface-container-lowest p-3 rounded-lg shadow-lg border border-outline-variant/20 z-20">
+<p class="font-label-sm text-label-sm font-bold text-on-surface">JFK Severe Weather</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-xs mt-1">Delay Prob: 78%</p>
+</div>
+</div>
+<div class="absolute top-[60%] left-[65%] group cursor-pointer">
+<div class="w-4 h-4 bg-tertiary-fixed-dim rounded-full animate-ping absolute opacity-75"></div>
+<div class="w-4 h-4 bg-tertiary-fixed-dim rounded-full relative z-10 border-2 border-surface-container-lowest"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center px-4 py-3 pb-6 fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 backdrop-blur-2xl dark:bg-primary/80 border-t border-outline-variant/20 shadow-lg">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-2 hover:bg-secondary-container/50 active:scale-90 transition-transform font-label-sm text-label-sm-mobile text-primary dark:text-primary-fixed" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            Assistant
+        </a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 hover:bg-secondary-container/50 active:scale-90 transition-transform font-label-sm text-label-sm-mobile text-primary dark:text-primary-fixed" href="#">
+<span class="material-symbols-outlined mb-1">monitoring</span>
+            Oracles
+        </a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 hover:bg-secondary-container/50 active:scale-90 transition-transform font-label-sm text-label-sm-mobile text-primary dark:text-primary-fixed" href="#">
+<span class="material-symbols-outlined mb-1">emergency</span>
+            Alerts
+        </a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 hover:bg-secondary-container/50 active:scale-90 transition-transform font-label-sm text-label-sm-mobile text-primary dark:text-primary-fixed" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+            Account
+        </a>
+</nav>
+</body></html>

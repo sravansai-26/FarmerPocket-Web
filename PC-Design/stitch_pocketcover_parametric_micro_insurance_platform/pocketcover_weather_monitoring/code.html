@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PocketCover | Weather &amp; Climate Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d8e4eb",
+                      "tertiary-fixed": "#6ffbbe",
+                      "on-secondary-fixed-variant": "#3c494e",
+                      "primary": "#002045",
+                      "on-background": "#0b1c30",
+                      "tertiary-container": "#003e28",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "surface-container": "#e5eeff",
+                      "on-tertiary-container": "#00b47d",
+                      "on-secondary-container": "#58646a",
+                      "on-surface-variant": "#43474e",
+                      "on-primary-container": "#86a0cd",
+                      "on-secondary-fixed": "#111d22",
+                      "inverse-primary": "#adc7f7",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary": "#002617",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "outline": "#74777f",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "on-tertiary-fixed": "#002113",
+                      "surface-variant": "#d3e4fe",
+                      "secondary": "#546066",
+                      "primary-container": "#1a365d",
+                      "on-primary-fixed": "#001b3c",
+                      "background": "#f8f9ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "secondary-fixed-dim": "#bcc8cf",
+                      "surface": "#f8f9ff",
+                      "secondary-container": "#d5e2e9",
+                      "inverse-on-surface": "#eaf1ff",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#213145",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "surface-tint": "#455f88",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#d6e3ff",
+                      "on-surface": "#0b1c30",
+                      "surface-container-high": "#dce9ff",
+                      "primary-fixed-dim": "#adc7f7",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "card-padding": "32px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "section-padding": "80px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.03em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface/60 backdrop-blur-xl dark:bg-surface-dim/60 font-body-md text-body-md docked full-width top-0 sticky z-50 shadow-sm flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-8">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-primary dark:text-primary-fixed" href="#">
+                PocketCover
+            </a>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Explore</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1 opacity-80 transition-all duration-200" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Wallet</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Trust Center</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary-container transition-colors hidden md:block">
+                Get Started
+            </button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, professional headshot of a user, softly lit against a minimalist light blue background. The aesthetic is modern, bright, and polished, fitting a premium financial application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-qE0_vAOQA7tepxulVQgO3mtN4Sy7ihodQSv2sAqwUImoMM2hqV5nk9WjV-3W8T8K2AcQ27WSiKt0e8dyw9O1S_TQwToSif8C3dIEJZIDT-b2Mk25RqYDfEXHAcy9vmk4PiJZHmOipMp2qZKiyB_VNkRmh8dGyeo1fKt7GcxH3qUBhHpEdDuW3oIF40Y7EAkWdlJ8HoFguCyKTDOy6lW8jRaqPq3R5dF6ZCQBixEMhNErS6Z_VJZ8CP98rwRwBVAItOiLFkTTaOc"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter py-section-padding space-y-gutter">
+<!-- Header Section -->
+<div class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-4">Weather &amp; Climate Monitoring</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Real-time parametric oversight for your active policies. Our oracle network continuously analyzes localized meteorological conditions to ensure automated payout triggering the moment thresholds are met.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Precipitation Graph (Span 8) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Precipitation Analysis</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Live telemetry vs. Policy Thresholds</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#10B981] font-semibold tracking-wider uppercase">Live Oracle Feed</span>
+</div>
+</div>
+<div class="flex-grow relative min-h-[300px] flex items-end pt-8">
+<!-- Faux Graph Lines -->
+<div class="absolute inset-0 border-b border-l border-outline-variant/20">
+<!-- Threshold Line -->
+<div class="absolute w-full top-1/3 border-t border-dashed border-error/50">
+<span class="absolute -top-6 right-0 font-data-mono text-data-mono text-error/80">Trigger: &gt;2mm/hr</span>
+</div>
+</div>
+<!-- Graph Data Points (Stylized) -->
+<div class="w-full h-full flex items-end justify-between px-4 pb-2 relative z-10">
+<!-- Simulated spline curve using SVG for a premium look -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<!-- Gradient for area under curve -->
+<defs>
+<lineargradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#002045" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#002045" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,100 L0,80 Q20,80 40,60 T80,40 L100,20 L100,100 Z" fill="url(#blueGradient)"></path>
+<path d="M0,80 Q20,80 40,60 T80,40 L100,20" fill="none" stroke="#002045" stroke-width="0.5"></path>
+<!-- Current data point near threshold -->
+<circle cx="80" cy="40" fill="#002045" r="1.5"></circle>
+<circle class="animate-ping" cx="80" cy="40" fill="none" r="3" stroke="#002045" stroke-width="0.5"></circle>
+</svg>
+</div>
+</div>
+<div class="flex justify-between mt-4 font-data-mono text-data-mono text-on-surface-variant/60">
+<span>-6h</span>
+<span>-4h</span>
+<span>-2h</span>
+<span>Now</span>
+<span>+2h (Forecast)</span>
+</div>
+</div>
+<!-- Status Indicators & Map (Span 4) -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Status Chip Card -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 p-6 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-4xl text-[#F59E0B] mb-2" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Monitoring Condition</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Approaching threshold for 'Heavy Rain'. 72% probability of triggering within 4 hours.</p>
+</div>
+<!-- Localized Map -->
+<div class="bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 p-2 shadow-[0px_10px_30px_rgba(0,0,0,0.03)] flex-grow relative overflow-hidden min-h-[200px]">
+<div class="absolute inset-0 bg-cover bg-center rounded-[20px]" data-alt="A stylized, minimalist, bright map interface showing a city grid. The map uses very light blue and white tones, with thin, precise lines representing roads. A subtle, glowing blue circular radius indicates a monitoring zone, projecting a high-tech, parametric security aesthetic." data-location="London" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaDi_P-qdk_YWtrSRMgQCOA8AkEVezO6Bn--Fvpg9SCvPV197HQInxIzdkfgJNbxd-Eb2rZeiETNSge2vvJhx1mEvwT64Ke27MPy7BgHPsTngMZUBCJQ9ZPvFfHGNmn4TPHRZMpbiQsUtTwxC75hSVp0zJHw_6JRHpAup-afqUJMjE86HEXW-7Q8LDbxvfvBhvsvrV_7djCX7A2vIMpXa73c53fb8poBGyDpbUUsq878ePtgWpGvsxI2fB3CAMcsVj0iPF8r3_Y7s')">
+<!-- Radar sweep effect overlay -->
+<div class="absolute inset-0 rounded-[20px] bg-gradient-to-tr from-primary/10 to-transparent"></div>
+<div class="absolute top-1/2 left-1/2 w-4 h-4 -mt-2 -ml-2 rounded-full border-2 border-primary bg-white shadow-[0_0_10px_rgba(0,32,69,0.5)]"></div>
+<div class="absolute top-1/2 left-1/2 w-24 h-24 -mt-12 -ml-12 rounded-full border border-primary/30 bg-primary/5 animate-ping"></div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events List (Span 12) -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 p-card-padding shadow-[0px_10px_30px_rgba(0,0,0,0.03)]">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Monitored Events &amp; Policies</h2>
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="flex items-center justify-between p-4 rounded-xl hover:bg-surface-container/50 transition-colors border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">celebration</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Weekend Picnic</h4>
+<p class="font-data-mono text-data-mono text-on-surface-variant">Sat, 14:00 • Hyde Park</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right hidden sm:block">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Protection Status</p>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#EBF8FF] text-primary font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Active
+                                </span>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Weather Trigger</p>
+<span class="font-data-mono text-data-mono text-on-surface">&gt; 1mm Rain</span>
+</div>
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex items-center justify-between p-4 rounded-xl hover:bg-surface-container/50 transition-colors border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">sports_cricket</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Cricket Match</h4>
+<p class="font-data-mono text-data-mono text-on-surface-variant">Sun, 10:00 • The Oval</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right hidden sm:block">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Protection Status</p>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+                                    Monitoring
+                                </span>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Weather Trigger</p>
+<span class="font-data-mono text-data-mono text-on-surface">Rain / Hail</span>
+</div>
+<button class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest max-w-container-max mx-auto px-gutter py-section-padding grid grid-cols-1 md:grid-cols-4 gap-gutter border-t border-outline-variant/10 font-body-md text-body-md full-width">
+<div class="col-span-1 md:col-span-1">
+<div class="font-display-lg text-headline-md font-bold text-primary mb-4">PocketCover</div>
+<p class="text-on-surface dark:text-on-surface-variant text-sm">© 2024 PocketCover. Parametric security for the modern age.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-primary mb-4">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-primary mb-4">Products</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Weather Shield</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Travel Protection</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Event Cover</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-semibold text-primary mb-4">Developers</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Docs</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Oracle Network</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Smart Contracts</a></li>
+</ul>
+</div>
+</footer>
+</body></html>
