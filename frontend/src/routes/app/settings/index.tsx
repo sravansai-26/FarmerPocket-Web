@@ -87,8 +87,12 @@ function SettingsPage() {
       
       await updateAuthProfile(auth.currentUser, { photoURL: url });
       
-      // Force reload to update user state across the app
-      window.location.reload();
+      showSuccess("Profile picture updated successfully!");
+      
+      // Delay reload so the user sees the success message
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } catch (err: any) {
       setErrorMsg(err.message || "Failed to upload profile picture");
     } finally {
@@ -373,3 +377,4 @@ function SettingsPage() {
     </div>
   );
 }
+

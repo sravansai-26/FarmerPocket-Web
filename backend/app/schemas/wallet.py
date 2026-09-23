@@ -25,7 +25,7 @@ class WalletTransactionInDB(WalletTransactionBase):
 class WalletBase(BaseModel):
     balance: float
     currency: str
-    status: str
+    is_active: bool = True
 
 class WalletInDB(WalletBase):
     id: UUID

@@ -25,27 +25,33 @@ async def login(
 
     user = await farmer_repo.get_by_firebase_uid(db, firebase_uid=firebase_uid)
     if not user:
-        # Create user
-        farmer_in = FarmerCreate(
-            firebase_uid=firebase_uid,
-            email=email,
-            full_name=name
-        )
-        user = await farmer_repo.create(db, obj_in=farmer_in)
-        
-        # Create an empty wallet for the new user
-        await wallet_repo.create_for_user(db, farmer_id=user.id)
-        
-        # Create a welcome notification
-        from app.models.notification import Notification
-        welcome_notif = Notification(
-            farmer_id=user.id,
-            type="info",
-            title="Welcome to FarmerPocket!",
-            message="Your account has been successfully created. Add your first farm plot to get started.",
-            action_url="/app/planner/"
-        )
-        db.add(welcome_notif)
-        await db.commit()
+        # Check if user exists by email first (Firebase migration)
+        user_by_email = await farmer_repo.get_by_email(db, email=email)
+        if user_by_email:
+            # Update their firebase_uid
+            user = await farmer_repo.update(db, db_obj=user_by_email, obj_in={'firebase_uid': firebase_uid})
+        else:
+            # Create user
+            farmer_in = FarmerCreate(
+                firebase_uid=firebase_uid,
+                email=email,
+                full_name=name
+            )
+            user = await farmer_repo.create(db, obj_in=farmer_in)
+            
+            # Create an empty wallet for the new user
+            await wallet_repo.create_for_user(db, farmer_id=user.id)
+            
+            # Create a welcome notification
+            from app.models.notification import Notification
+            welcome_notif = Notification(
+                farmer_id=user.id,
+                type="info",
+                title="Welcome to FarmerPocket!",
+                message="Your account has been successfully created. Add your first farm plot to get started.",
+                action_url="/app/planner/"
+            )
+            db.add(welcome_notif)
+            await db.commit()
     
     return user

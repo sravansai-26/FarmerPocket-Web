@@ -41,7 +41,10 @@ const columns = [
   },
 ];
 
-const socials = ["LinkedIn", "X", "GitHub"];
+const socials = [
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/lyfspot" },
+  { name: "X", url: "https://twitter.com/vuppula_sai" }
+];
 
 export function Footer() {
   return (
@@ -91,19 +94,21 @@ export function Footer() {
             </p>
             <ul className="flex gap-6">
               {socials.map((social) => (
-                <li key={social}>
+                <li key={social.name}>
                   <a
-                    href="/contact"
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
                     className="text-[12px] text-muted-foreground transition-colors duration-150 hover:text-foreground"
                   >
-                    {social}
+                    {social.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
           <p className="text-[12px] text-muted-foreground">
-            © {new Date().getFullYear()} FarmerPocket · A LYFSpot product. FarmerPocket is a
+            © {new Date().getFullYear()} FarmerPocket · A <a href="https://sailyfspot.blogspot.com" target="_blank" rel="noreferrer" className="underline hover:text-foreground">LYFSpot</a> product. FarmerPocket is a
             parametric protection platform, not an insurer.
           </p>
         </div>

@@ -99,7 +99,6 @@ function Index() {
         
         <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24 relative z-10 w-full">
           <Reveal>
-            <p className="eyebrow text-primary drop-shadow-sm">Telangana & AP Focused • Telugu First</p>
             <h1 className="mt-6 max-w-[15ch] text-[40.5px] font-semibold leading-[1.04] tracking-[-0.035em] lg:text-[66.2px] drop-shadow-md">
               Every Rupee You Put Into Your <span className="text-primary">Farm</span> Deserves Protection.
             </h1>

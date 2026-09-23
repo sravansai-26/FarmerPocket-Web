@@ -17,7 +17,7 @@ class WalletRepository(CRUDBase[Wallet, WalletBase, WalletBase]):
         return result.scalars().first()
 
     async def create_for_user(self, db: AsyncSession, *, farmer_id: UUID) -> Wallet:
-        db_obj = Wallet(farmer_id=farmer_id, balance=0.0, currency="INR", status="active")
+        db_obj = Wallet(farmer_id=farmer_id, balance=0.0, currency="INR", is_active=True)
         db.add(db_obj)
         await db.commit()
         await db.refresh(db_obj)

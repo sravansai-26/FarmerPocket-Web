@@ -18,6 +18,7 @@ export type PocketUser = {
   email: string;
   provider: "password" | "google";
   emailVerified: boolean;
+  picture?: string;
 };
 
 type AuthState = {
@@ -39,6 +40,7 @@ function mapFirebaseUser(user: FirebaseUser): PocketUser {
     email: user.email || "",
     provider: user.providerData[0]?.providerId === "google.com" ? "google" : "password",
     emailVerified: user.emailVerified,
+    picture: user.photoURL || undefined,
   };
 }
 
@@ -104,3 +106,5 @@ export function useAuth() {
   if (!ctx) throw new Error("useAuth must be used inside AuthProvider");
   return ctx;
 }
+
+

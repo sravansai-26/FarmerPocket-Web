@@ -44,7 +44,7 @@ export function Nav() {
         >
           {/* Logo (Left) */}
           <Link
-            to="/"
+            to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center text-foreground transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
             aria-label="FarmerPocket home"
           >
